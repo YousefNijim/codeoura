@@ -67,7 +67,7 @@ const ContactSection = () => {
         </div>
         <div className="max-w-2xl mx-auto">
           <Card>
-            <CardHeader>
+            <CardHeader className="items-center text-center">
               <CardTitle className="font-headline">Contact Us</CardTitle>
               <CardDescription>Fill out the form below and we'll be in touch.</CardDescription>
             </CardHeader>

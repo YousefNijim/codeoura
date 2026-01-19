@@ -64,7 +64,7 @@ export default function AiToolSection() {
           <Card>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
-                <CardHeader>
+                <CardHeader className="items-center text-center">
                   <CardTitle className="font-headline">Project Details</CardTitle>
                   <CardDescription>Fill in the details below to get your recommendation.</CardDescription>
                 </CardHeader>
@@ -135,7 +135,7 @@ export default function AiToolSection() {
             )}
             {result && !loading && (
               <Card className="w-full animate-fade-in">
-                <CardHeader>
+                <CardHeader className="items-center text-center">
                   <CardTitle className="font-headline text-accent flex items-center gap-2">
                     <CheckCircle className="h-6 w-6"/>
                     AI Recommendation
@@ -144,7 +144,7 @@ export default function AiToolSection() {
                     Based on your input, here is our suggestion.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 text-center">
                   <div>
                     <h4 className="font-semibold text-lg mb-1 text-primary">{result.recommendation}</h4>
                     <p className="text-muted-foreground">{result.reasoning}</p>

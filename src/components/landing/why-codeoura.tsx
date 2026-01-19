@@ -28,7 +28,7 @@ const WhyCodeouraSection = () => {
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-start gap-4 text-left p-6 rounded-lg">
+            <div key={index} className="flex flex-col items-center gap-4 text-center p-6 rounded-lg">
                 <div className="rounded-full bg-primary/10 p-4 mb-2">
                     {feature.icon}
                 </div>

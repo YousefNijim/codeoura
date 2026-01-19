@@ -31,7 +31,7 @@ const PortfolioSection = () => {
                 className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
+              <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
                 <h3 className="font-headline text-2xl font-semibold text-white">{project.title}</h3>
                 <p className="text-sm text-white/80">{project.description}</p>
               </div>
