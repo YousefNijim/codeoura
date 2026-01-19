@@ -16,7 +16,7 @@ import { useLanguage } from '@/context/language-context';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
-  email: z.string().email('Please enter a valid email address.'),
+  phoneNumber: z.string().min(10, 'Phone number must be at least 10 characters.'),
   message: z.string().min(10, 'Message must be at least 10 characters.'),
 });
 
@@ -31,7 +31,7 @@ const ContactSection = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      email: '',
+      phoneNumber: '',
       message: '',
     },
   });
@@ -91,12 +91,12 @@ const ContactSection = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="phoneNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t('contact.form.email')}</FormLabel>
+                        <FormLabel>{t('contact.form.phoneNumber')}</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder={t('contact.form.emailPlaceholder')} {...field} />
+                          <Input type="tel" placeholder={t('contact.form.phoneNumberPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
