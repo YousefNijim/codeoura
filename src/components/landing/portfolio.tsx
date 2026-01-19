@@ -19,7 +19,7 @@ const PortfolioSection = () => {
             Explore some of our successful custom accounting system projects.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">
           {portfolioProjects.map((project: ImagePlaceholder & { title: string }) => (
             <Card key={project.id} className="group relative block h-full w-full overflow-hidden rounded-xl">
               <Image

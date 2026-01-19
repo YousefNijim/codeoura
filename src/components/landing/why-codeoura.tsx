@@ -26,7 +26,7 @@ const WhyCodeouraSection = () => {
             More than just developers. We are your dedicated technology partners.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center gap-4 text-center p-6 rounded-lg">
                 <div className="rounded-full bg-primary/10 p-4 mb-2">

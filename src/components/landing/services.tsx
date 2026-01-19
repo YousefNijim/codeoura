@@ -31,7 +31,7 @@ const ServicesSection = () => {
             We deliver end-to-end software solutions that drive innovation and efficiency.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
