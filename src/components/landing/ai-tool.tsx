@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { Loader2, Wand2, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 const formSchema = z.object({
   businessGoals: z.string().min(10, 'Please describe your business goals in at least 10 characters.'),
@@ -22,6 +23,7 @@ type FormValues = z.infer<typeof formSchema>;
 export default function AiToolSection() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TechStackRecommendationOutput | null>(null);
+  const { t } = useLanguage();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -48,16 +50,16 @@ export default function AiToolSection() {
   return (
     <section id="ai-tool" className="py-20 sm:py-32 bg-secondary">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="mx-auto text-center mb-12">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
-                <Wand2 className="inline-block h-4 w-4 mr-1" />
-                AI-Powered Assistant
+                <Wand2 className="inline-block h-4 w-4 me-1" />
+                {t('aiTool.badge')}
             </div>
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Find Your Perfect Tech Stack
+                {t('aiTool.title')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                Describe your project, and our AI will recommend the most suitable technology platform for your needs.
+                {t('aiTool.subtitle')}
             </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -65,8 +67,8 @@ export default function AiToolSection() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <CardHeader className="items-center text-center">
-                  <CardTitle className="font-headline">Project Details</CardTitle>
-                  <CardDescription>Fill in the details below to get your recommendation.</CardDescription>
+                  <CardTitle className="font-headline">{t('aiTool.form.title')}</CardTitle>
+                  <CardDescription>{t('aiTool.form.description')}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <FormField
@@ -74,9 +76,9 @@ export default function AiToolSection() {
                     name="businessGoals"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Business Goals</FormLabel>
+                        <FormLabel>{t('aiTool.form.businessGoals')}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="e.g., Launch an MVP for an e-commerce platform within 3 months, focusing on scalability." {...field} />
+                          <Textarea placeholder={t('aiTool.form.businessGoalsPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -87,9 +89,9 @@ export default function AiToolSection() {
                     name="availableFeatures"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Key Features</FormLabel>
+                        <FormLabel>{t('aiTool.form.keyFeatures')}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="e.g., User authentication, product catalog, shopping cart, payment gateway integration." {...field} />
+                          <Textarea placeholder={t('aiTool.form.keyFeaturesPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -100,9 +102,9 @@ export default function AiToolSection() {
                     name="userPreferences"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>User Preferences (Optional)</FormLabel>
+                        <FormLabel>{t('aiTool.form.userPreferences')}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="e.g., Prefer open-source technologies, must integrate with Stripe." {...field} />
+                          <Textarea placeholder={t('aiTool.form.userPreferencesPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -114,10 +116,10 @@ export default function AiToolSection() {
                     {loading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Analyzing...
+                        {t('aiTool.form.loading')}
                       </>
                     ) : (
-                      'Generate Recommendation'
+                      t('aiTool.form.submit')
                     )}
                   </Button>
                 </CardFooter>
@@ -129,8 +131,8 @@ export default function AiToolSection() {
             {loading && (
               <div className="flex flex-col items-center gap-4 text-muted-foreground">
                 <Loader2 className="h-12 w-12 animate-spin text-primary" />
-                <p className="font-headline text-lg">Our AI is thinking...</p>
-                <p>This may take a moment.</p>
+                <p className="font-headline text-lg">{t('aiTool.result.thinking')}</p>
+                <p>{t('aiTool.result.thinkingSubtitle')}</p>
               </div>
             )}
             {result && !loading && (
@@ -138,10 +140,10 @@ export default function AiToolSection() {
                 <CardHeader className="items-center text-center">
                   <CardTitle className="font-headline text-accent flex items-center gap-2">
                     <CheckCircle className="h-6 w-6"/>
-                    AI Recommendation
+                    {t('aiTool.result.title')}
                   </CardTitle>
                   <CardDescription>
-                    Based on your input, here is our suggestion.
+                    {t('aiTool.result.description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4 text-center">
@@ -155,8 +157,8 @@ export default function AiToolSection() {
             {!result && !loading && (
                  <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
                     <Wand2 className="mx-auto h-12 w-12 mb-4" />
-                    <h3 className="font-headline text-lg font-semibold">Your recommendation will appear here</h3>
-                    <p>Fill out the form to get started.</p>
+                    <h3 className="font-headline text-lg font-semibold">{t('aiTool.result.placeholderTitle')}</h3>
+                    <p>{t('aiTool.result.placeholderSubtitle')}</p>
                 </div>
             )}
           </div>

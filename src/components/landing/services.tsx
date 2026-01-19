@@ -1,34 +1,38 @@
+'use client';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Globe, Calculator, Smartphone } from "lucide-react";
-
-const services = [
-  {
-    icon: <Globe className="h-10 w-10 text-primary" />,
-    title: "Web Development",
-    description: "Creating robust, scalable, and secure web applications tailored to your business needs, from enterprise platforms to e-commerce solutions.",
-  },
-  {
-    icon: <Calculator className="h-10 w-10 text-primary" />,
-    title: "Custom Accounting Software",
-    description: "Developing bespoke accounting and financial management systems with AI-driven insights, automation, and flawless integration.",
-  },
-  {
-    icon: <Smartphone className="h-10 w-10 text-primary" />,
-    title: "Mobile Apps",
-    description: "Building intuitive and high-performance native mobile applications for iOS and Android to engage your customers on the go.",
-  },
-];
+import { useLanguage } from "@/context/language-context";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: <Globe className="h-10 w-10 text-primary" />,
+      title: t('services.web.title'),
+      description: t('services.web.description'),
+    },
+    {
+      icon: <Calculator className="h-10 w-10 text-primary" />,
+      title: t('services.accounting.title'),
+      description: t('services.accounting.description'),
+    },
+    {
+      icon: <Smartphone className="h-10 w-10 text-primary" />,
+      title: t('services.mobile.title'),
+      description: t('services.mobile.description'),
+    },
+  ];
+
   return (
     <section id="services" className="py-20 sm:py-32">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Our Expertise
+            {t('services.title')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            We deliver end-to-end software solutions that drive innovation and efficiency.
+            {t('services.subtitle')}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto">

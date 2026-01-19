@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { handleContactForm } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { useLanguage } from '@/context/language-context';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -24,6 +25,7 @@ type FormValues = z.infer<typeof formSchema>;
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -41,15 +43,15 @@ const ContactSection = () => {
 
     if (result.success) {
       toast({
-        title: 'Message Sent!',
-        description: "Thanks for reaching out. We'll get back to you shortly.",
+        title: t('contact.toast.successTitle'),
+        description: t('contact.toast.successDescription'),
       });
       form.reset();
     } else {
       toast({
         variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
-        description: 'There was a problem with your request. Please try again.',
+        title: t('contact.toast.errorTitle'),
+        description: t('contact.toast.errorDescription'),
       });
     }
   }
@@ -57,19 +59,19 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 sm:py-32">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Let's Build Something Great
+            {t('contact.title')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Have a project in mind? We'd love to hear about it.
+            {t('contact.subtitle')}
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardHeader className="items-center text-center">
-              <CardTitle className="font-headline">Contact Us</CardTitle>
-              <CardDescription>Fill out the form below and we'll be in touch.</CardDescription>
+              <CardTitle className="font-headline">{t('contact.form.title')}</CardTitle>
+              <CardDescription>{t('contact.form.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -79,9 +81,9 @@ const ContactSection = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>{t('contact.form.name')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input placeholder={t('contact.form.namePlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -92,9 +94,9 @@ const ContactSection = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>{t('contact.form.email')}</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="john.doe@example.com" {...field} />
+                          <Input type="email" placeholder={t('contact.form.emailPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -105,9 +107,9 @@ const ContactSection = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Message</FormLabel>
+                        <FormLabel>{t('contact.form.message')}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your project..." rows={6} {...field} />
+                          <Textarea placeholder={t('contact.form.messagePlaceholder')} rows={6} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -117,10 +119,10 @@ const ContactSection = () => {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
+                        {t('contact.form.submitting')}
                       </>
                     ) : (
-                      'Send Message'
+                      t('contact.form.submit')
                     )}
                   </Button>
                 </form>

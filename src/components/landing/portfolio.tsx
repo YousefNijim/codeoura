@@ -1,6 +1,8 @@
+'use client';
 import Image from 'next/image';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
+import { useLanguage } from '@/context/language-context';
 
 const portfolioProjects = PlaceHolderImages.slice(0, 4).map((img, index) => ({
   ...img,
@@ -8,15 +10,16 @@ const portfolioProjects = PlaceHolderImages.slice(0, 4).map((img, index) => ({
 }));
 
 const PortfolioSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="portfolio" className="py-20 sm:py-32">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Our Work in Action
+            {t('portfolio.title')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Explore some of our successful custom accounting system projects.
+            {t('portfolio.subtitle')}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">

@@ -1,29 +1,32 @@
+'use client';
 import { Code, BrainCircuit } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const features = [
-  {
-    icon: <Code className="h-8 w-8 text-primary" />,
-    title: 'Engineering-First Approach',
-    description: 'We prioritize clean, scalable, and maintainable code. Our solutions are built on solid architectural foundations, ensuring long-term reliability and performance. We don\'t just build features; we engineer products.',
-  },
-  {
-    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
-    title: 'AI-Powered Integration',
-    description: 'Leverage the power of artificial intelligence to unlock new capabilities. From predictive analytics in financial software to intelligent automation, we integrate cutting-edge AI to give your business a competitive edge.',
-  },
-];
+import { useLanguage } from '@/context/language-context';
 
 const WhyCodeouraSection = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: <Code className="h-8 w-8 text-primary" />,
+      title: t('whyUs.engineering.title'),
+      description: t('whyUs.engineering.description'),
+    },
+    {
+      icon: <BrainCircuit className="h-8 w-8 text-primary" />,
+      title: t('whyUs.ai.title'),
+      description: t('whyUs.ai.description'),
+    },
+  ];
+
   return (
     <section id="why-us" className="bg-secondary py-20 sm:py-32">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            The Codeoura Difference
+            {t('whyUs.title')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            More than just developers. We are your dedicated technology partners.
+            {t('whyUs.subtitle')}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">

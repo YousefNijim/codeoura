@@ -6,17 +6,21 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Logo from '@/components/logo';
-
-const navLinks = [
-  { href: '#services', label: 'Services' },
-  { href: '#why-us', label: 'Why Us' },
-  { href: '#ai-tool', label: 'AI Tool' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
-];
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { useLanguage } from '@/context/language-context';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: '#services', label: t('header.services') },
+    { href: '#why-us', label: t('header.whyUs') },
+    { href: '#ai-tool', label: t('header.aiTool') },
+    { href: '#portfolio', label: t('header.portfolio') },
+    { href: '#contact', label: t('header.contact') },
+  ];
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -78,8 +82,9 @@ const Header = () => {
                 <Logo />
              </Link>
           </div>
+          <LanguageSwitcher />
           <Button asChild>
-            <a href="#contact">Get a Quote</a>
+            <a href="#contact">{t('header.getQuote')}</a>
           </Button>
         </div>
       </div>
