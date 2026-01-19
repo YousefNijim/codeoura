@@ -1,0 +1,58 @@
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Globe, Calculator, Smartphone } from "lucide-react";
+
+const services = [
+  {
+    icon: <Globe className="h-10 w-10 text-primary" />,
+    title: "Web Development",
+    description: "Creating robust, scalable, and secure web applications tailored to your business needs, from enterprise platforms to e-commerce solutions.",
+  },
+  {
+    icon: <Calculator className="h-10 w-10 text-primary" />,
+    title: "Custom Accounting Software",
+    description: "Developing bespoke accounting and financial management systems with AI-driven insights, automation, and flawless integration.",
+  },
+  {
+    icon: <Smartphone className="h-10 w-10 text-primary" />,
+    title: "Mobile Apps",
+    description: "Building intuitive and high-performance native mobile applications for iOS and Android to engage your customers on the go.",
+  },
+];
+
+const ServicesSection = () => {
+  return (
+    <section id="services" className="py-20 sm:py-32">
+      <div className="container">
+        <div className="text-center mb-12">
+          <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Our Expertise
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            We deliver end-to-end software solutions that drive innovation and efficiency.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              className="group relative overflow-hidden border-border/40 bg-card/50 transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2"
+            >
+              <div className="absolute -top-1 -right-1 h-16 w-16 bg-primary/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardHeader className="flex flex-col items-center text-center gap-4 z-10">
+                <div className="rounded-full bg-primary/10 p-4">
+                    {service.icon}
+                </div>
+                <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center z-10">
+                <CardDescription className="text-base text-muted-foreground">{service.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
