@@ -42,27 +42,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-// Add this to your globals.css to define the pattern if not already there
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-//
-// @layer base {
-//   body.dark {
-//     --grid-color: hsl(var(--border) / 0.5);
-//     .bg-grid-pattern {
-//       background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-//                         linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-//       background-size: 40px 40px;
-//     }
-//   }
-//   body {
-//     --grid-color: hsl(var(--border));
-//      .bg-grid-pattern {
-//       background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-//                         linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-//       background-size: 40px 40px;
-//     }
-//   }
-// }
