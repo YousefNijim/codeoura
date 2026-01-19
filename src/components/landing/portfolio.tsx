@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-context';
+import { useMouseSpotlight } from '@/hooks/use-mouse-spotlight';
 
 const portfolioProjects = PlaceHolderImages.slice(0, 4).map((img, index) => ({
   ...img,
@@ -11,8 +12,9 @@ const portfolioProjects = PlaceHolderImages.slice(0, 4).map((img, index) => ({
 
 const PortfolioSection = () => {
   const { t } = useLanguage();
+  const spotlightRef = useMouseSpotlight<HTMLElement>();
   return (
-    <section id="portfolio" className="py-20 sm:py-32">
+    <section ref={spotlightRef} id="portfolio" className="py-20 sm:py-32 spotlight-effect">
       <div className="container">
         <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

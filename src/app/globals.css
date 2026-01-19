@@ -6,6 +6,33 @@
   .container {
     @apply w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .spotlight-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dark .spotlight-effect::before {
+    content: '';
+    position: absolute;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle at center,
+      hsla(var(--primary) / 0.1),
+      transparent 30%
+    );
+    width: 700px;
+    height: 700px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .dark .spotlight-effect:hover::before {
+    opacity: 1;
+  }
 }
 
 body {

@@ -1,9 +1,11 @@
 'use client';
 import { Code, BrainCircuit } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useMouseSpotlight } from '@/hooks/use-mouse-spotlight';
 
 const WhyCodeouraSection = () => {
   const { t } = useLanguage();
+  const spotlightRef = useMouseSpotlight<HTMLElement>();
   
   const features = [
     {
@@ -19,7 +21,7 @@ const WhyCodeouraSection = () => {
   ];
 
   return (
-    <section id="why-us" className="bg-secondary py-20 sm:py-32">
+    <section ref={spotlightRef} id="why-us" className="bg-secondary py-20 sm:py-32 spotlight-effect">
       <div className="container">
         <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

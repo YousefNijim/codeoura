@@ -2,9 +2,11 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Globe, Calculator, Smartphone } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
+import { useMouseSpotlight } from "@/hooks/use-mouse-spotlight";
 
 const ServicesSection = () => {
   const { t } = useLanguage();
+  const spotlightRef = useMouseSpotlight<HTMLElement>();
 
   const services = [
     {
@@ -25,7 +27,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 sm:py-32">
+    <section ref={spotlightRef} id="services" className="py-20 sm:py-32 spotlight-effect">
       <div className="container">
         <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

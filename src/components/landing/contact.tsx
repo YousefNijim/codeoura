@@ -13,6 +13,7 @@ import { handleContactForm } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '@/context/language-context';
+import { useMouseSpotlight } from '@/hooks/use-mouse-spotlight';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -26,6 +27,7 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { t } = useLanguage();
+  const spotlightRef = useMouseSpotlight<HTMLElement>();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -57,7 +59,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
+    <section ref={spotlightRef} id="contact" className="py-20 sm:py-32 spotlight-effect">
       <div className="container">
         <div className="mx-auto text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

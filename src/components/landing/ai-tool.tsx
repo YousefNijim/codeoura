@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Textarea } from '@/components/ui/textarea';
 import { Loader2, Wand2, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useMouseSpotlight } from '@/hooks/use-mouse-spotlight';
 
 const formSchema = z.object({
   businessGoals: z.string().min(10, 'Please describe your business goals in at least 10 characters.'),
@@ -24,6 +25,7 @@ export default function AiToolSection() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TechStackRecommendationOutput | null>(null);
   const { t } = useLanguage();
+  const spotlightRef = useMouseSpotlight<HTMLElement>();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -48,7 +50,7 @@ export default function AiToolSection() {
   }
 
   return (
-    <section id="ai-tool" className="py-20 sm:py-32 bg-secondary">
+    <section ref={spotlightRef} id="ai-tool" className="py-20 sm:py-32 bg-secondary spotlight-effect">
       <div className="container">
         <div className="mx-auto text-center mb-12">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
