@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "Inquiry": {
@@ -14,10 +15,9 @@
           "type": "string",
           "description": "Name of the person submitting the inquiry."
         },
-        "email": {
+        "phoneNumber": {
           "type": "string",
-          "description": "Email address of the person submitting the inquiry.",
-          "format": "email"
+          "description": "Phone number of the person submitting the inquiry."
         },
         "message": {
           "type": "string",
@@ -32,7 +32,7 @@
       "required": [
         "id",
         "name",
-        "email",
+        "phoneNumber",
         "message",
         "submittedAt"
       ]
@@ -82,40 +82,17 @@
     ]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/inquiries/{inquiryId}",
-        "definition": {
-          "entityName": "Inquiry",
-          "schema": {
-            "$ref": "#/backend/entities/Inquiry"
-          },
-          "description": "Stores user inquiries submitted through the contact form.",
-          "params": [
-            {
-              "name": "inquiryId",
-              "description": "Unique identifier for the inquiry."
-            }
-          ]
-        }
+    "/inquiries/{inquiryId}": {
+      "schema": {
+        "$ref": "#/backend/entities/Inquiry"
       },
-      {
-        "path": "/portfolio_projects/{projectId}",
-        "definition": {
-          "entityName": "PortfolioProject",
-          "schema": {
-            "$ref": "#/backend/entities/PortfolioProject"
-          },
-          "description": "Stores information about portfolio projects to be showcased.",
-          "params": [
-            {
-              "name": "projectId",
-              "description": "Unique identifier for the portfolio project."
-            }
-          ]
-        }
-      }
-    ],
-    "reasoning": "The Firestore structure is designed to store inquiries submitted through the contact form and portfolio projects showcased on the landing page. It prioritizes simplicity and ease of management given the straightforward requirements. Authorization Independence is not a major concern here, as there are no complex user-specific permissions or collaborative data scenarios described. However, best practices for scalability and maintainability are still implemented.\n\n*   `/inquiries`: Stores all submitted inquiries. No complex access control is specified, suggesting that access will be managed through backend admin tools, not client-side rules.\n*   `/portfolio_projects`: Stores information about each portfolio project. Similar to inquiries, access is likely managed via backend tools.\n\nThis structure provides clarity, predictability, and facilitates easy querying and management of the data. As the application scales and access control requirements evolve, this structure can be extended and refined."
+      "description": "Stores user inquiries submitted through the contact form."
+    },
+    "/portfolio_projects/{projectId}": {
+      "schema": {
+        "$ref": "#/backend/entities/PortfolioProject"
+      },
+      "description": "Stores information about portfolio projects to be showcased."
+    }
   }
 }

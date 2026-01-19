@@ -9,11 +9,13 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactForm } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/language-context';
 import { useMouseSpotlight } from '@/hooks/use-mouse-spotlight';
+import { useFirebase, addDocumentNonBlocking, initiateAnonymousSignIn } from '@/firebase';
+import { collection, serverTimestamp } from 'firebase/firestore';
+
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -28,6 +30,13 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { t } = useLanguage();
   const spotlightRef = useMouseSpotlight<HTMLElement>();
+  const { firestore, auth, user, isUserLoading } = useFirebase();
+
+  useEffect(() => {
+    if (auth && !user && !isUserLoading) {
+      initiateAnonymousSignIn(auth);
+    }
+  }, [auth, user, isUserLoading]);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -40,22 +49,29 @@ const ContactSection = () => {
 
   async function onSubmit(values: FormValues) {
     setIsSubmitting(true);
-    const result = await handleContactForm(values);
-    setIsSubmitting(false);
-
-    if (result.success) {
-      toast({
-        title: t('contact.toast.successTitle'),
-        description: t('contact.toast.successDescription'),
-      });
-      form.reset();
-    } else {
+    if (!firestore || !auth?.currentUser) {
       toast({
         variant: 'destructive',
         title: t('contact.toast.errorTitle'),
-        description: t('contact.toast.errorDescription'),
+        description: "Database connection not available. Please try again later.",
       });
+      setIsSubmitting(false);
+      return;
     }
+    
+    const inquiriesCollection = collection(firestore, 'inquiries');
+    addDocumentNonBlocking(inquiriesCollection, {
+      ...values,
+      submittedAt: serverTimestamp(),
+      userId: auth.currentUser.uid,
+    });
+
+    toast({
+      title: t('contact.toast.successTitle'),
+      description: t('contact.toast.successDescription'),
+    });
+    form.reset();
+    setIsSubmitting(false);
   }
 
   return (
@@ -117,7 +133,7 @@ const ContactSection = () => {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full" disabled={isSubmitting || isUserLoading}>
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
