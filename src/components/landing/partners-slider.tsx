@@ -8,7 +8,7 @@ import Image from 'next/image';
 // The `icon` emoji is used as a fallback until you upload the image.
 // ─────────────────────────────────────────────────────────────────────────────
 const partners: { name: string; icon: string; logo?: string }[] = [
-  { name: 'مطعم شاورما الشيخ', icon: '💳', logo: '/partners/alshaikh.jpg' },
+  { name: 'مطعم شاورما الشيخ', icon: '💳', logo: 'C:\Users\yosef\Downloads\codeoura\codeoura\partners\alshaikh.jpg' },
   { name: 'Shopify', icon: '🛒' },
   { name: 'HubSpot', icon: '📊' },
   { name: 'Salesforce', icon: '☁️' },
