@@ -17,13 +17,13 @@ const partners: { name: string; icon: string; url: string; logo?: string }[] = [
   {
     name: 'Arjwan Istanbul',
     icon: '🌹',
-    url: 'https://arjwan-istanbul.vercel.app',
+    url: 'https://www.arjwan.store/',
     logo: '/partners/arjwan_logo_transparent.png', // ← place file in public/partners/
   },
 ];
 
 // Minimum 8 visible slots — pad by repeating so the marquee always fills the screen
-const MIN_SLOTS = 8;
+const MIN_SLOTS = 2;
 const repeated = partners.length < MIN_SLOTS
   ? Array.from({ length: Math.ceil(MIN_SLOTS / partners.length) }, () => partners).flat()
   : partners;
