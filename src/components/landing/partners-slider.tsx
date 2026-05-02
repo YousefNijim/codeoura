@@ -3,20 +3,33 @@ import Image from 'next/image';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PARTNERS DATA
-// To add a real logo later, set `logo` to the public path, e.g.:
-//   logo: '/partners/stripe.png'
-// The `icon` emoji is used as a fallback until you upload the image.
+// - `url`  : the partner's website (opens in new tab on click)
+// - `logo` : path inside /public/partners/ — drop the file there to activate
+// - `icon` : emoji shown as fallback until you upload the logo image
 // ─────────────────────────────────────────────────────────────────────────────
-const partners: { name: string; icon: string; logo?: string }[] = [
-  { name: 'مطعم شاورما الشيخ', icon: '💳', logo: '/partners/alshaikh.jpg' },
-  { name: 'Arjwan Istanbul', icon: '🛒', logo: '/partners/arjwan_logo_transparent.png' },
-  { name: 'HubSpot', icon: '📊' },
-  { name: 'Salesforce', icon: '☁️' },
-
+const partners: { name: string; icon: string; url: string; logo?: string }[] = [
+  {
+    name: 'مطعم شاورما الشيخ',
+    icon: '🍖',
+    url: '#',                               // ← replace with actual URL
+    logo: '/partners/alshaikh.jpg',         // ← place file in public/partners/
+  },
+  {
+    name: 'Arjwan Istanbul',
+    icon: '🌹',
+    url: 'https://arjwan-istanbul.vercel.app',
+    logo: '/partners/arjwan_logo_transparent.png', // ← place file in public/partners/
+  },
 ];
 
+// Minimum 8 visible slots — pad by repeating so the marquee always fills the screen
+const MIN_SLOTS = 8;
+const repeated = partners.length < MIN_SLOTS
+  ? Array.from({ length: Math.ceil(MIN_SLOTS / partners.length) }, () => partners).flat()
+  : partners;
+
 // Duplicate for seamless infinite scroll
-const track = [...partners, ...partners];
+const track = [...repeated, ...repeated];
 
 export default function PartnersSlider() {
   return (
@@ -34,31 +47,36 @@ export default function PartnersSlider() {
       <div className="flex">
         <ul
           className="flex shrink-0 gap-8 animate-marquee"
-          style={{ '--marquee-duration': '32s' } as React.CSSProperties}
+          style={{ '--marquee-duration': '28s' } as React.CSSProperties}
         >
           {track.map((partner, i) => (
-            <li
-              key={i}
-              className="flex items-center gap-3 rounded-xl border border-border/50 bg-card px-6 py-3 shadow-sm transition-colors hover:border-primary/60 hover:shadow-primary/10 whitespace-nowrap"
-            >
-              {/* Real logo image — shown when logo path is provided */}
-              {partner.logo ? (
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={80}
-                  height={32}
-                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
-              ) : (
-                /* Fallback: emoji icon + name until logo is uploaded */
-                <>
-                  <span className="text-2xl" aria-hidden>{partner.icon}</span>
-                  <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    {partner.name}
-                  </span>
-                </>
-              )}
+            <li key={i}>
+              <a
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Visit ${partner.name}`}
+                className="flex items-center gap-3 rounded-xl border border-border/50 bg-card px-6 py-3 shadow-sm
+                           transition-all duration-200 hover:border-primary/60 hover:shadow-md hover:shadow-primary/10
+                           hover:-translate-y-0.5 whitespace-nowrap cursor-pointer group"
+              >
+                {partner.logo ? (
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={90}
+                    height={36}
+                    className="h-9 w-auto object-contain opacity-75 group-hover:opacity-100 transition-opacity"
+                  />
+                ) : (
+                  <>
+                    <span className="text-2xl" aria-hidden>{partner.icon}</span>
+                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                      {partner.name}
+                    </span>
+                  </>
+                )}
+              </a>
             </li>
           ))}
         </ul>
