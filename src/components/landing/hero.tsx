@@ -14,7 +14,7 @@ const HeroSection = () => {
       <div className="container absolute inset-0 z-0 bg-grid-pattern bg-center [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
       <div className="container z-10 flex flex-col items-center justify-center gap-8 text-center">
         <div className="animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-          <Logo width={256} height={256} className="h-auto w-64" />
+          <Logo width={320} height={320} />
         </div>
         <h1
           className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up"
