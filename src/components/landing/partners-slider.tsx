@@ -8,16 +8,16 @@ import Image from 'next/image';
 // The `icon` emoji is used as a fallback until you upload the image.
 // ─────────────────────────────────────────────────────────────────────────────
 const partners: { name: string; icon: string; logo?: string }[] = [
-  { name: 'Stripe',     icon: '💳' },
-  { name: 'Shopify',    icon: '🛒' },
-  { name: 'HubSpot',    icon: '📊' },
+  { name: 'مطعم شاورما الشيخ', icon: '💳', logo: '/alshaikh.png' },
+  { name: 'Shopify', icon: '🛒' },
+  { name: 'HubSpot', icon: '📊' },
   { name: 'Salesforce', icon: '☁️' },
-  { name: 'Slack',      icon: '💬' },
-  { name: 'Figma',      icon: '🎨' },
-  { name: 'GitHub',     icon: '🐙' },
-  { name: 'Notion',     icon: '📝' },
-  { name: 'Vercel',     icon: '▲'  },
-  { name: 'Firebase',   icon: '🔥' },
+  { name: 'Slack', icon: '💬' },
+  { name: 'Figma', icon: '🎨' },
+  { name: 'GitHub', icon: '🐙' },
+  { name: 'Notion', icon: '📝' },
+  { name: 'Vercel', icon: '▲' },
+  { name: 'Firebase', icon: '🔥' },
 ];
 
 // Duplicate for seamless infinite scroll
