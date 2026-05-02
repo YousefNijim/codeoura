@@ -12,12 +12,7 @@ const partners: { name: string; icon: string; logo?: string }[] = [
   { name: 'Arjwan Istanbul', icon: '🛒', logo: '/partners/arjwan_logo_transparent.png' },
   { name: 'HubSpot', icon: '📊' },
   { name: 'Salesforce', icon: '☁️' },
-  { name: 'Slack', icon: '💬' },
-  { name: 'Figma', icon: '🎨' },
-  { name: 'GitHub', icon: '🐙' },
-  { name: 'Notion', icon: '📝' },
-  { name: 'Vercel', icon: '▲' },
-  { name: 'Firebase', icon: '🔥' },
+
 ];
 
 // Duplicate for seamless infinite scroll
