@@ -27,7 +27,7 @@ const Header = () => {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo />
+            <Logo width={36} height={36} className="rounded-sm" />
           </Link>
           <nav className="flex items-center gap-6 text-sm">
             {navLinks.map((link) => (
@@ -54,7 +54,7 @@ const Header = () => {
             <SheetContent side="left">
               <div className="p-4">
                 <Link href="/" className="mb-8 flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Logo />
+                  <Logo width={36} height={36} className="rounded-sm" />
                 </Link>
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link) => (
@@ -79,7 +79,7 @@ const Header = () => {
           </div>
           <div className="md:hidden flex-1">
              <Link href="/" className="flex items-center space-x-2 justify-center">
-                <Logo />
+                <Logo width={36} height={36} className="rounded-sm" />
              </Link>
           </div>
           <LanguageSwitcher />

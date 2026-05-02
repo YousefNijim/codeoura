@@ -14,14 +14,13 @@ export function initializeFirebase() {
     // without arguments.
     let firebaseApp;
     try {
-      // Attempt to initialize via Firebase App Hosting environment variables
+      // Attempt to initialize via Firebase App Hosting environment variables.
+      // This works automatically when deployed to Firebase App Hosting.
+      // On other platforms (e.g. Vercel), this will throw and we fall back below.
       firebaseApp = initializeApp();
-    } catch (e) {
-      // Only warn in production because it's normal to use the firebaseConfig to initialize
-      // during development
-      if (process.env.NODE_ENV === "production") {
-        console.warn('Automatic initialization failed. Falling back to firebase config object.', e);
-      }
+    } catch {
+      // Fallback: use the explicit firebaseConfig object.
+      // This is the expected path when NOT deployed to Firebase App Hosting.
       firebaseApp = initializeApp(firebaseConfig);
     }
 
