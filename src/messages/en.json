@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "home": {
+      "title": "Codeoura — Enterprise web, mobile and SaaS engineering",
+      "description": "We build enterprise web applications, scalable mobile apps and custom SaaS platforms. Engineering-first, typed end to end, performance enforced in CI."
+    },
+    "work": {
+      "title": "Work",
+      "description": "Selected projects across e-commerce, ERP, logistics, travel, hospitality and healthcare."
+    },
+    "about": {
+      "title": "About",
+      "description": "An engineering-first studio: architecture before code, performance as a feature, built to be handed over."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Tell us about your project. We reply within one business day."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist."
+    }
+  },
+  "nav": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "startProject": "Start a project",
+    "home": "Home"
+  },
+  "hero": {
+    "badge": "Engineering-first software studio",
+    "titleLead": "We engineer software that",
+    "titleAccent": "outlives its launch",
+    "subtitle": "Enterprise web applications, scalable mobile apps in React Native and Flutter, and custom SaaS platforms — architected to stay fast, typed and maintainable long after the first release.",
+    "primaryCta": "Start a project",
+    "secondaryCta": "See our work",
+    "stats": {
+      "projects": "Products shipped",
+      "domains": "Industries served",
+      "typed": "Typed end to end"
+    }
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "Five disciplines, one engineering standard",
+    "subtitle": "We take a system from architecture through to the deploy pipeline — and we own every layer in between.",
+    "capabilities": "Capabilities",
+    "explore": "Explore service"
+  },
+  "work": {
+    "eyebrow": "Selected work",
+    "title": "An ecosystem of products, not a gallery of screenshots",
+    "subtitle": "Each of these is a running system with real users, real data and real constraints.",
+    "viewAll": "View all work",
+    "viewCase": "Read case study",
+    "filterLabel": "Filter projects by category",
+    "empty": "No projects in this category yet.",
+    "showing": "{count, plural, =0 {No projects} =1 {1 project} other {# projects}}",
+    "challenge": "The challenge",
+    "solution": "Our approach",
+    "outcome": "The outcome",
+    "stackLabel": "Stack",
+    "yearLabel": "Year",
+    "platformsLabel": "Platforms",
+    "servicesLabel": "Services",
+    "visitSite": "Visit site",
+    "close": "Close",
+    "backToWork": "Back to all work",
+    "nextProject": "Next project",
+    "platform": {
+      "web": "Web",
+      "mobile": "Mobile",
+      "admin": "Admin console"
+    }
+  },
+  "stack": {
+    "eyebrow": "Architecture",
+    "title": "The tools we are accountable for",
+    "subtitle": "We do not chase frameworks. This is the stack we run in production, know the failure modes of, and can defend in an architecture review."
+  },
+  "about": {
+    "eyebrow": "How we work",
+    "title": "Engineering discipline, not delivery theatre",
+    "subtitle": "Most software does not fail at launch. It fails in month eighteen, when nobody can change it safely any more. We build for month eighteen.",
+    "processTitle": "How a project runs",
+    "processSubtitle": "Four phases, no surprises, a working deployment from the first iteration."
+  },
+  "contact": {
+    "eyebrow": "Start a project",
+    "title": "Tell us what you are building",
+    "subtitle": "Send us the problem, not a specification. We reply within one business day.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "budget": "Budget range",
+      "budgetPlaceholder": "Optional",
+      "message": "Project details",
+      "messagePlaceholder": "What are you building, who is it for, and what is currently in the way?",
+      "submit": "Send inquiry",
+      "submitting": "Sending…",
+      "required": "Required"
+    },
+    "success": {
+      "title": "Message sent",
+      "description": "Thanks for reaching out. We will get back to you within one business day."
+    },
+    "error": {
+      "title": "Something went wrong",
+      "description": "Your message could not be sent. Please try again, or email us directly."
+    },
+    "validation": {
+      "nameMin": "Please enter at least 2 characters.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageMin": "Please give us at least 20 characters to work with.",
+      "messageMax": "Please keep this under 4000 characters."
+    },
+    "direct": "Prefer email?"
+  },
+  "footer": {
+    "description": "An engineering-first software studio building enterprise web, mobile and SaaS systems.",
+    "sitemap": "Navigate",
+    "services": "Services",
+    "connect": "Connect",
+    "copyright": "© {year} Codeoura. All rights reserved.",
+    "builtWith": "Built with Next.js and deployed on the edge."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you were looking for has moved or never existed.",
+    "cta": "Back to home"
+  }
+}
