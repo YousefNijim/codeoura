@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowUpRight } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { GlowCard } from '@/components/primitives/glow-card';
 import { ProjectCover } from '@/components/primitives/project-cover';
@@ -21,6 +21,7 @@ export function ProjectCard({
   onSelect?: (project: Project) => void;
   className?: string;
 }) {
+  const t = useTranslations('work');
   const locale = useLocale() as Locale;
   const name = pick(project.name, locale);
 
@@ -37,7 +38,15 @@ export function ProjectCard({
         className="flex h-full w-full flex-col text-start"
         {...interactiveProps}
       >
-        <ProjectCover project={project} label={name} />
+        <div className="relative">
+          <ProjectCover project={project} label={name} />
+          {project.demo && (
+            <span className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[11px] font-medium text-foreground backdrop-blur">
+              <span aria-hidden className="size-1.5 animate-pulse-glow rounded-full bg-accent" />
+              {t('demoBadge')}
+            </span>
+          )}
+        </div>
 
         <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
           <div className="flex items-start justify-between gap-3">

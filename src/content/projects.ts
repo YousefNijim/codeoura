@@ -19,6 +19,10 @@ export const projects: Project[] = [
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Vercel'],
     cover: { from: 'oklch(0.62 0.19 340)', to: 'oklch(0.52 0.16 300)' },
     featured: true,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/glamora/',
+      surface: { en: 'Operations console', ar: 'لوحة التشغيل' },
+    },
     caseStudy: {
       challenge: {
         en: 'Catalogue, stock and fulfilment lived in disconnected tools. Every price change had to be repeated three times, and overselling was routine.',
@@ -151,6 +155,10 @@ export const projects: Project[] = [
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)' },
     featured: true,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/firuze-menu/',
+      surface: { en: 'Guest-facing menu', ar: 'منيو الزبون' },
+    },
     caseStudy: {
       challenge: {
         en: 'A guest scanning a QR code at a table will abandon a menu that takes three seconds to appear on congested venue Wi-Fi.',
@@ -217,6 +225,10 @@ export const projects: Project[] = [
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     cover: { from: 'oklch(0.68 0.12 75)', to: 'oklch(0.45 0.1 40)' },
     featured: false,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/cafe-albaraa/',
+      surface: { en: 'Management system', ar: 'نظام الإدارة' },
+    },
     caseStudy: {
       challenge: {
         en: 'The owner needed to change items and prices without calling a developer, and the site had to work on a phone in a low-signal basement.',
@@ -252,3 +264,6 @@ export function getProject(slug: string): Project | undefined {
 }
 
 export const featuredProjects = projects.filter((project) => project.featured);
+
+/** Projects with a public demo a visitor can open right now. */
+export const demoProjects = projects.filter((project) => project.demo);

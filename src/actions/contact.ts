@@ -7,7 +7,9 @@ import { company } from '@/content/company';
 import { pruneRateLimit, rateLimit } from '@/lib/rate-limit';
 import { contactSchema } from '@/lib/validations';
 
-export type { ContactState } from './contact-state';
+// النوع يُستورد ولا يُعاد تصديره: ملف 'use server' لا يسمح بتصدير أي شيء
+// غير الدوال غير المتزامنة، ويرفضه Turbopack بإفراغ الملف من كل صادراته.
+// من يحتاج النوع يستورده من './contact-state' مباشرة.
 import type { ContactState } from './contact-state';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;

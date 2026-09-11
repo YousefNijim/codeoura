@@ -145,6 +145,21 @@ export default async function ProjectPage({
               </div>
             </MetaBlock>
 
+            {project.demo && (
+              <MetaBlock label={t('demoLabel')}>
+                <p className="text-sm text-muted-foreground">
+                  {pick(project.demo.surface, typedLocale)}
+                </p>
+                <Button asChild variant="primary" size="sm" className="mt-1 w-fit">
+                  <a href={project.demo.href} target="_blank" rel="noopener noreferrer">
+                    {t('demoOpen')}
+                    <ExternalLink aria-hidden />
+                  </a>
+                </Button>
+                <p className="text-xs text-muted-foreground">{t('demoNote')}</p>
+              </MetaBlock>
+            )}
+
             {project.url && (
               <Button asChild variant="outline" size="sm" className="w-fit">
                 <a href={project.url} target="_blank" rel="noopener noreferrer">

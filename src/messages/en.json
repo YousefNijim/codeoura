@@ -74,7 +74,11 @@
       "web": "Web",
       "mobile": "Mobile",
       "admin": "Admin console"
-    }
+    },
+    "demoBadge": "Live demo",
+    "demoOpen": "Open live demo",
+    "demoLabel": "Demo",
+    "demoNote": "A running copy on fabricated data. Nothing you change is saved."
   },
   "stack": {
     "eyebrow": "Architecture",

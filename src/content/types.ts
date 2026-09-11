@@ -39,6 +39,16 @@ export interface Project {
   cover: { from: string; to: string };
   featured: boolean;
   url?: string;
+  /**
+   * Public demo running on fabricated data. Deliberately separate from `url`:
+   * a demo is not the client's live site, and labelling it as one promises the
+   * visitor something they will not find.
+   */
+  demo?: {
+    href: string;
+    /** What the visitor actually opens — the whole product is rarely on show. */
+    surface: Localized;
+  };
   caseStudy: {
     challenge: Localized;
     solution: Localized;

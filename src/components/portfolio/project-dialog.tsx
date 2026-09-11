@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { ProjectCover } from '@/components/primitives/project-cover';
@@ -70,12 +70,31 @@ export function ProjectDialog({
             ))}
           </div>
 
-          <Button asChild variant="primary" className="w-full sm:w-fit">
-            <Link href={`/work/${project.slug}`}>
-              {t('viewCase')}
-              <ArrowRight aria-hidden className="rtl:-scale-x-100" />
-            </Link>
-          </Button>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
+              {project.demo && (
+                <Button asChild variant="primary" className="w-full sm:w-fit">
+                  <a href={project.demo.href} target="_blank" rel="noopener noreferrer">
+                    {t('demoOpen')}
+                    <ExternalLink aria-hidden />
+                  </a>
+                </Button>
+              )}
+              <Button
+                asChild
+                variant={project.demo ? 'outline' : 'primary'}
+                className="w-full sm:w-fit"
+              >
+                <Link href={`/work/${project.slug}`}>
+                  {t('viewCase')}
+                  <ArrowRight aria-hidden className="rtl:-scale-x-100" />
+                </Link>
+              </Button>
+            </div>
+            {project.demo && (
+              <p className="text-xs text-muted-foreground">{t('demoNote')}</p>
+            )}
+          </div>
         </div>
       </DialogContent>
     </Dialog>
