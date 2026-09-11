@@ -32,7 +32,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # npm install لا npm ci: القفل مولَّد على ويندوز ولا يحمل الاعتماديات
+      # الاختيارية الخاصة بلينكس التي يحتاجها الرنر (@swc/helpers عبر حزم
+      # @next/swc-linux-*)، فيرفضه npm ci. الفارق هنا مقبول: الإصدارات
+      # مثبّتة في package.json، والناتج صفحات ساكنة.
+      - run: npm install --no-audit --no-fund
 
       - name: Build static export
         run: npm run build:static
