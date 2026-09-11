@@ -4,8 +4,8 @@ import { asset } from '@/lib/asset';
 import { cn } from '@/lib/utils';
 import { company } from '@/content/company';
 
-/** Intrinsic aspect ratio of public/logo.png (868 x 748). */
-const LOGO_RATIO = 868 / 748;
+/** Intrinsic aspect ratio of public/brand/mark-color.png (320 x 438). */
+const LOGO_RATIO = 320 / 438;
 
 export function Logo({
   className,
@@ -19,7 +19,7 @@ export function Logo({
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
       <Image
-        src={asset('/logo.png')}
+        src={asset('/brand/mark-color.png')}
         alt=""
         width={Math.round(size * LOGO_RATIO)}
         height={size}

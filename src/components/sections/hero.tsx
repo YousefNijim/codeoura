@@ -39,9 +39,10 @@ export async function Hero() {
           register as texture, not as a second thing to read. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -z-10 opacity-[0.05] dark:opacity-[0.06]
-                   -end-20 top-1/2 h-[26rem] w-[21rem] -translate-y-1/2
-                   sm:-end-10 sm:h-[34rem] sm:w-[27rem]
+        className="pointer-events-none absolute -z-10 opacity-[0.07] dark:opacity-[0.085]
+                   -end-16 bottom-4 h-[17rem] w-[13rem]
+                   sm:bottom-auto sm:top-1/2 sm:-end-10 sm:h-[34rem] sm:w-[27rem]
+                   sm:-translate-y-1/2 sm:opacity-[0.05] sm:dark:opacity-[0.06]
                    lg:end-[7%] lg:h-[38rem] lg:w-[30rem]"
         style={{
           backgroundColor: 'var(--primary)',

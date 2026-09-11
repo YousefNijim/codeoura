@@ -10,7 +10,7 @@ export function OrganizationJsonLd() {
     url: company.url,
     email: company.email,
     foundingDate: String(company.founded),
-    logo: `${company.url}/logo.png`,
+    logo: `${company.url}/brand/icon.png`,
     sameAs: Object.values(company.social).filter(Boolean),
     makesOffer: services.map((service) => ({
       '@type': 'Offer',

@@ -105,8 +105,8 @@ export async function generateMetadata({
     // next/image. بدون هذا تُطلب الأيقونة من جذر النطاق وتعود 404 عند أي
     // نشر تحت مسار فرعي.
     icons: {
-      icon: `${basePath}/logo.png`,
-      apple: `${basePath}/logo.png`,
+      icon: `${basePath}/brand/icon.png`,
+      apple: `${basePath}/brand/icon.png`,
     },
   };
 }
