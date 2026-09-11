@@ -7,10 +7,8 @@ import { company } from '@/content/company';
 import { pruneRateLimit, rateLimit } from '@/lib/rate-limit';
 import { contactSchema } from '@/lib/validations';
 
-export type ContactState =
-  | { status: 'idle' }
-  | { status: 'success' }
-  | { status: 'error'; reason: 'validation' | 'rate-limit' | 'server' };
+export type { ContactState } from './contact-state';
+import type { ContactState } from './contact-state';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const INQUIRY_TO = process.env.CONTACT_INBOX ?? company.email;

@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 
 import { submitInquiry } from '@/actions/contact';
+import { company } from '@/content/company';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -45,6 +46,27 @@ export function ContactForm() {
   const onSubmit = (values: Values) =>
     startTransition(async () => {
       const result = await submitInquiry(values);
+
+      // استضافة ساكنة: لا خادم يرسل البريد، فتُسلَّم الرسالة جاهزة لبريد
+      // الزائر بدل أن يضغط زراً لا يفعل شيئاً.
+      if (result.status === 'static') {
+        const body = [
+          `${t('form.name')}: ${values.name}`,
+          `${t('form.email')}: ${values.email}`,
+          `${t('form.company')}: ${values.company || '—'}`,
+          `${t('form.budget')}: ${values.budget || '—'}`,
+          '',
+          values.message,
+        ].join(String.fromCharCode(10));
+
+        window.location.href =
+          `mailto:${company.email}` +
+          `?subject=${encodeURIComponent(`${t('eyebrow')} — ${values.name}`)}` +
+          `&body=${encodeURIComponent(body)}`;
+
+        setSent(true);
+        return;
+      }
 
       if (result.status === 'success') {
         setSent(true);

@@ -5,6 +5,9 @@ import { projects } from '@/content/projects';
 import { services } from '@/content/services';
 import { routing } from '@/i18n/routing';
 
+// مطلوب للتصدير الساكن: بلا هذا يعامل Next المسار كديناميكي ويفشل البناء.
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     '',

@@ -1,0 +1,56 @@
+# يبني نسخة ساكنة من الموقع وينشرها على GitHub Pages عند كل دفع إلى main.
+#
+# ملاحظة: النسخة الساكنة لا تشغّل الـ Server Action الخاص بنموذج التواصل —
+# الاستضافة الساكنة بلا خادم. النموذج في هذه النسخة يسلّم الرسالة لبريد
+# الزائر. عند الانتقال لاستضافة تشغّل Next كاملاً يعود الإرسال عبر Resend
+# دون أي تغيير في الشيفرة.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# نشرة واحدة في كل مرة، وبلا إلغاء نشرة جارية
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build static export
+        run: npm run build:static
+        env:
+          BASE_PATH: /codeoura
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
