@@ -28,6 +28,7 @@ const TARGETS = [
   { slug: 'babunec', url: `${DEMOS}/babunec/tr/dashboard/`, settle: 6000 },
   { slug: 'firuze-system', url: `${DEMOS}/firuze-system/`, settle: 6000 },
   { slug: 'cleveland-medicals', url: `${DEMOS}/cleveland/ar/`, settle: 5000 },
+  { slug: 'aber', url: `${DEMOS}/aber/admin/`, settle: 6000 },
 ];
 
 const CHROME = [
