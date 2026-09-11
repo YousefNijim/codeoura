@@ -7,12 +7,12 @@ export const services: Service[] = [
     icon: 'Globe',
     title: { en: 'Full-Stack Web Development', ar: 'تطوير ويب متكامل' },
     tagline: {
-      en: 'Applications that are still easy to change in year three',
-      ar: 'تطبيقات يسهل تغييرها في سنتها الثالثة',
+      en: 'Web platforms engineered for growth and longevity',
+      ar: 'منصات ويب مهندسة للنمو والاستمرارية',
     },
     description: {
-      en: 'A web application is infrastructure, and we build it that way: typed from the database to the form, tested where systems meet, and shaped so the tenth feature costs no more than the second. Server-rendered by default; interactive only where interaction earns its weight in loading time.',
-      ar: 'تطبيق الويب بنية تحتية، ونبنيه على هذا الأساس: مكتوب بالأنواع من قاعدة البيانات حتى النموذج، ومُختبَر حيث تلتقي الأنظمة، ومُهيكَل بحيث لا تكلّف الميزة العاشرة أكثر من الثانية. يُعرَض من الخادم افتراضياً، ولا يصير تفاعلياً إلا حيث يستحق التفاعل ثمنه من زمن التحميل.',
+      en: 'We treat a web application as core business infrastructure and build it accordingly: fully typed from the database through to the interface, tested at every integration point, and structured so that each additional capability is delivered with the same efficiency as the first. Server-side rendering is our default, and interactivity is introduced where it adds genuine value to the user experience.',
+      ar: 'نتعامل مع تطبيق الويب بوصفه بنية تحتية أساسية للعمل، ونبنيه على هذا الأساس: موصَّف بالأنواع بالكامل من قاعدة البيانات حتى الواجهة، ومُختبَر عند كل نقطة تكامل، ومُهيكَل بحيث تُنجَز كل قدرة إضافية بالكفاءة نفسها التي أُنجزت بها الأولى. نعتمد العرض من الخادم افتراضياً، ونُدخل التفاعلية حيث تضيف قيمة حقيقية لتجربة المستخدم.',
     },
     capabilities: {
       en: [
@@ -24,7 +24,7 @@ export const services: Service[] = [
       ar: [
         'بنية تعتمد الخادم أولاً مع React Server Components',
         'أنظمة تصميم ومكتبات مكوّنات',
-        'تكامل مع خدمات خارجية وبوابات دفع',
+        'تكامل مع الخدمات الخارجية وبوابات الدفع',
         'ميزانيات أداء مفروضة في خط التكامل المستمر',
       ],
     },
@@ -36,12 +36,12 @@ export const services: Service[] = [
     icon: 'Smartphone',
     title: { en: 'Mobile App Engineering', ar: 'هندسة تطبيقات الموبايل' },
     tagline: {
-      en: 'One codebase that still feels native on both',
-      ar: 'قاعدة كود واحدة تبقى أصيلة على المنصتين',
+      en: 'A single codebase with a native experience on both platforms',
+      ar: 'قاعدة كود واحدة بتجربة أصيلة على المنصتين',
     },
     description: {
-      en: 'Cross-platform apps that feel native because they follow each platform’s conventions instead of averaging them into something that belongs to neither. They keep working on a weak signal, open to the right screen from a link, and reach the stores through a pipeline rather than someone’s laptop.',
-      ar: 'تطبيقات متعددة المنصات تبدو أصيلة لأنها تتبع أعراف كل منصة بدل أن توسّط بينها فتخرج بشيء لا ينتمي لأيّهما. تظل تعمل على إشارة ضعيفة، وتفتح على الشاشة الصحيحة من الرابط، وتصل إلى المتاجر عبر خط نشر لا عبر جهاز أحدهم.',
+      en: 'We develop cross-platform applications that deliver a genuinely native experience by respecting the conventions of each platform rather than compromising between them. Our applications remain responsive under weak connectivity, navigate correctly from external links, and reach the application stores through an automated release pipeline.',
+      ar: 'نطوّر تطبيقات متعددة المنصات تقدّم تجربة أصيلة فعلاً، إذ تلتزم بأعراف كل منصة بدل المساومة بينهما. تبقى تطبيقاتنا مستجيبة عند ضعف الاتصال، وتنتقل إلى الوجهة الصحيحة من الروابط الخارجية، وتصل إلى المتاجر عبر خط إصدار مؤتمت.',
     },
     capabilities: {
       en: [
@@ -65,12 +65,12 @@ export const services: Service[] = [
     icon: 'Server',
     title: { en: 'Cloud Infrastructure & DevOps', ar: 'بنية سحابية و DevOps' },
     tagline: {
-      en: 'Deployments boring enough to do on a Friday',
-      ar: 'نشرٌ مملّ بما يكفي ليُنفَّذ يوم خميس',
+      en: 'Reliable infrastructure and predictable deployments',
+      ar: 'بنية تحتية موثوقة ونشر يمكن التنبؤ به',
     },
     description: {
-      en: 'Infrastructure defined in code, environments any engineer can reproduce from a clean machine, and a rollback that is one command rather than an incident. Monitoring goes in with the first deploy — adding it after the first outage means you were blind for the one that mattered.',
-      ar: 'بنية تحتية معرَّفة بالكود، وبيئات يستطيع أي مهندس إعادة إنتاجها من جهاز نظيف، وتراجعٌ بأمر واحد لا بحادثة. المراقبة تدخل مع أول نشر — إضافتها بعد أول انقطاع تعني أنك كنت أعمى في المرة التي كانت تهم.',
+      en: 'We define infrastructure as code, so environments can be reproduced reliably by any engineer and releases follow a controlled, reversible process. Monitoring, structured logging and alerting are established with the first deployment, giving your team full visibility over the system from the moment it goes live.',
+      ar: 'نعرّف البنية التحتية ككود، بحيث يمكن لأي مهندس إعادة إنتاج البيئات بموثوقية، وتجري الإصدارات وفق عملية منضبطة قابلة للتراجع. نرسي المراقبة والسجلات المنظَّمة والتنبيهات مع أول عملية نشر، لتتوافر لفريقكم رؤية كاملة على النظام منذ لحظة تشغيله.',
     },
     capabilities: {
       en: [
@@ -94,12 +94,12 @@ export const services: Service[] = [
     icon: 'Layers',
     title: { en: 'Custom SaaS Platforms', ar: 'منصات SaaS مخصصة' },
     tagline: {
-      en: 'Multi-tenant from the first migration, not the first crisis',
-      ar: 'متعددة المستأجرين من أول ترحيل، لا من أول أزمة',
+      en: 'Multi-tenant architecture designed in from the outset',
+      ar: 'بنية متعددة المستأجرين مصمَّمة منذ البداية',
     },
     description: {
-      en: 'Tenancy, roles, billing and audit trails are architectural decisions. Retrofitting them is the most expensive rewrite in this industry, because by then real customers depend on the shape you have to change. We design the data model around isolation on day one, so onboarding the hundredth customer is a form submission rather than a deployment.',
-      ar: 'الفصل بين المستأجرين والأدوار والفوترة ومسارات التدقيق قرارات معمارية. إضافتها لاحقاً أغلى إعادة كتابة في هذه الصناعة، لأن عملاء حقيقيين يكونون قد صاروا يعتمدون على الشكل الذي عليك تغييره. نصمم نموذج البيانات حول العزل من اليوم الأول، فيصير تسجيل العميل المئة إرسالَ نموذج لا عملية نشر.',
+      en: 'Tenancy, roles, billing and audit trails are architectural decisions that shape the entire system, and introducing them later is among the most costly undertakings a platform can face. We design the data model around tenant isolation from the outset, so that onboarding your hundredth customer is a routine operation rather than an engineering project.',
+      ar: 'الفصل بين المستأجرين والأدوار والفوترة ومسارات التدقيق قرارات معمارية تشكّل النظام بأكمله، وإدخالها لاحقاً من أكثر ما قد تواجهه منصة كلفةً. نصمّم نموذج البيانات حول عزل المستأجرين منذ البداية، ليصبح تسجيل عميلكم المئة عمليةً روتينية لا مشروعاً هندسياً.',
     },
     capabilities: {
       en: [
@@ -123,12 +123,12 @@ export const services: Service[] = [
     icon: 'BrainCircuit',
     title: { en: 'AI-Powered Integrations', ar: 'تكاملات مدعومة بالذكاء الاصطناعي' },
     tagline: {
-      en: 'Used where it removes work, not where it impresses',
-      ar: 'تُستخدم حيث تُلغي عملاً، لا حيث تُبهر',
+      en: 'Applied where it delivers measurable operational value',
+      ar: 'تُطبَّق حيث تحقّق قيمة تشغيلية قابلة للقياس',
     },
     description: {
-      en: 'We add language models where they measurably remove hours from someone’s week: reading documents, classifying, searching your own data, drafting what a person then approves. Every integration is measured against a test set, bounded in cost, and designed around the assumption that the model will sometimes be wrong.',
-      ar: 'ندمج نماذج اللغة حيث تُلغي ساعات فعلية من أسبوع أحدهم: قراءة المستندات، والتصنيف، والبحث في بياناتك، وصياغة ما يعتمده إنسان بعدها. كل تكامل يُقاس على مجموعة اختبار، ومحدود التكلفة، ومصمَّم على افتراض أن النموذج سيخطئ أحياناً.',
+      en: 'We integrate language models where they create measurable operational value: document processing, classification, search across your own data, and drafting work that a member of your team then reviews and approves. Every integration is evaluated against a defined test set, governed by clear cost controls, and designed with appropriate human oversight.',
+      ar: 'ندمج نماذج اللغة حيث تحقّق قيمة تشغيلية قابلة للقياس: معالجة المستندات، والتصنيف، والبحث في بياناتكم، وصياغة أعمال يراجعها ويعتمدها أحد أفراد فريقكم. يخضع كل تكامل للتقييم على مجموعة اختبار محدَّدة، ولضوابط تكلفة واضحة، ويُصمَّم بإشراف بشري مناسب.',
     },
     capabilities: {
       en: [
@@ -138,7 +138,7 @@ export const services: Service[] = [
         'Evaluation harnesses and cost controls',
       ],
       ar: [
-        'استرجاع من مستنداتك وبياناتك',
+        'استرجاع من مستنداتكم وبياناتكم',
         'استخراج المستندات والتصنيف المنظَّم',
         'سير عمل مُعان بخطوات مراجعة بشرية',
         'أدوات تقييم وضوابط تكلفة',

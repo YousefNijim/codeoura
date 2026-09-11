@@ -1,24 +1,24 @@
 {
   "meta": {
     "home": {
-      "title": "Codeoura — Software engineered to last",
-      "description": "We build enterprise web platforms, cross-platform mobile apps and custom SaaS for companies that intend to still be running them in five years. Seven products live across six industries."
+      "title": "Codeoura — Enterprise software engineering",
+      "description": "We design and build enterprise web platforms, cross-platform mobile applications and custom SaaS systems. Seven systems running in production across six industries."
     },
     "work": {
       "title": "Work",
-      "description": "Seven products running in production across e-commerce, ERP, logistics, travel, hospitality and healthcare — each one open to try."
+      "description": "Systems we have delivered and that run in production today, across e-commerce, inventory management, logistics, travel, hospitality and healthcare."
     },
     "about": {
       "title": "About",
-      "description": "An engineering-first studio. Architecture before code, performance as a feature, and a codebase your next engineer can read."
+      "description": "An engineering studio that places architecture, performance and maintainability at the centre of every technical decision."
     },
     "contact": {
       "title": "Contact",
-      "description": "Tell us the problem, not the specification. We reply within one business day."
+      "description": "Share the details of your project and we will respond within one business day."
     },
     "notFound": {
       "title": "Page not found",
-      "description": "The page you are looking for does not exist."
+      "description": "The page you are looking for is not available."
     }
   },
   "nav": {
@@ -31,38 +31,38 @@
     "home": "Home"
   },
   "hero": {
-    "badge": "Engineering studio",
-    "titleLead": "Software your business can",
-    "titleAccent": "still trust in five years",
-    "subtitle": "Most software does not fail at launch. It fails in month eighteen, when changing one thing breaks three others and nobody dares touch it. We build for month eighteen — and seven of our systems are running in production today, in six different industries. Open any of them below and use it yourself.",
+    "badge": "Software engineering studio",
+    "titleLead": "Software systems",
+    "titleAccent": "built to endure",
+    "subtitle": "We design and build enterprise web platforms, cross-platform mobile applications and custom SaaS systems, with an engineering approach that places architecture, performance and maintainability at the centre of every decision. Seven of our systems run in production today across six industries, and you are welcome to try any of them.",
     "primaryCta": "Start a project",
-    "secondaryCta": "Try our work",
+    "secondaryCta": "View our work",
     "stats": {
-      "projects": "Products in production",
+      "projects": "Systems in production",
       "domains": "Industries served",
-      "typed": "Typed end to end"
+      "typed": "Type coverage"
     }
   },
   "services": {
-    "eyebrow": "What we do",
+    "eyebrow": "Services",
     "title": "Five disciplines, one standard",
-    "subtitle": "We take a system from the first architectural decision through to the deploy pipeline, and we answer for every layer in between. No handoffs, no gaps where the responsibility quietly becomes yours.",
-    "capabilities": "What this includes",
-    "explore": "Explore this service"
+    "subtitle": "We accompany a system from its first architectural decision through to its production environment, and take responsibility for every layer in between. Our services are delivered as one integrated engagement, ready to operate and to scale.",
+    "capabilities": "Scope of service",
+    "explore": "Service details"
   },
   "work": {
     "eyebrow": "Selected work",
-    "title": "Don't take our word for it. Open one.",
-    "subtitle": "Every project below is a system with real users, real money and real constraints behind it — and every one has a working demo you can open right now, on fabricated data. Most studios show screenshots. We hand you the keys.",
+    "title": "Systems running today",
+    "subtitle": "A selection of the systems we have designed and delivered, operating in production environments with real users, real data and real operational constraints. Each one is accompanied by a demonstration version you can explore yourself.",
     "viewAll": "View all work",
     "viewCase": "Read the case study",
-    "filterLabel": "Filter projects by category",
-    "empty": "No projects in this category yet.",
+    "filterLabel": "Filter projects by industry",
+    "empty": "No projects in this category at present.",
     "showing": "{count, plural, =0 {No projects} =1 {1 project} other {# projects}}",
-    "challenge": "The problem",
-    "solution": "How we solved it",
-    "outcome": "What it changed",
-    "stackLabel": "Built with",
+    "challenge": "The challenge",
+    "solution": "Our solution",
+    "outcome": "The outcome",
+    "stackLabel": "Technologies",
     "yearLabel": "Year",
     "platformsLabel": "Platforms",
     "servicesLabel": "Services",
@@ -70,10 +70,10 @@
     "close": "Close",
     "backToWork": "Back to all work",
     "nextProject": "Next project",
-    "demoBadge": "Live demo",
-    "demoOpen": "Open the live demo",
-    "demoLabel": "Try it",
-    "demoNote": "A running copy on fabricated data. Nothing you change is saved, and no real customer data exists in it.",
+    "demoBadge": "Demonstration",
+    "demoOpen": "Open the demonstration",
+    "demoLabel": "Demonstration",
+    "demoNote": "A working copy running on illustrative data. No changes are saved, and it contains no customer data.",
     "platform": {
       "web": "Web",
       "mobile": "Mobile",
@@ -82,20 +82,20 @@
   },
   "stack": {
     "eyebrow": "Architecture",
-    "title": "The tools we will defend in a review",
-    "subtitle": "We do not chase frameworks. This is what we run in production, what we have watched fail at three in the morning, and what we can justify to your CTO line by line. Choosing the boring thing is a decision, not a shortage of ideas."
+    "title": "Technologies we adopt and stand behind",
+    "subtitle": "We select our technologies on the basis of maturity, reliability and long-term support. This is the stack we operate in production, and the one in which we hold the depth of experience required to guarantee stability and scale."
   },
   "about": {
-    "eyebrow": "How we work",
-    "title": "Engineering discipline, not delivery theatre",
-    "subtitle": "Anyone can ship a first version. The difference shows up later — in what it costs to add the tenth feature, in whether a new engineer can read the code, in whether the thing is still fast under load it never saw on launch day. That is the part we are paid for.",
-    "processTitle": "How a project actually runs",
-    "processSubtitle": "Four phases, a working deployment from the first iteration, and no invoice for a milestone you cannot click on."
+    "eyebrow": "Our approach",
+    "title": "Engineering discipline at every stage",
+    "subtitle": "The value of a system is not evident at launch. It shows in how readily it can be extended a year later, how clearly it reads to the engineer who inherits it, and how steadily it performs under growing load. These are the standards we hold from the first line onward.",
+    "processTitle": "How we work",
+    "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress."
   },
   "contact": {
-    "eyebrow": "Start a project",
-    "title": "Tell us what stands in the way",
-    "subtitle": "Send us the problem, not a specification — the specification is usually where the wrong assumption is already buried. We read every message ourselves and reply within one business day.",
+    "eyebrow": "Get in touch",
+    "title": "Let us discuss your project",
+    "subtitle": "Share your idea or the technical challenge you are facing, and our team will review it and return to you with an initial assessment within one business day.",
     "form": {
       "name": "Full name",
       "namePlaceholder": "Your name",
@@ -105,30 +105,30 @@
       "companyPlaceholder": "Optional",
       "budget": "Budget range",
       "budgetPlaceholder": "Optional",
-      "message": "What are you building?",
-      "messagePlaceholder": "What are you building, who is it for, and what is currently in the way?",
+      "message": "Project details",
+      "messagePlaceholder": "The nature of the project, its intended audience, and the core requirements.",
       "submit": "Send inquiry",
       "submitting": "Sending…",
       "required": "Required"
     },
     "success": {
-      "title": "Message sent",
-      "description": "Thank you. We will come back to you within one business day."
+      "title": "Message received",
+      "description": "Thank you for contacting us. We will respond within one business day."
     },
     "error": {
-      "title": "Something went wrong",
-      "description": "Your message could not be sent. Please try again, or email us directly."
+      "title": "Message could not be sent",
+      "description": "We were unable to send your message. Please try again, or contact us by email."
     },
     "validation": {
       "nameMin": "Please enter at least 2 characters.",
       "emailInvalid": "Please enter a valid email address.",
-      "messageMin": "Please give us at least 20 characters to work with.",
+      "messageMin": "Please enter at least 20 characters.",
       "messageMax": "Please keep this under 4000 characters."
     },
-    "direct": "Prefer email?"
+    "direct": "Direct contact"
   },
   "footer": {
-    "description": "An engineering-first software studio, building enterprise web, mobile and SaaS systems for companies that plan to keep them.",
+    "description": "A software engineering studio specialising in enterprise web, mobile and SaaS systems.",
     "sitemap": "Navigate",
     "services": "Services",
     "connect": "Connect",
@@ -137,7 +137,7 @@
   },
   "notFound": {
     "title": "Page not found",
-    "description": "The page you were looking for has moved, or never existed.",
-    "cta": "Back to home"
+    "description": "The page you are looking for is not available or has been moved.",
+    "cta": "Return to home"
   }
 }
