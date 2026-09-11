@@ -102,7 +102,7 @@ export default async function ProjectPage({
         <ProjectCover
           project={project}
           label={name}
-          className="rounded-2xl border border-border"
+          className="rounded-none border border-border"
         />
       </Container>
 
@@ -188,7 +188,7 @@ export default async function ProjectPage({
       <Section surface className="py-16">
         <Link
           href={`/work/${next.slug}`}
-          className="group flex items-center justify-between gap-6 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40 sm:p-8"
+          className="group flex items-center justify-between gap-6 rounded-none border border-border bg-card p-6 transition-colors hover:border-primary/40 sm:p-8"
         >
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">

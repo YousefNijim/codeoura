@@ -49,7 +49,7 @@ export function ProjectGrid() {
         // cards at zero opacity.
         <ul
           key={filter}
-          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
         >
           {visible.map((project, index) => (
             <motion.li

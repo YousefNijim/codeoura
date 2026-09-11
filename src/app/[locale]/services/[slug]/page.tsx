@@ -101,7 +101,7 @@ export default async function ServicePage({
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <div className="rounded-none border border-border bg-card p-6 sm:p-8">
             <h2 className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
               {t('capabilities')}
             </h2>

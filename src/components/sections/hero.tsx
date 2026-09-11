@@ -1,23 +1,29 @@
-import { ArrowRight } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { Container } from '@/components/primitives/container';
 import { Reveal } from '@/components/primitives/reveal';
-import { Button } from '@/components/ui/button';
+import { company } from '@/content/company';
 import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
 import { asset } from '@/lib/asset';
 
+/**
+ * The opening spread.
+ *
+ * Composed as a masthead rather than a landing page: a standing line above a
+ * rule, the statement occupying the middle, and the facts set as a ruled table
+ * along the foot. Nothing is centred and nothing is boxed.
+ */
 export async function Hero() {
   const t = await getTranslations('hero');
 
   // Derived from the content layer, so the numbers can never drift from reality.
   const industries = new Set(projects.map((project) => project.category)).size;
 
-  const stats = [
+  const facts = [
     { value: `${projects.length}`, label: t('stats.projects') },
     { value: `${industries}`, label: t('stats.domains') },
-    { value: '100%', label: t('stats.typed') },
+    { value: `${company.founded}`, label: t('stats.since') },
   ];
 
   return (
@@ -47,56 +53,72 @@ export async function Hero() {
         }}
       />
 
-      <Container className="flex min-h-[88svh] flex-col justify-center py-28 sm:py-36">
-        <div className="flex max-w-3xl flex-col items-start gap-7">
-          <Reveal>
+      <Container className="flex min-h-[92svh] flex-col justify-between pb-14 pt-32 sm:pb-16 sm:pt-36">
+        {/* Standing head: the studio line and where it works from, on one
+            baseline above a full-measure rule. */}
+        <Reveal>
+          <div className="flex items-baseline justify-between gap-6 border-b border-border pb-4">
             <p className="eyebrow">{t('badge')}</p>
-          </Reveal>
+            <p className="eyebrow hidden sm:block">{t('origin')}</p>
+          </div>
+        </Reveal>
 
-          <Reveal delay={0.06}>
-            <h1 className="text-[length:var(--text-display-md)]">
+        <div className="flex flex-col gap-12 py-16 sm:py-20">
+          <Reveal delay={0.05}>
+            {/* Set to a measure, not to the container, so the lines break where
+                the sentence wants to break. */}
+            <h1 className="max-w-[16ch] text-[length:var(--text-display-lg)]">
               {t('titleLead')}{' '}
               <span className="text-primary">{t('titleAccent')}</span>
             </h1>
           </Reveal>
 
-          <Reveal delay={0.12}>
-            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {t('subtitle')}
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.18}>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button asChild variant="primary" size="lg">
-                <Link href="/#contact">
-                  {t('primaryCta')}
-                  <ArrowRight aria-hidden className="rtl:-scale-x-100" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/work">{t('secondaryCta')}</Link>
-              </Button>
+          {/* The standfirst is indented into the far half of the measure, the
+              way an opening paragraph sits under a headline in print. */}
+          <Reveal delay={0.1}>
+            <div className="grid gap-8 sm:grid-cols-12">
+              <div className="sm:col-span-7 sm:col-start-6">
+                <p className="text-[1.0625rem] leading-[1.75] text-muted-foreground sm:text-lg">
+                  {t('subtitle')}
+                </p>
+                <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
+                  <Link
+                    href="/#contact"
+                    className="border-b border-primary pb-1 text-sm font-medium text-primary transition-colors hover:border-foreground hover:text-foreground"
+                  >
+                    {t('primaryCta')}
+                  </Link>
+                  <Link
+                    href="/work"
+                    className="border-b border-transparent pb-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                  >
+                    {t('secondaryCta')}
+                  </Link>
+                </div>
+              </div>
             </div>
           </Reveal>
-
-          <Reveal delay={0.24} className="w-full">
-            <dl className="mt-6 grid w-full max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
-              {stats.map((stat) => (
-                // flex-col-reverse puts the value above the label visually
-                // while keeping <dt> before <dd> in the accessibility tree.
-                <div key={stat.label} className="flex flex-col-reverse gap-1">
-                  <dt className="text-xs leading-snug text-muted-foreground">
-                    {stat.label}
-                  </dt>
-                  <dd className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                    {stat.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
         </div>
+
+        {/* Foot: the facts as a ruled table. A figure beside its label, rather
+            than three oversized numbers in a row. */}
+        <Reveal delay={0.15}>
+          <dl className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
+            {facts.map((fact) => (
+              <div
+                key={fact.label}
+                className="flex items-baseline gap-3 border-b border-border py-3.5 sm:border-b-0 sm:border-e sm:pe-6 sm:last:border-e-0"
+              >
+                <dt className="order-2 text-sm text-muted-foreground">
+                  {fact.label}
+                </dt>
+                <dd className="order-1 font-mono text-sm text-primary">
+                  {fact.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </Container>
     </section>
   );

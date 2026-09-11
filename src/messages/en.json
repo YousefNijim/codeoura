@@ -40,8 +40,9 @@
     "stats": {
       "projects": "Systems in production",
       "domains": "Industries served",
-      "typed": "Type coverage"
-    }
+      "since": "Working since"
+    },
+    "origin": "Amman, Jordan"
   },
   "services": {
     "eyebrow": "Services",

@@ -38,7 +38,7 @@
   --surface: oklch(0.966 0.008 84);
   --hairline: oklch(0.175 0.012 55 / 9%);
 
-  --radius: 0.625rem;
+  --radius: 0.125rem;
 }
 
 .dark {

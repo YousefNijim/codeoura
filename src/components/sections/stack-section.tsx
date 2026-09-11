@@ -7,6 +7,11 @@ import { techCategories, techStack } from '@/content/tech-stack';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
+/**
+ * The stack, set as a ruled index: the category in one column, the names it
+ * covers in the other. A list of technologies is reference material, so it is
+ * typeset as reference material rather than as rows of pills.
+ */
 export async function StackSection() {
   const t = await getTranslations('stack');
   const locale = (await getLocale()) as Locale;
@@ -17,33 +22,29 @@ export async function StackSection() {
         eyebrow={t('eyebrow')}
         title={t('title')}
         subtitle={t('subtitle')}
-        align="center"
       />
 
-      <Reveal className="mt-14 flex flex-col gap-10">
-        {techCategories.map((category) => {
+      <dl className="mt-16">
+        {techCategories.map((category, index) => {
           const items = techStack.filter((tech) => tech.category === category.id);
 
           return (
-            <div key={category.id} className="flex flex-col gap-3">
-              <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                {pick(category.label, locale)}
-              </h3>
-              <ul className="flex flex-wrap gap-2">
-                {items.map((tech) => (
-                  <li
-                    key={tech.name}
-                    className="rounded-xl border border-border bg-card px-4 py-2.5 font-mono text-sm text-foreground/80 transition-colors hover:border-primary/40 hover:text-foreground"
-                  >
-                    {tech.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Reveal key={category.id} delay={index * 0.04}>
+              <div className="grid gap-2 border-t border-border py-6 sm:grid-cols-12 sm:gap-8">
+                <dt className="eyebrow sm:col-span-3 sm:pt-1">
+                  {pick(category.label, locale)}
+                </dt>
+                <dd className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-foreground/85 sm:col-span-9">
+                  {items.map((tech) => (
+                    <span key={tech.name}>{tech.name}</span>
+                  ))}
+                </dd>
+              </div>
+            </Reveal>
           );
         })}
-      </Reveal>
-
+      </dl>
+      <div className="border-t border-border" />
     </Section>
   );
 }

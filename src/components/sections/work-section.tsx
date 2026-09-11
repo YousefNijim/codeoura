@@ -1,11 +1,9 @@
-import { ArrowRight } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { FeaturedProjects } from '@/components/portfolio/featured-projects';
 import { Reveal } from '@/components/primitives/reveal';
 import { Section } from '@/components/primitives/section';
 import { SectionHeading } from '@/components/primitives/section-heading';
-import { Button } from '@/components/ui/button';
 import { Link } from '@/i18n/navigation';
 
 export async function WorkSection() {
@@ -13,21 +11,21 @@ export async function WorkSection() {
 
   return (
     <Section id="work">
-      <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-        <SectionHeading
-          eyebrow={t('eyebrow')}
-          title={t('title')}
-          subtitle={t('subtitle')}
-        />
-        <Button asChild variant="outline" className="w-fit shrink-0">
-          <Link href="/work">
+      <SectionHeading
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+        subtitle={t('subtitle')}
+        aside={
+          <Link
+            href="/work"
+            className="w-fit border-b border-primary pb-1 text-sm font-medium text-primary transition-colors hover:border-foreground hover:text-foreground"
+          >
             {t('viewAll')}
-            <ArrowRight aria-hidden className="rtl:-scale-x-100" />
           </Link>
-        </Button>
-      </div>
+        }
+      />
 
-      <Reveal className="mt-14">
+      <Reveal className="mt-16">
         <FeaturedProjects />
       </Reveal>
     </Section>

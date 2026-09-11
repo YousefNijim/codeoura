@@ -19,10 +19,17 @@ export function FeaturedProjects() {
 
   return (
     <>
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredProjects.map((project) => (
-          <li key={project.slug}>
-            <ProjectCard project={project} onSelect={setSelected} />
+      {/* The lead project runs the full measure with its image beside the
+          text; the rest pair off beneath it. An even grid of identical tiles
+          says every project weighs the same, which is never true. */}
+      <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2">
+        {featuredProjects.map((project, index) => (
+          <li key={project.slug} className={index === 0 ? 'sm:col-span-2' : undefined}>
+            <ProjectCard
+              project={project}
+              onSelect={setSelected}
+              lead={index === 0}
+            />
           </li>
         ))}
       </ul>

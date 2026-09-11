@@ -1,6 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { Panel } from '@/components/primitives/panel';
 import { Reveal } from '@/components/primitives/reveal';
 import { Section } from '@/components/primitives/section';
 import { SectionHeading } from '@/components/primitives/section-heading';
@@ -20,44 +19,45 @@ export async function AboutSection() {
         subtitle={t('subtitle')}
       />
 
-      <ul className="mt-14 grid gap-5 sm:grid-cols-2">
-        {principles.map((principle, index) => {
-          return (
-            <Reveal as="li" key={index} delay={index * 0.05}>
-              <Panel className="h-full">
-                <div className="flex h-full flex-col gap-4 p-6 sm:p-7">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-primary">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span aria-hidden className="h-px flex-1 bg-border" />
-                  </div>
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    {pick(principle.title, locale)}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {pick(principle.description, locale)}
-                  </p>
-                </div>
-              </Panel>
-            </Reveal>
-          );
-        })}
+      {/* The principles read as a numbered argument, one after another, rather
+          than as four interchangeable tiles. */}
+      <ul className="mt-16">
+        {principles.map((principle, index) => (
+          <Reveal as="li" key={principle.title.en} delay={index * 0.04}>
+            <div className="grid gap-4 border-t border-border py-8 sm:grid-cols-12 sm:gap-8">
+              <span className="font-mono text-xs text-primary sm:col-span-1 sm:pt-1.5">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="text-xl leading-snug sm:col-span-4">
+                {pick(principle.title, locale)}
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:col-span-7">
+                {pick(principle.description, locale)}
+              </p>
+            </div>
+          </Reveal>
+        ))}
       </ul>
+      <div className="border-t border-border" />
 
-      <div className="mt-24">
+      <div className="mt-28">
         <SectionHeading
           title={t('processTitle')}
           subtitle={t('processSubtitle')}
         />
 
-        <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* Four stages on one horizontal rule: the sequence is the point, so
+            they are read across, not down a column of cards. */}
+        <ol className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, index) => (
-            <li key={step.title.en} className="flex flex-col gap-3 bg-card p-6">
+            <li
+              key={step.title.en}
+              className="flex flex-col gap-3 border-t border-border pt-5"
+            >
               <span className="font-mono text-xs text-primary">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="text-base font-semibold tracking-tight">
+              <h3 className="text-lg leading-snug">
                 {pick(step.title, locale)}
               </h3>
               <p className="text-sm leading-relaxed text-muted-foreground">

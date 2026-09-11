@@ -37,7 +37,7 @@ export function MobileNav({
                 key={item.href}
                 href={item.href}
                 onClick={() => onOpenChange(false)}
-                className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+                className="flex items-center justify-between rounded-sm px-4 py-3.5 text-base font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
               >
                 {pick(item.label, locale)}
                 <ArrowUpRight aria-hidden className="size-4 opacity-40 rtl:-scale-x-100" />

@@ -35,7 +35,7 @@ export async function ContactSection() {
         </div>
 
         <Reveal>
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <div className="rounded-none border border-border bg-card p-6 sm:p-8">
             <ContactForm />
           </div>
         </Reveal>
