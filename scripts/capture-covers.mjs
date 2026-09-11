@@ -24,6 +24,7 @@ const TARGETS = [
   { slug: 'glamora', url: `${DEMOS}/glamora/`, settle: 6000 },
   { slug: 'cafe-albaraa', url: `${DEMOS}/cafe-albaraa/`, settle: 6000 },
   { slug: 'firuze', url: `${DEMOS}/firuze-menu/`, settle: 4000 },
+  { slug: 'couponak', url: `${DEMOS}/couponak-manager/owner/`, settle: 5000 },
 ];
 
 const CHROME = [

@@ -54,8 +54,12 @@ export const projects: Project[] = [
     services: ['web', 'saas', 'cloud'],
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Supabase', 'Redis', 'Tailwind CSS'],
-    cover: { from: 'oklch(0.7 0.15 165)', to: 'oklch(0.55 0.13 210)' },
+    cover: { from: 'oklch(0.7 0.15 165)', to: 'oklch(0.55 0.13 210)', image: '/work/couponak.webp' },
     featured: true,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/couponak-manager/owner/',
+      surface: { en: 'Owner console', ar: 'لوحة المالك' },
+    },
     caseStudy: {
       challenge: {
         en: 'Multi-outlet merchants needed live stock accuracy without giving every branch write access to the master catalogue.',
