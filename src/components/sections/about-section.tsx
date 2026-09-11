@@ -1,10 +1,3 @@
-import {
-  Compass,
-  Gauge,
-  Repeat,
-  ShieldCheck,
-  type LucideIcon,
-} from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Panel } from '@/components/primitives/panel';
@@ -14,13 +7,6 @@ import { SectionHeading } from '@/components/primitives/section-heading';
 import { principles, processSteps } from '@/content/company';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
-
-const icons: Record<string, LucideIcon> = {
-  Compass,
-  Gauge,
-  ShieldCheck,
-  Repeat,
-};
 
 export async function AboutSection() {
   const t = await getTranslations('about');
@@ -36,15 +22,16 @@ export async function AboutSection() {
 
       <ul className="mt-14 grid gap-5 sm:grid-cols-2">
         {principles.map((principle, index) => {
-          const Icon = icons[principle.icon] ?? Compass;
-
           return (
-            <Reveal as="li" key={principle.icon} delay={index * 0.05}>
+            <Reveal as="li" key={index} delay={index * 0.05}>
               <Panel className="h-full">
                 <div className="flex h-full flex-col gap-4 p-6 sm:p-7">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl border border-border bg-accent/10 text-accent">
-                    <Icon className="size-5" aria-hidden />
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-primary">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span aria-hidden className="h-px flex-1 bg-border" />
+                  </div>
                   <h3 className="text-lg font-semibold tracking-tight">
                     {pick(principle.title, locale)}
                   </h3>

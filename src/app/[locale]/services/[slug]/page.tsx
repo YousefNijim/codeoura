@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
@@ -108,9 +108,9 @@ export default async function ServicePage({
             <ul className="mt-5 flex flex-col gap-3.5">
               {pick(service.capabilities, typedLocale).map((capability) => (
                 <li key={capability} className="flex items-start gap-3 text-sm">
-                  <Check
+                  <span
                     aria-hidden
-                    className="mt-0.5 size-4 shrink-0 text-primary"
+                    className="mt-2.5 h-px w-2.5 shrink-0 bg-primary"
                   />
                   {capability}
                 </li>

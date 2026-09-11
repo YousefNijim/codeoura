@@ -1,13 +1,3 @@
-import {
-  ArrowUpRight,
-  BrainCircuit,
-  Check,
-  Globe,
-  Layers,
-  Server,
-  Smartphone,
-  type LucideIcon,
-} from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Panel } from '@/components/primitives/panel';
@@ -18,14 +8,6 @@ import { services } from '@/content/services';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
-
-const icons: Record<string, LucideIcon> = {
-  Globe,
-  Smartphone,
-  Server,
-  Layers,
-  BrainCircuit,
-};
 
 export async function ServicesSection() {
   const t = await getTranslations('services');
@@ -41,7 +23,6 @@ export async function ServicesSection() {
 
       <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => {
-          const Icon = icons[service.icon] ?? Globe;
           // The first card spans two columns on large screens, so the grid
           // reads as a composition rather than a uniform tile wall.
           const isLead = index === 0;
@@ -58,14 +39,14 @@ export async function ServicesSection() {
                   href={`/services/${service.slug}`}
                   className="flex h-full flex-col gap-5 p-6 sm:p-7"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="inline-flex size-11 items-center justify-center rounded-xl border border-border bg-primary/10 text-primary">
-                      <Icon className="size-5" aria-hidden />
+                  {/* A numeral and a rule, set in the mono face: the service
+                      is identified by its place in the list, not by a
+                      pictogram standing in for an idea it cannot carry. */}
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-primary">
+                      {String(index + 1).padStart(2, '0')}
                     </span>
-                    <ArrowUpRight
-                      aria-hidden
-                      className="size-5 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 rtl:-scale-x-100"
-                    />
+                    <span aria-hidden className="h-px flex-1 bg-border" />
                   </div>
 
                   <div className="flex flex-col gap-2">
@@ -92,9 +73,9 @@ export async function ServicesSection() {
                         key={capability}
                         className="flex items-start gap-2 text-sm text-muted-foreground"
                       >
-                        <Check
+                        <span
                           aria-hidden
-                          className="mt-0.5 size-4 shrink-0 text-primary"
+                          className="mt-2.5 h-px w-2.5 shrink-0 bg-primary"
                         />
                         {capability}
                       </li>

@@ -69,7 +69,6 @@ export interface Project {
 export interface Service {
   id: ServiceId;
   slug: string;
-  icon: string;
   title: Localized;
   tagline: Localized;
   description: Localized;

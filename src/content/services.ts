@@ -4,7 +4,6 @@ export const services: Service[] = [
   {
     id: 'web',
     slug: 'web-development',
-    icon: 'Globe',
     title: { en: 'Full-Stack Web Development', ar: 'تطوير ويب متكامل' },
     tagline: {
       en: 'Web platforms engineered for growth and longevity',
@@ -33,7 +32,6 @@ export const services: Service[] = [
   {
     id: 'mobile',
     slug: 'mobile-engineering',
-    icon: 'Smartphone',
     title: { en: 'Mobile App Engineering', ar: 'هندسة تطبيقات الموبايل' },
     tagline: {
       en: 'A single codebase with a native experience on both platforms',
@@ -62,7 +60,6 @@ export const services: Service[] = [
   {
     id: 'cloud',
     slug: 'cloud-devops',
-    icon: 'Server',
     title: { en: 'Cloud Infrastructure & DevOps', ar: 'بنية سحابية و DevOps' },
     tagline: {
       en: 'Reliable infrastructure and predictable deployments',
@@ -91,7 +88,6 @@ export const services: Service[] = [
   {
     id: 'saas',
     slug: 'custom-saas',
-    icon: 'Layers',
     title: { en: 'Custom SaaS Platforms', ar: 'منصات SaaS مخصصة' },
     tagline: {
       en: 'Multi-tenant architecture designed in from the outset',
@@ -120,7 +116,6 @@ export const services: Service[] = [
   {
     id: 'ai',
     slug: 'ai-integrations',
-    icon: 'BrainCircuit',
     title: { en: 'AI-Powered Integrations', ar: 'تكاملات مدعومة بالذكاء الاصطناعي' },
     tagline: {
       en: 'Applied where it delivers measurable operational value',

@@ -31,12 +31,10 @@ export const navigation: { href: string; label: Localized }[] = [
 ];
 
 export const principles: {
-  icon: string;
   title: Localized;
   description: Localized;
 }[] = [
   {
-    icon: 'Compass',
     title: { en: 'Architecture before code', ar: 'المعمار قبل الكود' },
     description: {
       en: 'We determine how data flows through the system and where its boundaries lie before development begins. A sound architectural foundation is what allows a platform to evolve over years without accumulating cost with every change.',
@@ -44,7 +42,6 @@ export const principles: {
     },
   },
   {
-    icon: 'Gauge',
     title: { en: 'Performance as a standing commitment', ar: 'الأداء التزام دائم' },
     description: {
       en: 'Performance targets are defined at the start of the engagement and enforced automatically on every change, so the system remains as responsive in its third year as it was on the day it launched.',
@@ -52,7 +49,6 @@ export const principles: {
     },
   },
   {
-    icon: 'ShieldCheck',
     title: { en: 'A single source of truth', ar: 'مصدر واحد للحقيقة' },
     description: {
       en: 'One schema governs the database, the API and the interface alike. Any inconsistency is caught by the build before it reaches your users, which is what makes data integrity a property of the system rather than a matter of vigilance.',
@@ -60,7 +56,6 @@ export const principles: {
     },
   },
   {
-    icon: 'Repeat',
     title: { en: 'Delivered ready to own', ar: 'تسليم جاهز للتملّك' },
     description: {
       en: 'We deliver readable code, documented technical decisions and reproducible environments, so your team holds full ownership of the system and is free to develop it with us or independently.',
