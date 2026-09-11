@@ -31,7 +31,6 @@
     "home": "Home"
   },
   "hero": {
-    "badge": "Software engineering studio",
     "titleLead": "Software systems",
     "titleAccent": "built to endure",
     "subtitle": "We design and build enterprise web platforms, cross-platform mobile applications and custom SaaS systems, with an engineering approach that places architecture, performance and maintainability at the centre of every decision. Seven of our systems run in production today across six industries, and you are welcome to try any of them.",
@@ -41,8 +40,7 @@
       "projects": "Systems in production",
       "domains": "Industries served",
       "since": "Working since"
-    },
-    "origin": "Amman, Jordan"
+    }
   },
   "services": {
     "eyebrow": "Services",

@@ -10,9 +10,9 @@ import { asset } from '@/lib/asset';
 /**
  * The opening spread.
  *
- * Composed as a masthead rather than a landing page: a standing line above a
- * rule, the statement occupying the middle, and the facts set as a ruled table
- * along the foot. Nothing is centred and nothing is boxed.
+ * The statement, the standfirst indented into the far half of the measure, and
+ * the facts set as a ruled table along the foot. Nothing is centred, nothing is
+ * boxed, and nothing stands above the headline.
  */
 export async function Hero() {
   const t = await getTranslations('hero');
@@ -53,17 +53,8 @@ export async function Hero() {
         }}
       />
 
-      <Container className="flex min-h-[92svh] flex-col justify-between pb-14 pt-32 sm:pb-16 sm:pt-36">
-        {/* Standing head: the studio line and where it works from, on one
-            baseline above a full-measure rule. */}
-        <Reveal>
-          <div className="flex items-baseline justify-between gap-6 border-b border-border pb-4">
-            <p className="eyebrow">{t('badge')}</p>
-            <p className="eyebrow hidden sm:block">{t('origin')}</p>
-          </div>
-        </Reveal>
-
-        <div className="flex flex-col gap-12 py-16 sm:py-20">
+      <Container className="flex min-h-[92svh] flex-col justify-center gap-20 pb-14 pt-32 sm:gap-24 sm:pb-16 sm:pt-36">
+        <div className="flex flex-col gap-12">
           <Reveal delay={0.05}>
             {/* Set to a measure, not to the container, so the lines break where
                 the sentence wants to break. */}
