@@ -57,8 +57,8 @@ export const projects: Project[] = [
     cover: { from: 'oklch(0.7 0.15 165)', to: 'oklch(0.55 0.13 210)', image: '/work/couponak.webp' },
     featured: true,
     demo: {
-      href: 'https://ysweety666-crypto.github.io/codeoura-demos/couponak-manager/owner/',
-      surface: { en: 'Owner console', ar: 'لوحة المالك' },
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/couponak-inventory/dashboard/',
+      surface: { en: 'Warehouse system', ar: 'نظام المستودعات' },
     },
     caseStudy: {
       challenge: {
@@ -124,8 +124,12 @@ export const projects: Project[] = [
     services: ['web', 'saas'],
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    cover: { from: 'oklch(0.72 0.145 230)', to: 'oklch(0.5 0.15 265)' },
+    cover: { from: 'oklch(0.72 0.145 230)', to: 'oklch(0.5 0.15 265)', image: '/work/babunec.webp' },
     featured: true,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/babunec/tr/dashboard/',
+      surface: { en: 'Agency back office', ar: 'مكتب الوكالة الخلفي' },
+    },
     caseStudy: {
       challenge: {
         en: 'Seasonal pricing and finite seat inventory made naive booking flows prone to double-selling under concurrent load.',
@@ -157,11 +161,11 @@ export const projects: Project[] = [
     services: ['web', 'saas'],
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)', image: '/work/firuze.webp' },
+    cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)', image: '/work/firuze-system.webp' },
     featured: true,
     demo: {
-      href: 'https://ysweety666-crypto.github.io/codeoura-demos/firuze-menu/',
-      surface: { en: 'Guest-facing menu', ar: 'منيو الزبون' },
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/firuze-system/',
+      surface: { en: 'Operations system', ar: 'نظام التشغيل' },
     },
     caseStudy: {
       challenge: {
@@ -194,8 +198,12 @@ export const projects: Project[] = [
     services: ['web', 'cloud', 'saas'],
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Supabase Storage'],
-    cover: { from: 'oklch(0.7 0.14 190)', to: 'oklch(0.5 0.12 240)' },
+    cover: { from: 'oklch(0.7 0.14 190)', to: 'oklch(0.5 0.12 240)', image: '/work/cleveland-medicals.webp' },
     featured: false,
+    demo: {
+      href: 'https://ysweety666-crypto.github.io/codeoura-demos/cleveland/ar/',
+      surface: { en: 'Patient-facing platform', ar: 'واجهة المرضى' },
+    },
     caseStudy: {
       challenge: {
         en: 'Medical files and receipts are sensitive, often large, and must stay retrievable for years without bloating the application database.',

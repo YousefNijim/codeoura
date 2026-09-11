@@ -24,7 +24,10 @@ const TARGETS = [
   { slug: 'glamora', url: `${DEMOS}/glamora/`, settle: 6000 },
   { slug: 'cafe-albaraa', url: `${DEMOS}/cafe-albaraa/`, settle: 6000 },
   { slug: 'firuze', url: `${DEMOS}/firuze-menu/`, settle: 4000 },
-  { slug: 'couponak', url: `${DEMOS}/couponak-manager/owner/`, settle: 5000 },
+  { slug: 'couponak', url: `${DEMOS}/couponak-inventory/dashboard/`, settle: 6000 },
+  { slug: 'babunec', url: `${DEMOS}/babunec/tr/dashboard/`, settle: 6000 },
+  { slug: 'firuze-system', url: `${DEMOS}/firuze-system/`, settle: 6000 },
+  { slug: 'cleveland-medicals', url: `${DEMOS}/cleveland/ar/`, settle: 5000 },
 ];
 
 const CHROME = [
