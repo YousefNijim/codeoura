@@ -5,8 +5,6 @@ interface SectionProps {
   id?: string;
   className?: string;
   containerClassName?: string;
-  /** Adds a single static light source at the top of the section. */
-  glow?: boolean;
   /** Fills the section with the raised surface colour. */
   surface?: boolean;
   children: React.ReactNode;
@@ -16,7 +14,6 @@ export function Section({
   id,
   className,
   containerClassName,
-  glow = false,
   surface = false,
   children,
 }: SectionProps) {
@@ -26,7 +23,6 @@ export function Section({
       className={cn(
         'relative isolate scroll-mt-24 py-20 sm:py-28 lg:py-36',
         surface && 'bg-surface',
-        glow && 'glow-top',
         className,
       )}
     >

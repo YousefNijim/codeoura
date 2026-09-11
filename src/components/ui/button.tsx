@@ -21,7 +21,7 @@ const buttonVariants = cva(
         default:
           'bg-foreground text-background hover:opacity-90',
         outline:
-          'glass border border-border text-foreground hover:border-primary/50 hover:bg-primary/5',
+          'border border-border bg-transparent text-foreground hover:border-primary/50 hover:bg-foreground/5',
         ghost: 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
       },

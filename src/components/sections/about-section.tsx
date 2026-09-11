@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { GlowCard } from '@/components/primitives/glow-card';
+import { Panel } from '@/components/primitives/panel';
 import { Reveal } from '@/components/primitives/reveal';
 import { Section } from '@/components/primitives/section';
 import { SectionHeading } from '@/components/primitives/section-heading';
@@ -27,7 +27,7 @@ export async function AboutSection() {
   const locale = (await getLocale()) as Locale;
 
   return (
-    <Section id="about" glow>
+    <Section id="about">
       <SectionHeading
         eyebrow={t('eyebrow')}
         title={t('title')}
@@ -40,7 +40,7 @@ export async function AboutSection() {
 
           return (
             <Reveal as="li" key={principle.icon} delay={index * 0.05}>
-              <GlowCard className="h-full">
+              <Panel className="h-full">
                 <div className="flex h-full flex-col gap-4 p-6 sm:p-7">
                   <span className="inline-flex size-11 items-center justify-center rounded-xl border border-border bg-accent/10 text-accent">
                     <Icon className="size-5" aria-hidden />
@@ -52,7 +52,7 @@ export async function AboutSection() {
                     {pick(principle.description, locale)}
                   </p>
                 </div>
-              </GlowCard>
+              </Panel>
             </Reveal>
           );
         })}

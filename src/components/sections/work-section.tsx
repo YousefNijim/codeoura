@@ -12,7 +12,7 @@ export async function WorkSection() {
   const t = await getTranslations('work');
 
   return (
-    <Section id="work" glow>
+    <Section id="work">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading
           eyebrow={t('eyebrow')}

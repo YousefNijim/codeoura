@@ -73,7 +73,7 @@ export default async function ServicePage({
         ]}
       />
 
-      <Section className="pt-32 sm:pt-40" glow>
+      <Section className="pt-32 sm:pt-40">
         <Button asChild variant="ghost" size="sm" className="-ms-3 mb-8">
           <Link href="/#services">
             <ArrowLeft aria-hidden className="rtl:-scale-x-100" />

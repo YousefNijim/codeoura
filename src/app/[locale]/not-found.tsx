@@ -8,7 +8,7 @@ export default async function NotFound() {
   const t = await getTranslations('notFound');
 
   return (
-    <Section className="flex min-h-[70svh] items-center pt-32" glow>
+    <Section className="flex min-h-[70svh] items-center pt-32">
       <div className="flex max-w-md flex-col items-start gap-5">
         <span className="font-mono text-sm text-primary">404</span>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">

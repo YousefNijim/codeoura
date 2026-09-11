@@ -1,6 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { Marquee } from '@/components/primitives/marquee';
 import { Reveal } from '@/components/primitives/reveal';
 import { Section } from '@/components/primitives/section';
 import { SectionHeading } from '@/components/primitives/section-heading';
@@ -13,7 +12,7 @@ export async function StackSection() {
   const locale = (await getLocale()) as Locale;
 
   return (
-    <Section id="stack" surface className="overflow-hidden">
+    <Section id="stack" surface>
       <SectionHeading
         eyebrow={t('eyebrow')}
         title={t('title')}
@@ -45,18 +44,6 @@ export async function StackSection() {
         })}
       </Reveal>
 
-      <div className="relative mt-16 -mx-5 sm:-mx-8">
-        <Marquee duration="45s">
-          {techStack.map((tech) => (
-            <span
-              key={`ticker-${tech.name}`}
-              className="whitespace-nowrap rounded-full border border-border bg-background/60 px-5 py-2 font-mono text-sm text-muted-foreground"
-            >
-              {tech.name}
-            </span>
-          ))}
-        </Marquee>
-      </div>
     </Section>
   );
 }

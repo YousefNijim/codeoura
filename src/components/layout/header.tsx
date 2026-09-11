@@ -32,9 +32,9 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
+        'fixed inset-x-0 top-0 z-50 transition-colors duration-200',
         scrolled
-          ? 'glass border-b border-border'
+          ? 'border-b border-border bg-background'
           : 'border-b border-transparent bg-transparent',
       )}
     >

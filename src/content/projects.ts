@@ -33,8 +33,8 @@ export const projects: Project[] = [
         ar: 'نمذجنا الكتالوج مرة واحدة وعرضناه على كل الواجهات. حجز المخزون معامَلاتي، فلا يمكن أن يختلف الحجز في السلة عن السحب من المستودع. وتطبيق الموبايل يستهلك نفس واجهة البرمجة المكتوبة بالأنواع التي يستهلكها المتجر.',
       },
       outcome: {
-        en: 'One catalogue, three surfaces, zero duplicated data entry — and a storefront rendered at the edge.',
-        ar: 'كتالوج واحد، وثلاث واجهات، وصفر إدخال بيانات مكرر — ومتجر يُعرَض من حافة الشبكة.',
+        en: 'One catalogue, three surfaces, no duplicated data entry, and a storefront rendered at the edge.',
+        ar: 'كتالوج واحد، وثلاث واجهات، دون إدخال بيانات مكرر، ومتجر يُعرَض من حافة الشبكة.',
       },
     },
   },
@@ -99,8 +99,8 @@ export const projects: Project[] = [
     },
     caseStudy: {
       challenge: {
-        en: 'The whole model rests on a stranger holding something valuable that is not theirs. Trust cannot be asked for — it has to be built into how money and custody move, and it has to survive the day someone claims a parcel never arrived.',
-        ar: 'النموذج كله قائم على أن يحمل غريبٌ شيئاً ثميناً ليس له. الثقة لا تُطلب — تُبنى في طريقة انتقال المال والعهدة، ويجب أن تصمد يوم يقول أحدهم إن الطرد لم يصل.',
+        en: 'The whole model rests on a stranger holding something valuable that is not theirs. Trust cannot be asked for. It has to be built into how money and custody move, and it has to survive the day someone claims a parcel never arrived.',
+        ar: 'النموذج كله قائم على أن يحمل غريبٌ شيئاً ثميناً ليس له. الثقة لا تُطلب. تُبنى في طريقة انتقال المال والعهدة، ويجب أن تصمد يوم يقول أحدهم إن الطرد لم يصل.',
       },
       solution: {
         en: 'Money is held in escrow and only released when a delivery barcode is scanned, so neither side can move first and lose. Every handover is a scan, which turns custody into a timestamped chain rather than a claim. Disputes freeze the parcel in its prior state and go to a human, and cash payments leave the commission as a tracked debt so the platform is never out of pocket.',
@@ -120,8 +120,8 @@ export const projects: Project[] = [
       ar: 'من اكتشاف الرحلة إلى حجز مؤكَّد',
     },
     summary: {
-      en: 'A travel platform covering package discovery, availability and booking — with an operator back office for inventory, pricing windows and reservation management.',
-      ar: 'منصة سفر تغطي اكتشاف الباقات والتوفّر والحجز — مع مكتب خلفي للمشغّل لإدارة المخزون ونوافذ التسعير والحجوزات.',
+      en: 'A travel platform covering package discovery, availability and booking, with an operator back office for inventory, pricing windows and reservation management.',
+      ar: 'منصة سفر تغطي اكتشاف الباقات والتوفّر والحجز، مع مكتب خلفي للمشغّل لإدارة المخزون ونوافذ التسعير والحجوزات.',
     },
     year: 2024,
     category: 'travel',
@@ -194,8 +194,8 @@ export const projects: Project[] = [
       ar: 'سجلات المرضى والملفات والفوترة',
     },
     summary: {
-      en: 'A clinical management platform handling patient records, medical file storage, receipts and billing — with access controls appropriate to health data.',
-      ar: 'منصة إدارة عيادات تتعامل مع سجلات المرضى وتخزين الملفات الطبية والإيصالات والفوترة — مع ضوابط وصول تليق ببيانات صحية.',
+      en: 'A clinical management platform handling patient records, medical file storage, receipts and billing, with access controls appropriate to health data.',
+      ar: 'منصة إدارة عيادات تتعامل مع سجلات المرضى وتخزين الملفات الطبية والإيصالات والفوترة، مع ضوابط وصول تليق ببيانات صحية.',
     },
     year: 2025,
     category: 'healthcare',
@@ -231,8 +231,8 @@ export const projects: Project[] = [
       ar: 'حضور رقمي وطلبات للكافيه',
     },
     summary: {
-      en: 'A lightweight digital presence and ordering surface for a café — fast on mobile networks, effortless to update, and bilingual from the first screen.',
-      ar: 'حضور رقمي خفيف وواجهة طلبات لكافيه — سريعة على شبكات الموبايل، سهلة التحديث، وثنائية اللغة من الشاشة الأولى.',
+      en: 'A lightweight digital presence and ordering surface for a café. Fast on mobile networks, simple to update, and bilingual from the first screen.',
+      ar: 'حضور رقمي خفيف وواجهة طلبات لكافيه. سريعة على شبكات الموبايل، سهلة التحديث، وثنائية اللغة من الشاشة الأولى.',
     },
     year: 2025,
     category: 'hospitality',

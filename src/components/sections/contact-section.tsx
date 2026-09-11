@@ -11,7 +11,7 @@ export async function ContactSection() {
   const t = await getTranslations('contact');
 
   return (
-    <Section id="contact" surface glow>
+    <Section id="contact" surface>
       <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <div className="flex flex-col gap-6">
           <SectionHeading

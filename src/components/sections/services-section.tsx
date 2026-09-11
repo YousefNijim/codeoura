@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { GlowCard } from '@/components/primitives/glow-card';
+import { Panel } from '@/components/primitives/panel';
 import { Reveal } from '@/components/primitives/reveal';
 import { Section } from '@/components/primitives/section';
 import { SectionHeading } from '@/components/primitives/section-heading';
@@ -53,7 +53,7 @@ export async function ServicesSection() {
               delay={index * 0.05}
               className={isLead ? 'lg:col-span-2' : undefined}
             >
-              <GlowCard className="h-full">
+              <Panel className="h-full">
                 <Link
                   href={`/services/${service.slug}`}
                   className="flex h-full flex-col gap-5 p-6 sm:p-7"
@@ -101,7 +101,7 @@ export async function ServicesSection() {
                     ))}
                   </ul>
                 </Link>
-              </GlowCard>
+              </Panel>
             </Reveal>
           );
         })}

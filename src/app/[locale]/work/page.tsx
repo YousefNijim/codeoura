@@ -30,7 +30,7 @@ export default async function WorkPage({
   const t = await getTranslations('work');
 
   return (
-    <Section className="pt-32 sm:pt-40" glow>
+    <Section className="pt-32 sm:pt-40">
       <SectionHeading
         eyebrow={t('eyebrow')}
         title={t('title')}

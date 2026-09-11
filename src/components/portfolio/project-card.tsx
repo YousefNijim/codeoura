@@ -3,7 +3,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
-import { GlowCard } from '@/components/primitives/glow-card';
+import { Panel } from '@/components/primitives/panel';
 import { ProjectCover } from '@/components/primitives/project-cover';
 import { Badge } from '@/components/ui/badge';
 import type { Project } from '@/content/types';
@@ -33,7 +33,7 @@ export function ProjectCard({
     : {};
 
   return (
-    <GlowCard className={cn('h-full', className)}>
+    <Panel className={cn('h-full', className)}>
       <Inner
         className="flex h-full w-full flex-col text-start"
         {...interactiveProps}
@@ -42,7 +42,7 @@ export function ProjectCard({
           <ProjectCover project={project} label={name} />
           {project.demo && (
             <span className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[11px] font-medium text-foreground backdrop-blur">
-              <span aria-hidden className="size-1.5 animate-pulse-glow rounded-full bg-accent" />
+              <span aria-hidden className="size-1.5 rounded-full bg-primary" />
               {t('demoBadge')}
             </span>
           )}
@@ -78,6 +78,6 @@ export function ProjectCard({
           </div>
         </div>
       </Inner>
-    </GlowCard>
+    </Panel>
   );
 }

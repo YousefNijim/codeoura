@@ -77,7 +77,7 @@ export default async function ProjectPage({
         ]}
       />
 
-      <Section className="pb-0 pt-32 sm:pt-40" glow>
+      <Section className="pb-0 pt-32 sm:pt-40">
         <Button asChild variant="ghost" size="sm" className="-ms-3 mb-8">
           <Link href="/work">
             <ArrowLeft aria-hidden className="rtl:-scale-x-100" />

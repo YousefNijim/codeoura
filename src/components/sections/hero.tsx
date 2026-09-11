@@ -6,7 +6,6 @@ import { Reveal } from '@/components/primitives/reveal';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
-import { asset } from '@/lib/asset';
 
 export async function Hero() {
   const t = await getTranslations('hero');
@@ -21,52 +20,11 @@ export async function Hero() {
   ];
 
   return (
-    <section className="relative isolate overflow-hidden bg-noise">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
-      <div
-        aria-hidden
-        className="absolute inset-x-0 -top-40 -z-10 h-[36rem] opacity-70"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 100% at 50% 0%, var(--glow), transparent 70%)',
-        }}
-      />
-
-      {/* The brand mark, sitting behind the copy on the trailing side.
-          Rendered as a mask rather than an <img> so it takes the theme's own
-          metal in both light and dark, instead of importing the logo's blue
-          into a palette that has no blue in it. Very low opacity: it should
-          register as texture, not as a second thing to read. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -z-10 opacity-[0.07] dark:opacity-[0.085]
-                   -end-16 bottom-4 h-[17rem] w-[13rem]
-                   sm:bottom-auto sm:top-1/2 sm:-end-10 sm:h-[34rem] sm:w-[27rem]
-                   sm:-translate-y-1/2 sm:opacity-[0.05] sm:dark:opacity-[0.06]
-                   lg:end-[7%] lg:h-[38rem] lg:w-[30rem]"
-        style={{
-          backgroundColor: 'var(--primary)',
-          maskImage: `url(${asset('/brand/mark-mask.png')})`,
-          WebkitMaskImage: `url(${asset('/brand/mark-mask.png')})`,
-          maskRepeat: 'no-repeat',
-          WebkitMaskRepeat: 'no-repeat',
-          maskPosition: 'center',
-          WebkitMaskPosition: 'center',
-          maskSize: 'contain',
-          WebkitMaskSize: 'contain',
-        }}
-      />
-
+    <section className="relative">
       <Container className="flex min-h-[88svh] flex-col justify-center py-28 sm:py-36">
         <div className="flex max-w-3xl flex-col items-start gap-7">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-foreground/[0.03] px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
-              <span
-                aria-hidden
-                className="size-1.5 animate-pulse-glow rounded-full bg-accent"
-              />
-              {t('badge')}
-            </span>
+            <p className="eyebrow">{t('badge')}</p>
           </Reveal>
 
           <Reveal delay={0.06}>
