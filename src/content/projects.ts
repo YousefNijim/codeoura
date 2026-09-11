@@ -17,7 +17,7 @@ export const projects: Project[] = [
     services: ['web', 'mobile', 'cloud'],
     platforms: ['web', 'mobile', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Vercel'],
-    cover: { from: 'oklch(0.62 0.19 340)', to: 'oklch(0.52 0.16 300)' },
+    cover: { from: 'oklch(0.62 0.19 340)', to: 'oklch(0.52 0.16 300)', image: '/work/glamora.webp' },
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/glamora/',
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     services: ['web', 'saas'],
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)' },
+    cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)', image: '/work/firuze.webp' },
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/firuze-menu/',
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     services: ['web'],
     platforms: ['web'],
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    cover: { from: 'oklch(0.68 0.12 75)', to: 'oklch(0.45 0.1 40)' },
+    cover: { from: 'oklch(0.68 0.12 75)', to: 'oklch(0.45 0.1 40)', image: '/work/cafe-albaraa.webp' },
     featured: false,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/cafe-albaraa/',

@@ -35,8 +35,13 @@ export interface Project {
   services: ServiceId[];
   platforms: Platform[];
   stack: string[];
-  /** Two OKLCH stops used to generate the project's cover gradient. */
-  cover: { from: string; to: string };
+  /**
+   * Cover art. `image` is a real screenshot of the running product and is
+   * always preferred: a card showing a name on a colour tells a visitor
+   * nothing about what was built. The gradient stops remain as the fallback
+   * for projects with no demo to photograph yet.
+   */
+  cover: { from: string; to: string; image?: string };
   featured: boolean;
   url?: string;
   /**
