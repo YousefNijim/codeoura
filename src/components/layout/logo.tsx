@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { asset } from '@/lib/asset';
 import { cn } from '@/lib/utils';
 import { company } from '@/content/company';
 
@@ -18,7 +19,7 @@ export function Logo({
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
       <Image
-        src="/logo.png"
+        src={asset('/logo.png')}
         alt=""
         width={Math.round(size * LOGO_RATIO)}
         height={size}

@@ -43,6 +43,7 @@ try {
       ...process.env,
       STATIC_EXPORT: '1',
       NEXT_PUBLIC_STATIC_EXPORT: '1',
+      NEXT_PUBLIC_BASE_PATH: process.env.BASE_PATH ?? '',
     },
   });
   writeRootRedirect();

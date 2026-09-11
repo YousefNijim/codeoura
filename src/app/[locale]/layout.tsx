@@ -33,6 +33,9 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   display: 'swap',
 });
 
+/** يطابق basePath في next.config.ts؛ فارغ عند النشر على جذر نطاق. */
+const basePath = process.env.BASE_PATH ?? '';
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -77,7 +80,13 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
     },
-    icons: { icon: '/logo.png', apple: '/logo.png' },
+    // مسارات الميتاداتا لا يضيف إليها Next قيمة basePath تلقائياً — بخلاف
+    // next/image. بدون هذا تُطلب الأيقونة من جذر النطاق وتعود 404 عند أي
+    // نشر تحت مسار فرعي.
+    icons: {
+      icon: `${basePath}/logo.png`,
+      apple: `${basePath}/logo.png`,
+    },
   };
 }
 
