@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google';
+import { Amiri, Fraunces, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google';
 
 import '../globals.css';
 
@@ -23,6 +23,27 @@ const geist = Geist({
 const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-geist-mono',
+  display: 'swap',
+});
+
+/**
+ * خطا العرض.
+ *
+ * Fraunces سيريف متغيّر بحجم بصري، وAmiri نسخ كلاسيكي — يتجانسان في الطابع
+ * القديم، فلا تبدو الصفحة علامتين مختلفتين بين لغة وأخرى. يُستخدمان في
+ * العناوين فقط: تباينهما العالي يضرّ القراءة في حجم النص العادي.
+ */
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['SOFT', 'WONK', 'opsz'],
+});
+
+const amiri = Amiri({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  variable: '--font-amiri',
   display: 'swap',
 });
 
@@ -111,7 +132,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={localeDirection[locale as Locale]}
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable} ${fraunces.variable} ${amiri.variable}`}
     >
       <body className="min-h-dvh bg-background text-foreground">
         <ThemeProvider

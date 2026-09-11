@@ -17,15 +17,15 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        'flex max-w-2xl flex-col gap-4',
+        'flex max-w-[38rem] flex-col gap-5',
         align === 'center' && 'mx-auto items-center text-center',
         className,
       )}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl">{title}</h2>
+      <h2 className="text-[length:var(--text-display-sm)]">{title}</h2>
       {subtitle && (
-        <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="text-[1.0625rem] leading-[1.7] text-muted-foreground sm:text-lg">
           {subtitle}
         </p>
       )}

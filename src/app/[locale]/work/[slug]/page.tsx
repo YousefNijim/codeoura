@@ -86,7 +86,7 @@ export default async function ProjectPage({
         </Button>
 
         <div className="flex max-w-3xl flex-col gap-5">
-          <h1 className="text-[length:var(--text-display-sm)] font-semibold leading-tight tracking-[-0.04em]">
+          <h1 className="text-[length:var(--text-display-sm)]">
             {name}
           </h1>
           <p className="text-lg font-medium text-primary">

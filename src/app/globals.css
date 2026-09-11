@@ -4,67 +4,78 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ────────────────────────────────────────────────────────────────────────────
-   Design tokens — OKLCH so opacity reads perceptually the same in both themes.
-   Dark is the default; light is a deliberate, quieter counterpart.
+   Design tokens — "Ink & Champagne"
+
+   OKLCH throughout, so an opacity reads perceptually the same in both themes.
+
+   The palette is deliberately narrow: a warm ink ground and a single metallic.
+   Two saturated colours competing for attention is what makes a dark interface
+   read as generic SaaS; one metal against warm black is what makes it read as
+   considered. The ground is warm (hue ~60) rather than blue-black — the blue
+   cast is the tell of a default dark theme.
+
+   The metal carries emphasis in text and fills the primary call to action.
+   Same colour, two treatments: that is how restraint reads as expensive.
    ──────────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.16 0.008 265);
-  --card: oklch(0.99 0.002 265);
-  --card-foreground: oklch(0.16 0.008 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.008 265);
+  --background: oklch(0.982 0.006 85);
+  --foreground: oklch(0.175 0.012 55);
+  --card: oklch(0.997 0.003 85);
+  --card-foreground: oklch(0.175 0.012 55);
+  --popover: oklch(0.997 0.003 85);
+  --popover-foreground: oklch(0.175 0.012 55);
 
-  --primary: oklch(0.58 0.14 232);
-  --primary-foreground: oklch(0.99 0 0);
-  --accent: oklch(0.68 0.176 52);
-  --accent-foreground: oklch(0.16 0.008 265);
+  /* Darkened on paper so the metal still clears AA against a light ground */
+  --primary: oklch(0.475 0.072 68);
+  --primary-foreground: oklch(0.985 0.005 85);
+  --accent: oklch(0.455 0.082 62);
+  --accent-foreground: oklch(0.985 0.005 85);
 
-  --muted: oklch(0.96 0.003 265);
-  --muted-foreground: oklch(0.5 0.014 265);
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.955 0.006 80);
+  --muted-foreground: oklch(0.47 0.018 60);
+  --destructive: oklch(0.52 0.19 27);
+  --destructive-foreground: oklch(0.985 0 0);
 
-  --border: oklch(0.16 0.008 265 / 10%);
-  --input: oklch(0.16 0.008 265 / 14%);
-  --ring: oklch(0.58 0.14 232);
+  --border: oklch(0.175 0.012 55 / 11%);
+  --input: oklch(0.175 0.012 55 / 15%);
+  --ring: oklch(0.475 0.072 68);
 
-  --surface: oklch(0.98 0.002 265);
-  --glass: oklch(1 0 0 / 70%);
-  --hairline: oklch(0.16 0.008 265 / 8%);
-  --grid-line: oklch(0.16 0.008 265 / 6%);
-  --glow: oklch(0.58 0.14 232 / 18%);
+  --surface: oklch(0.966 0.008 84);
+  --glass: oklch(0.982 0.006 85 / 72%);
+  --hairline: oklch(0.175 0.012 55 / 9%);
+  --grid-line: oklch(0.175 0.012 55 / 6%);
+  --glow: oklch(0.475 0.072 68 / 12%);
 
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 }
 
 .dark {
-  --background: oklch(0.145 0.006 265);
-  --foreground: oklch(0.97 0.002 265);
-  --card: oklch(0.185 0.007 265);
-  --card-foreground: oklch(0.97 0.002 265);
-  --popover: oklch(0.185 0.007 265);
-  --popover-foreground: oklch(0.97 0.002 265);
+  --background: oklch(0.138 0.007 62);
+  --foreground: oklch(0.958 0.008 82);
+  --card: oklch(0.176 0.009 64);
+  --card-foreground: oklch(0.958 0.008 82);
+  --popover: oklch(0.176 0.009 64);
+  --popover-foreground: oklch(0.958 0.008 82);
 
-  --primary: oklch(0.72 0.145 230);
-  --primary-foreground: oklch(0.145 0.006 265);
-  --accent: oklch(0.77 0.174 62);
-  --accent-foreground: oklch(0.145 0.006 265);
+  --primary: oklch(0.825 0.085 85);
+  --primary-foreground: oklch(0.138 0.007 62);
+  --accent: oklch(0.805 0.098 78);
+  --accent-foreground: oklch(0.138 0.007 62);
 
-  --muted: oklch(0.235 0.008 265);
-  --muted-foreground: oklch(0.68 0.012 265);
-  --destructive: oklch(0.62 0.21 25);
+  --muted: oklch(0.228 0.009 64);
+  --muted-foreground: oklch(0.672 0.016 72);
+  --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.97 0 0);
 
-  --border: oklch(1 0 0 / 9%);
+  --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.72 0.145 230);
+  --ring: oklch(0.825 0.085 85);
 
-  --surface: oklch(0.175 0.007 265);
-  --glass: oklch(0.145 0.006 265 / 65%);
-  --hairline: oklch(1 0 0 / 8%);
-  --grid-line: oklch(1 0 0 / 5%);
-  --glow: oklch(0.72 0.145 230 / 22%);
+  --surface: oklch(0.166 0.008 63);
+  --glass: oklch(0.138 0.007 62 / 68%);
+  --hairline: oklch(1 0 0 / 7%);
+  --grid-line: oklch(1 0 0 / 4.5%);
+  --glow: oklch(0.825 0.085 85 / 14%);
 }
 
 @theme inline {
@@ -89,42 +100,41 @@
   --color-hairline: var(--hairline);
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --font-arabic: var(--font-plex-arabic), var(--font-geist), sans-serif;
+  --font-arabic-display: var(--font-amiri), var(--font-plex-arabic), serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-2xl: calc(var(--radius) + 10px);
 
-  /* Fluid display scale — no breakpoint jumps */
-  --text-display-sm: clamp(2rem, 1.4rem + 3vw, 3rem);
-  --text-display-md: clamp(2.5rem, 1.5rem + 4.6vw, 4.5rem);
-  --text-display-lg: clamp(3rem, 1.6rem + 6vw, 6rem);
+  /* Fluid display scale — no breakpoint jumps. Larger than the sans-only
+     scale it replaces: a serif needs the size to show its drawing. */
+  --text-display-sm: clamp(2.25rem, 1.5rem + 3.4vw, 3.5rem);
+  --text-display-md: clamp(2.75rem, 1.5rem + 5.4vw, 5.25rem);
+  --text-display-lg: clamp(3.25rem, 1.6rem + 7vw, 6.75rem);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
-  --animate-beam: beam 4s linear infinite;
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-marquee: marquee var(--marquee-duration, 44s) linear infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 4.5s ease-in-out infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(calc(var(--marquee-dir, -1) * 50%)); }
   }
-  @keyframes beam {
-    to { --beam-angle: 360deg; }
-  }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-10px); }
   }
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.35; }
-    50% { opacity: 0.7; }
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.65; }
   }
 }
 
@@ -144,6 +154,8 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     /* Direction-aware motion: slide-ins travel the correct way in Arabic */
@@ -156,9 +168,37 @@
     --marquee-dir: 1;
   }
 
-  h1, h2, h3, h4 {
+  /* Display type.
+     The serif is the single loudest signal of craft on the page, so it is
+     reserved for headlines and never used at body size, where its contrast
+     hurts reading. Arabic gets a naskh of matching character rather than the
+     body sans — a serif Latin headline beside a sans Arabic one reads as two
+     different brands. */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    /* Almost none. A serif at display size already sets its own rhythm, and
+       the negative tracking that flatters a geometric sans closes the
+       counters here until words read as one run of letters. */
+    letter-spacing: -0.005em;
+    word-spacing: 0.02em;
+    line-height: 1.08;
     text-wrap: balance;
-    letter-spacing: -0.03em;
+  }
+
+  [dir='rtl'] h1,
+  [dir='rtl'] h2,
+  [dir='rtl'] h3 {
+    font-family: var(--font-arabic-display);
+    font-weight: 700;
+    /* Arabic letterforms connect; negative tracking damages them */
+    letter-spacing: 0;
+    line-height: 1.45;
+  }
+
+  h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -168,8 +208,8 @@
   /* Visible, consistent focus everywhere — never removed, only restyled */
   :focus-visible {
     outline: 2px solid var(--ring);
-    outline-offset: 2px;
-    border-radius: 4px;
+    outline-offset: 3px;
+    border-radius: 3px;
   }
 
   ::selection {
@@ -195,8 +235,8 @@
     background-image:
       linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 76% 58% at 50% 0%, #000 26%, transparent 74%);
   }
 
   /* Fine noise kills gradient banding on large dark surfaces */
@@ -208,7 +248,7 @@
     /* Sits above the section background but below its content, so text is
        never veiled. Requires `isolate` on the section, which Section sets. */
     z-index: -1;
-    opacity: 0.03;
+    opacity: 0.032;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -217,16 +257,39 @@
     content: '';
     position: absolute;
     inset-inline: 0;
-    top: -30%;
-    height: 60%;
+    top: -28%;
+    height: 56%;
     pointer-events: none;
-    background: radial-gradient(ellipse 50% 100% at 50% 0%, var(--glow), transparent 70%);
+    background: radial-gradient(ellipse 46% 100% at 50% 0%, var(--glow), transparent 72%);
   }
 
   .glass {
     background: var(--glass);
-    backdrop-filter: blur(16px) saturate(160%);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+  }
+
+  /* A hairline that fades at both ends, rather than stopping dead. Used to
+     separate sections without drawing a hard line across the page. */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  /* Small uppercase label above a heading, with a short metal rule. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  [dir='rtl'] .eyebrow {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 0.8125rem;
   }
 }
 

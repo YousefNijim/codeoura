@@ -44,7 +44,7 @@ export async function Hero() {
           </Reveal>
 
           <Reveal delay={0.06}>
-            <h1 className="text-[length:var(--text-display-md)] font-semibold leading-[1.05] tracking-[-0.04em]">
+            <h1 className="text-[length:var(--text-display-md)]">
               {t('titleLead')}{' '}
               <span className="text-primary">{t('titleAccent')}</span>
             </h1>

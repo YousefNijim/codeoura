@@ -83,7 +83,7 @@ export default async function ServicePage({
 
         <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div className="flex flex-col gap-5">
-            <h1 className="text-[length:var(--text-display-sm)] font-semibold leading-tight tracking-[-0.04em]">
+            <h1 className="text-[length:var(--text-display-sm)]">
               {title}
             </h1>
             <p className="text-lg font-medium text-primary">

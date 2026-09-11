@@ -10,12 +10,9 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={cn(
-        'inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground',
-        className,
-      )}
+      className={cn('eyebrow inline-flex items-center gap-3', className)}
     >
-      <span aria-hidden className="h-px w-6 bg-linear-to-r from-primary to-transparent" />
+      <span aria-hidden className="h-px w-8 bg-linear-to-r from-primary to-transparent" />
       {children}
     </p>
   );
