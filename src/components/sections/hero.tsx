@@ -17,7 +17,7 @@ export async function Hero() {
           placed as an image, so it takes the brand colour in either theme. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -end-20 top-1/2 -z-10 h-[26rem] w-[20rem] -translate-y-1/2 opacity-[0.06] lg:end-[4%] lg:h-[40rem] lg:w-[31rem]"
+        className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 mx-auto h-[18rem] w-[30rem] max-w-[92vw] -translate-y-1/2 opacity-[0.05] lg:h-[26rem] lg:w-[46rem]"
         style={{
           backgroundColor: 'var(--accent)',
           maskImage: `url(${asset('/brand/mark-mask.png')})`,
