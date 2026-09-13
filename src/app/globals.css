@@ -252,18 +252,38 @@
     background-image: var(--card-bg-light);
     background-size: cover;
     background-position: center;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: opacity 0.4s var(--ease-out-expo);
   }
   .dark .product-card::before {
     background-image: var(--card-bg-dark);
-    opacity: 0.35;
+    opacity: 0.3;
   }
   .product-card:hover::before {
-    opacity: 0.72;
+    opacity: 0.6;
   }
   .dark .product-card:hover::before {
-    opacity: 0.55;
+    opacity: 0.48;
+  }
+
+  /* The scrim. A screenshot is busy everywhere, so the text needs its own
+     ground: the card colour rises from the foot of the card to full strength
+     behind the copy, and thins to nothing over the artwork above it. Built
+     from the theme token, so it is white on paper and ink in the dark
+     without a second rule. */
+  .product-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      var(--card) 0%,
+      var(--card) 42%,
+      color-mix(in oklab, var(--card) 72%, transparent) 62%,
+      transparent 88%
+    );
   }
 
   .hover-lift {

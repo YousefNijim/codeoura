@@ -7,6 +7,7 @@ import { Hero } from '@/components/sections/hero';
 import { OutcomesSection } from '@/components/sections/outcomes-section';
 import { PathSection } from '@/components/sections/path-section';
 import { ProductsSection } from '@/components/sections/products-section';
+import { StackSection } from '@/components/sections/stack-section';
 import { OrganizationJsonLd } from '@/components/seo/json-ld';
 import { routing } from '@/i18n/routing';
 
@@ -29,6 +30,7 @@ export default async function HomePage({
       <AboutSection />
       <ProductsSection />
       <PathSection />
+      <StackSection />
       <EcosystemSection />
       <OutcomesSection />
       <CtaSection />
