@@ -3,11 +3,9 @@ import type { Localized } from './types';
 /**
  * Audience routes.
  *
- * The catalogue on its own asks the visitor to work out which of seven systems
- * resembles their problem. These tracks do that work for them: pick the
- * description that matches you, and read down a sequence that ends where you
- * should start. The same project appears on both tracks where it genuinely
- * serves both, framed each time for the reader it is addressing.
+ * The catalogue asks the visitor to work out which of seven systems resembles
+ * their problem. These tracks do that for them. A system appears on both
+ * routes where it genuinely serves both, framed each time for its reader.
  */
 export type PathStep = {
   /** The question the visitor is asking themselves at this stage. */
@@ -28,98 +26,92 @@ export type PathTrack = {
 export const pathTracks: PathTrack[] = [
   {
     id: 'merchant',
-    persona: {
-      en: 'Are you selling to customers?',
-      ar: 'هل تبيع لعملائك؟',
-    },
+    persona: { en: 'Do you sell to customers?', ar: 'تبيع لعملاء؟' },
     title: {
-      en: 'From a storefront to a business that runs itself',
-      ar: 'من متجر إلى عمل يُدار بنفسه',
+      en: 'From a storefront to an operation',
+      ar: 'من متجر إلى عملية متكاملة',
     },
     intro: {
-      en: 'Retail, hospitality and food businesses usually start with one need — a place to sell — and discover the rest as they grow. This is the order in which those needs actually arrive.',
-      ar: 'أعمال التجزئة والضيافة والأغذية تبدأ عادةً بحاجة واحدة — مكان للبيع — ثم تكتشف البقية مع النمو. هذا هو الترتيب الذي تصل به تلك الحاجات فعلاً.',
+      en: 'Retail, food and hospitality. The needs arrive in this order.',
+      ar: 'تجزئة وأغذية وضيافة. الحاجات تصل بهذا الترتيب.',
     },
     steps: [
       {
-        eyebrow: { en: 'You need to sell online', ar: 'تحتاج أن تبيع أونلاين' },
+        eyebrow: { en: 'Sell online', ar: 'تبيع أونلاين' },
         projectSlug: 'glamora',
         description: {
-          en: 'A storefront, a mobile app and an admin console over one catalogue, so a price is entered once and is correct everywhere.',
-          ar: 'متجر وتطبيق موبايل ولوحة إدارة فوق كتالوج واحد، فيُدخَل السعر مرة ويكون صحيحاً في كل مكان.',
+          en: 'Store, app and admin over one catalogue. A price is entered once.',
+          ar: 'متجر وتطبيق ولوحة إدارة فوق كتالوج واحد. السعر يُدخَل مرة.',
         },
       },
       {
-        eyebrow: { en: 'You have more than one branch', ar: 'صار عندك أكثر من فرع' },
+        eyebrow: { en: 'More than one branch', ar: 'أكثر من فرع' },
         projectSlug: 'couponak',
         description: {
-          en: 'Stock, transfers and purchase orders across branches, with a single figure you can trust for what you actually hold.',
-          ar: 'مخزون وتحويلات وأوامر شراء عبر الفروع، برقم واحد موثوق لما تملكه فعلاً.',
+          en: 'Stock, transfers and purchase orders. One figure you can trust.',
+          ar: 'مخزون وتحويلات وأوامر شراء. رقم واحد موثوق.',
         },
       },
       {
-        eyebrow: { en: 'You serve people on site', ar: 'تخدم زبائن في المكان' },
+        eyebrow: { en: 'Customers on site', ar: 'زبائن في المكان' },
         projectSlug: 'firuze',
         description: {
-          en: 'Orders, tables, staff and daily takings in one operational system built for a floor that never stops.',
-          ar: 'طلبات وطاولات وموظفون وحصيلة يومية في نظام تشغيلي مبني لصالة لا تتوقف.',
+          en: 'Orders, tables, staff and the day’s takings in one system.',
+          ar: 'طلبات وطاولات وموظفون وحصيلة اليوم في نظام واحد.',
         },
       },
       {
-        eyebrow: { en: 'You need deliveries handled', ar: 'تحتاج من يوصل طلباتك' },
+        eyebrow: { en: 'Deliveries to handle', ar: 'طلبات تحتاج توصيلاً' },
         projectSlug: 'aber',
         description: {
-          en: 'A delivery marketplace with escrow and scan-verified custody, so a parcel is never simply trusted to a stranger.',
-          ar: 'سوق توصيل بضمان مالي وعهدة موثّقة بالمسح، فلا يُسلَّم طرد لغريب على الثقة وحدها.',
+          en: 'Escrow and scan-verified custody. Nothing rides on trust.',
+          ar: 'ضمان مالي وعهدة موثّقة بالمسح. لا شيء يقوم على الثقة.',
         },
       },
     ],
   },
   {
     id: 'operator',
-    persona: {
-      en: 'Are you running an institution?',
-      ar: 'هل تدير مؤسسة؟',
-    },
+    persona: { en: 'Do you run an institution?', ar: 'تدير مؤسسة؟' },
     title: {
-      en: 'From scattered records to one operating picture',
-      ar: 'من سجلات متفرّقة إلى صورة تشغيلية واحدة',
+      en: 'From scattered records to one picture',
+      ar: 'من سجلات متفرّقة إلى صورة واحدة',
     },
     intro: {
-      en: 'Clinics, agencies and service operations rarely lack data. They lack one place where it agrees with itself, and controls over who may see which part of it.',
-      ar: 'العيادات والوكالات والعمليات الخدمية نادراً ما تنقصها البيانات. ينقصها مكان واحد تتّفق فيه مع نفسها، وضوابط تحدّد من يرى أيّ جزء منها.',
+      en: 'Clinics, agencies, service operations. The data exists. It does not agree.',
+      ar: 'عيادات ووكالات وعمليات خدمية. البيانات موجودة. لكنها لا تتّفق.',
     },
     steps: [
       {
-        eyebrow: { en: 'You hold sensitive records', ar: 'تحتفظ بسجلات حسّاسة' },
+        eyebrow: { en: 'Sensitive records', ar: 'سجلات حسّاسة' },
         projectSlug: 'cleveland-medicals',
         description: {
-          en: 'Patient files, documents and billing under access controls appropriate to health data.',
-          ar: 'ملفات المراجعين والمستندات والفوترة تحت ضوابط وصول تليق ببيانات صحية.',
+          en: 'Files, documents and billing, separated by role.',
+          ar: 'ملفات ومستندات وفوترة، مفصولة حسب الدور.',
         },
       },
       {
-        eyebrow: { en: 'You sell an inventory of dates', ar: 'تبيع مخزوناً من المواعيد' },
+        eyebrow: { en: 'An inventory of dates', ar: 'مخزون من المواعيد' },
         projectSlug: 'babunec',
         description: {
-          en: 'Availability, pricing windows and reservations, with a back office that answers what is left and at what price.',
-          ar: 'التوفّر ونوافذ التسعير والحجوزات، مع مكتب خلفي يجيب عمّا تبقّى وبأي سعر.',
+          en: 'Availability, pricing windows, reservations. What is left, at what price.',
+          ar: 'التوفّر ونوافذ التسعير والحجوزات. ما تبقّى، وبأي سعر.',
         },
       },
       {
-        eyebrow: { en: 'You need the numbers to reconcile', ar: 'تحتاج أن تتطابق الأرقام' },
+        eyebrow: { en: 'Numbers that must reconcile', ar: 'أرقام يجب أن تتطابق' },
         projectSlug: 'couponak',
         description: {
-          en: 'The same inventory engine, read from the finance side: movements, valuation and a closing figure that holds.',
-          ar: 'محرّك المخزون نفسه، مقروءاً من جهة المالية: حركات وتقييم ورصيد إقفال يثبت.',
+          en: 'The same engine from the finance side. Movements, valuation, closing.',
+          ar: 'المحرّك نفسه من جهة المالية. حركات وتقييم وإقفال.',
         },
       },
       {
-        eyebrow: { en: 'You want a presence that loads', ar: 'تريد حضوراً يفتح بسرعة' },
+        eyebrow: { en: 'A presence that loads', ar: 'حضور يفتح بسرعة' },
         projectSlug: 'cafe-albaraa',
         description: {
-          en: 'A light bilingual front that opens instantly on a weak connection and can be updated without a developer.',
-          ar: 'واجهة خفيفة ثنائية اللغة تفتح فوراً على اتصال ضعيف ويمكن تحديثها دون مطوّر.',
+          en: 'Bilingual, instant on a weak connection, updated without a developer.',
+          ar: 'ثنائي اللغة، فوري على اتصال ضعيف، يُحدَّث دون مطوّر.',
         },
       },
     ],

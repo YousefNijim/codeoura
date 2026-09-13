@@ -25,8 +25,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'glamora-catalogue',
     quote: {
-      en: 'One catalogue behind a storefront, a mobile app and an admin console. A price is entered once and is correct in all three.',
-      ar: 'كتالوج واحد خلف متجر وتطبيق موبايل ولوحة إدارة. يُدخَل السعر مرة ويكون صحيحاً في الثلاثة.',
+      en: 'One catalogue behind a store, an app and an admin console. A price is entered once.',
+      ar: 'كتالوج واحد خلف متجر وتطبيق ولوحة إدارة. السعر يُدخَل مرة.',
     },
     source: { en: 'Glamora', ar: 'جلامورا' },
     role: { en: 'E-commerce', ar: 'تجارة إلكترونية' },
@@ -35,8 +35,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'couponak-stock',
     quote: {
-      en: 'Stock, transfers and purchase orders across branches, reconciled to a single figure the finance side can close on.',
-      ar: 'مخزون وتحويلات وأوامر شراء عبر الفروع، مطابَقة إلى رقم واحد تستطيع المالية الإقفال عليه.',
+      en: 'Stock and transfers across branches, reconciled to one figure finance can close on.',
+      ar: 'مخزون وتحويلات عبر الفروع، مطابَقة إلى رقم واحد تُقفل عليه المالية.',
     },
     source: { en: 'Couponak', ar: 'كوبونك' },
     role: { en: 'Inventory management', ar: 'إدارة مخزون' },
@@ -45,8 +45,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'aber-custody',
     quote: {
-      en: 'Custody proven by scan at handover and release, with the money held in escrow until it is. Trust became a property of the system.',
-      ar: 'عهدة تُثبَت بالمسح عند التسليم والاستلام، والمال محجوز حتى تُثبَت. صارت الثقة خاصية في النظام.',
+      en: 'Custody proven by scan, money held in escrow until it is. Trust is no longer required.',
+      ar: 'عهدة تُثبَت بالمسح، والمال محجوز حتى تُثبَت. لم تعد الثقة شرطاً.',
     },
     source: { en: 'Aber', ar: 'عابر' },
     role: { en: 'Logistics', ar: 'لوجستيات' },
@@ -55,8 +55,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'firuze-floor',
     quote: {
-      en: 'Twenty-three data models covering orders, tables, staff and daily takings, with money handled at exact precision throughout.',
-      ar: 'ثلاثة وعشرون نموذج بيانات تغطي الطلبات والطاولات والموظفين والحصيلة اليومية، والمال بدقة تامة في كل المسارات.',
+      en: 'Twenty-three models: orders, tables, staff, takings. Money at exact precision throughout.',
+      ar: '٢٣ نموذج بيانات: طلبات وطاولات وموظفون وحصيلة. والمال بدقة تامة.',
     },
     source: { en: 'Firuze', ar: 'فيروز' },
     role: { en: 'Hospitality', ar: 'ضيافة' },
@@ -65,8 +65,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'cleveland-access',
     quote: {
-      en: 'Clinical records, document storage and billing, separated by role so each member of staff sees only what their work requires.',
-      ar: 'سجلات سريرية وتخزين مستندات وفوترة، مفصولة حسب الدور فلا يرى الموظف إلا ما يقتضيه عمله.',
+      en: 'Records, documents and billing separated by role. Each person sees only their work.',
+      ar: 'سجلات ومستندات وفوترة مفصولة حسب الدور. كلٌّ يرى عمله فقط.',
     },
     source: { en: 'Cleveland Medicals', ar: 'كليفلاند ميديكالز' },
     role: { en: 'Healthcare', ar: 'رعاية صحية' },
@@ -75,8 +75,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'babunec-inventory',
     quote: {
-      en: 'Package discovery, availability and booking, with an operator back office that answers what is left and at what price.',
-      ar: 'اكتشاف الباقات والتوفّر والحجز، مع مكتب خلفي يجيب عمّا تبقّى وبأي سعر.',
+      en: 'Discovery, availability and booking, with a back office that answers what is left.',
+      ar: 'اكتشاف وتوفّر وحجز، مع مكتب خلفي يجيب عمّا تبقّى.',
     },
     source: { en: 'Babunec Travel', ar: 'بابونيك للسفر' },
     role: { en: 'Travel', ar: 'سفر' },
@@ -85,8 +85,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'cafe-speed',
     quote: {
-      en: 'A bilingual ordering front that opens instantly on a weak mobile connection and is updated without touching code.',
-      ar: 'واجهة طلبات ثنائية اللغة تفتح فوراً على اتصال موبايل ضعيف وتُحدَّث دون لمس الكود.',
+      en: 'Bilingual, instant on a weak connection, updated without touching code.',
+      ar: 'واجهة طلبات ثنائية اللغة، فورية على اتصال ضعيف، تُحدَّث دون لمس الكود.',
     },
     source: { en: 'Cafe Albaraa', ar: 'كافيه البراء' },
     role: { en: 'Food service', ar: 'خدمات غذائية' },
@@ -95,8 +95,8 @@ export const outcomes: Outcome[] = [
   {
     id: 'demos-open',
     quote: {
-      en: 'Every system on this page has a running demonstration on illustrative data. Open one and use it before you speak to us.',
-      ar: 'كل نظام في هذه الصفحة له نسخة تجريبية تعمل على بيانات توضيحية. افتح واحدة واستخدمها قبل أن تكلّمنا.',
+      en: 'Every system here has an open demonstration. Use one before you speak to us.',
+      ar: 'كل نظام هنا له نسخة مفتوحة. استخدم واحدة قبل أن تكلّمنا.',
     },
     source: { en: 'Codeoura', ar: 'كوديورا' },
     role: { en: 'Seven live demonstrations', ar: 'سبع نسخ تجريبية' },

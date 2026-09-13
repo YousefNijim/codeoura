@@ -31,11 +31,11 @@
     "home": "Home"
   },
   "hero": {
-    "titleLead": "We don't show you our work.",
+    "titleLead": "We don't show our work.",
     "titleAccent": "We hand you the keys.",
-    "subtitle": "Codeoura builds and operates enterprise software across six industries. Every system on this page runs in production, and every one has a demonstration you can open and use right now — no sign-up, no call booked.",
+    "subtitle": "Seven systems in production, each with an open demonstration. Try one before you ask.",
     "primaryCta": "Start here",
-    "badge": "Seven systems running today"
+    "badge": "7 systems running now"
   },
   "services": {
     "eyebrow": "Services",
@@ -80,16 +80,16 @@
     "subtitle": "We select our technologies on the basis of maturity, reliability and long-term support. This is the stack we operate in production, and the one in which we hold the depth of experience required to guarantee stability and scale."
   },
   "about": {
-    "eyebrow": "About us",
+    "eyebrow": "About",
     "title": "An engineering studio, not a delivery agency",
-    "subtitle": "We take a system from its first architectural decision through to its production environment, and stay with it after handover. What distinguishes what we build is not how it looks on launch day, but what it costs to extend a year later and how readily a new engineer can read it.",
+    "subtitle": "From the first architectural decision to the production environment. We stay with the system after handover.",
     "processTitle": "How we work",
     "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress.",
     "stats": {
       "systems": "Systems in production",
-      "sectors": "Industries served",
+      "sectors": "Industries",
       "support": "Monitoring and alerting",
-      "typed": "Typed end to end"
+      "typed": "Type coverage"
     }
   },
   "contact": {
@@ -128,13 +128,13 @@
     "direct": "Direct contact"
   },
   "footer": {
-    "description": "Codeoura builds and operates enterprise web, mobile and SaaS systems. Seven of them run in production across six industries.",
+    "description": "Enterprise web, mobile and SaaS systems. Seven of them in production.",
     "sitemap": "Company",
     "connect": "Contact",
     "copyright": "© {year} Codeoura. All rights reserved.",
     "systems": "Systems",
     "caseStudies": "Case studies",
-    "reply": "We read every message ourselves and reply within one business day."
+    "reply": "We reply within one business day."
   },
   "notFound": {
     "title": "Page not found",
@@ -142,20 +142,20 @@
     "cta": "Return to home"
   },
   "products": {
-    "eyebrow": "Our ecosystem",
-    "title": "Seven systems, seven open demonstrations",
-    "subtitle": "From an online storefront to a clinical platform to a delivery marketplace. Open any card to launch its demonstration in a new tab — entirely illustrative data, with nothing you can break.",
-    "readCases": "Read the full case studies"
+    "eyebrow": "Systems",
+    "title": "Seven systems. Seven open demos.",
+    "subtitle": "Open any card to launch it. Entirely fabricated data.",
+    "readCases": "Case studies"
   },
   "path": {
-    "eyebrow": "Choose your route",
+    "eyebrow": "Your route",
     "title": "Where are you now?",
-    "subtitle": "You do not need all seven. You need the right order for the ones you do. Read the route that matches your situation and begin at its first step."
+    "subtitle": "You don't need all of them. Read the route that matches your situation."
   },
   "ecosystem": {
-    "eyebrow": "Codeoura",
-    "title": "The whole ecosystem in one place",
-    "subtitle": "Every system has an open door. Pick the one that concerns you and walk in.",
+    "eyebrow": "Ecosystem",
+    "title": "Every door on one page",
+    "subtitle": "Pick the one that concerns you.",
     "category": {
       "ecommerce": "E-commerce",
       "erp": "Inventory",
@@ -167,12 +167,12 @@
   },
   "outcomes": {
     "eyebrow": "Results",
-    "title": "What actually changed",
-    "subtitle": "Extracts from the case studies, attributed to the system that produced them. Not courtesy testimonials — outcomes you can verify by opening the demonstration yourself."
+    "title": "What changed",
+    "subtitle": "From the case studies, attributed to the system that produced them."
   },
   "cta": {
-    "title": "Try the systems first, then talk to us",
-    "subtitle": "Open any demonstration above and use it the way a real customer would. When you have decided, write to us with what you need and we will respond within one business day.",
+    "title": "Try it first. Then talk to us.",
+    "subtitle": "We reply within one business day.",
     "action": "Write to us"
   }
 }
