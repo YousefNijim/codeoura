@@ -2,9 +2,8 @@ import { Github, Instagram, Linkedin } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Logo } from './logo';
-import { Container } from '@/components/primitives/container';
 import { company, navigation } from '@/content/company';
-import { services } from '@/content/services';
+import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
@@ -15,70 +14,103 @@ const socialLinks = [
   { key: 'instagram', href: company.social.instagram, Icon: Instagram, label: 'Instagram' },
 ] as const;
 
+/**
+ * A rounded panel inset from the page edge, with the name set enormous behind
+ * the content — a closing mark that costs one text node.
+ */
 export async function Footer() {
   const t = await getTranslations('footer');
   const locale = (await getLocale()) as Locale;
 
   return (
-    <footer className="relative border-t border-border bg-surface">
-      <Container className="py-14 sm:py-20">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <div className="flex flex-col gap-4">
-            <Link href="/" className="w-fit">
-              <Logo size={36} />
-            </Link>
-            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              {t('description')}
-            </p>
-          </div>
+    <footer className="relative overflow-hidden border-t border-stroke bg-page py-[30px] lg:py-10">
+      <div className="relative z-[1] mx-4 overflow-hidden rounded-[24px] border border-card-border bg-card lg:mx-6">
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 z-[1]">
+          <p className="select-none whitespace-nowrap text-center text-[22vw] font-bold leading-[0.75] text-ink opacity-[0.035]">
+            {company.name}
+          </p>
+        </div>
 
-          <FooterColumn title={t('sitemap')}>
-            {navigation.map((item) => (
-              <FooterLink key={item.href} href={item.href}>
-                {pick(item.label, locale)}
-              </FooterLink>
-            ))}
-          </FooterColumn>
+        <div className="page-gutter relative z-10 py-12 lg:min-h-[22rem] lg:py-16">
+          <div className="section-container flex flex-col gap-12 lg:grid lg:grid-cols-[auto_1fr] lg:gap-20">
+            <div className="flex flex-col gap-5 lg:max-w-xs">
+              <Link href="/" className="w-fit">
+                <Logo size={36} />
+              </Link>
+              <p className="text-sm leading-[1.6] text-ink-muted">
+                {t('description')}
+              </p>
+              <div className="flex items-center gap-2">
+                {socialLinks
+                  .filter((item) => item.href)
+                  .map(({ key, href, Icon, label }) => (
+                    <a
+                      key={key}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="rounded-full border border-border-social p-2.5 text-ink-muted transition-colors hover:border-accent/50 hover:text-ink"
+                    >
+                      <Icon className="size-4" aria-hidden />
+                    </a>
+                  ))}
+              </div>
+            </div>
 
-          <FooterColumn title={t('services')}>
-            {services.map((service) => (
-              <FooterLink key={service.id} href={`/services/${service.slug}`}>
-                {pick(service.title, locale)}
-              </FooterLink>
-            ))}
-          </FooterColumn>
-
-          <FooterColumn title={t('connect')}>
-            <a
-              href={`mailto:${company.email}`}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {company.email}
-            </a>
-            <div className="mt-2 flex items-center gap-2">
-              {socialLinks
-                .filter((item) => item.href)
-                .map(({ key, href, Icon, label }) => (
+            <div className="grid gap-10 sm:grid-cols-3">
+              <FooterColumn title={t('systems')}>
+                {projects.map((project) => (
                   <a
-                    key={key}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                    key={project.slug}
+                    href={project.demo?.href ?? '#products'}
+                    target={project.demo ? '_blank' : undefined}
+                    rel={project.demo ? 'noopener noreferrer' : undefined}
+                    className="text-sm text-ink-muted transition-colors hover:text-accent"
                   >
-                    <Icon className="size-4" aria-hidden />
+                    {pick(project.name, locale)}
                   </a>
                 ))}
-            </div>
-          </FooterColumn>
-        </div>
+              </FooterColumn>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>{t('copyright', { year: new Date().getFullYear() })}</p>
-          <p>{t('builtWith')}</p>
+              <FooterColumn title={t('sitemap')}>
+                {navigation.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm text-ink-muted transition-colors hover:text-accent"
+                  >
+                    {pick(item.label, locale)}
+                  </Link>
+                ))}
+                <Link
+                  href="/work"
+                  className="text-sm text-ink-muted transition-colors hover:text-accent"
+                >
+                  {t('caseStudies')}
+                </Link>
+              </FooterColumn>
+
+              <FooterColumn title={t('connect')}>
+                <a
+                  href={`mailto:${company.email}`}
+                  dir="ltr"
+                  className="text-sm text-ink-muted transition-colors hover:text-accent"
+                >
+                  {company.email}
+                </a>
+                <p className="text-sm leading-[1.6] text-ink-muted">
+                  {t('reply')}
+                </p>
+              </FooterColumn>
+            </div>
+          </div>
+
+          <div className="section-container mt-12 border-t border-stroke pt-6 text-center text-xs text-ink-muted">
+            {t('copyright', { year: new Date().getFullYear() })}
+          </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }
@@ -92,27 +124,8 @@ function FooterColumn({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-foreground/70">
-        {title}
-      </h3>
+      <h3 className="text-sm font-medium text-ink">{title}</h3>
       <div className="flex flex-col gap-2.5">{children}</div>
     </div>
-  );
-}
-
-function FooterLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-    >
-      {children}
-    </Link>
   );
 }

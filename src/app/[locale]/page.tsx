@@ -1,12 +1,18 @@
 import { setRequestLocale } from 'next-intl/server';
 
 import { AboutSection } from '@/components/sections/about-section';
-import { ContactSection } from '@/components/sections/contact-section';
+import { CtaSection } from '@/components/sections/cta-section';
+import { EcosystemSection } from '@/components/sections/ecosystem-section';
 import { Hero } from '@/components/sections/hero';
-import { ServicesSection } from '@/components/sections/services-section';
-import { StackSection } from '@/components/sections/stack-section';
-import { WorkSection } from '@/components/sections/work-section';
+import { OutcomesSection } from '@/components/sections/outcomes-section';
+import { PathSection } from '@/components/sections/path-section';
+import { ProductsSection } from '@/components/sections/products-section';
 import { OrganizationJsonLd } from '@/components/seo/json-ld';
+import { routing } from '@/i18n/routing';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function HomePage({
   params,
@@ -20,11 +26,12 @@ export default async function HomePage({
     <>
       <OrganizationJsonLd />
       <Hero />
-      <ServicesSection />
-      <WorkSection />
-      <StackSection />
       <AboutSection />
-      <ContactSection />
+      <ProductsSection />
+      <PathSection />
+      <EcosystemSection />
+      <OutcomesSection />
+      <CtaSection />
     </>
   );
 }

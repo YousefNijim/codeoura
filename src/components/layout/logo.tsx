@@ -11,10 +11,13 @@ export function Logo({
   className,
   showWordmark = true,
   size = 32,
+  dark = false,
 }: {
   className?: string;
   showWordmark?: boolean;
   size?: number;
+  /** Forces the wordmark light, for use inside the always-dark nav shell. */
+  dark?: boolean;
 }) {
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
@@ -27,7 +30,12 @@ export function Logo({
         sizes={`${Math.round(size * LOGO_RATIO)}px`}
       />
       {showWordmark && (
-        <span className="text-[15px] font-semibold tracking-tight">
+        <span
+          className={cn(
+            'text-[15px] font-semibold tracking-tight',
+            dark && 'text-nav-ink',
+          )}
+        >
           {company.name}
         </span>
       )}

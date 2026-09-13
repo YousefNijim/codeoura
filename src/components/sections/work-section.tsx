@@ -15,15 +15,14 @@ export async function WorkSection() {
         eyebrow={t('eyebrow')}
         title={t('title')}
         subtitle={t('subtitle')}
-        aside={
-          <Link
-            href="/work"
-            className="w-fit border-b border-primary pb-1 text-sm font-medium text-primary transition-colors hover:border-foreground hover:text-foreground"
-          >
-            {t('viewAll')}
-          </Link>
-        }
-      />
+      >
+        <Link
+          href="/work"
+          className="w-fit text-sm font-medium text-accent underline-offset-8 hover:underline"
+        >
+          {t('viewAll')}
+        </Link>
+      </SectionHeading>
 
       <Reveal className="mt-16">
         <FeaturedProjects />

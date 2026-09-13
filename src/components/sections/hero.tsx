@@ -1,47 +1,28 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-import { Container } from '@/components/primitives/container';
-import { Reveal } from '@/components/primitives/reveal';
-import { company } from '@/content/company';
+import { Animate } from '@/components/primitives/animate';
+import { BrandButton } from '@/components/primitives/brand-button';
 import { projects } from '@/content/projects';
-import { Link } from '@/i18n/navigation';
+import type { Locale } from '@/i18n/routing';
 import { asset } from '@/lib/asset';
+import { pick } from '@/lib/localized';
 
-/**
- * The opening spread.
- *
- * The statement, the standfirst indented into the far half of the measure, and
- * the facts set as a ruled table along the foot. Nothing is centred, nothing is
- * boxed, and nothing stands above the headline.
- */
 export async function Hero() {
   const t = await getTranslations('hero');
-
-  // Derived from the content layer, so the numbers can never drift from reality.
-  const industries = new Set(projects.map((project) => project.category)).size;
-
-  const facts = [
-    { value: `${projects.length}`, label: t('stats.projects') },
-    { value: `${industries}`, label: t('stats.domains') },
-    { value: `${company.founded}`, label: t('stats.since') },
-  ];
+  const locale = (await getLocale()) as Locale;
 
   return (
-    <section className="relative overflow-hidden">
-      {/* The brand mark behind the copy, on the side opposite the text.
-          Rendered as a mask rather than an <img> so it takes the theme's own
-          metal in either mode instead of importing the logo's blue into a
-          palette that has none. Low opacity: texture, not a second thing to
-          read. On phones it drops to the bottom corner, clear of the copy. */}
+    <section
+      id="hero"
+      className="relative flex min-h-[86svh] flex-col overflow-hidden pt-[120px] lg:min-h-[92svh] lg:pt-32"
+    >
+      {/* The brand mark, held behind the copy as texture. Masked rather than
+          placed as an image, so it takes the brand colour in either theme. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -z-10 opacity-[0.07] dark:opacity-[0.085]
-                   -end-16 bottom-4 h-[17rem] w-[13rem]
-                   sm:bottom-auto sm:top-1/2 sm:-end-10 sm:h-[34rem] sm:w-[27rem]
-                   sm:-translate-y-1/2 sm:opacity-[0.05] sm:dark:opacity-[0.06]
-                   lg:end-[7%] lg:h-[38rem] lg:w-[30rem]"
+        className="pointer-events-none absolute -end-20 top-1/2 -z-10 h-[26rem] w-[20rem] -translate-y-1/2 opacity-[0.06] lg:end-[4%] lg:h-[40rem] lg:w-[31rem]"
         style={{
-          backgroundColor: 'var(--primary)',
+          backgroundColor: 'var(--accent)',
           maskImage: `url(${asset('/brand/mark-mask.png')})`,
           WebkitMaskImage: `url(${asset('/brand/mark-mask.png')})`,
           maskRepeat: 'no-repeat',
@@ -53,64 +34,61 @@ export async function Hero() {
         }}
       />
 
-      <Container className="flex min-h-[92svh] flex-col justify-center gap-20 pb-14 pt-32 sm:gap-24 sm:pb-16 sm:pt-36">
-        <div className="flex flex-col gap-12">
-          <Reveal delay={0.05}>
-            {/* Set to a measure, not to the container, so the lines break where
-                the sentence wants to break. */}
-            <h1 className="max-w-[16ch] text-[length:var(--text-display-lg)]">
+      <div className="page-gutter flex flex-1 flex-col justify-center">
+        <div className="section-container flex flex-col items-center gap-6 py-16 text-center lg:gap-8">
+          <Animate name="fadeInDown" seq={0}>
+            <span className="inline-flex h-[22px] items-center rounded-[32px] border-b border-brand-from bg-accent-light px-3 text-[10px] backdrop-blur-[5.5px] lg:h-8 lg:px-4 lg:text-sm">
+              <span className="text-gradient-brand font-medium">
+                {t('badge')}
+              </span>
+            </span>
+          </Animate>
+
+          <Animate name="fadeInUp" seq={1} as="h1">
+            <span className="block max-w-[20ch] text-[32px] leading-[1.15] lg:text-[64px] lg:leading-[1.1]">
               {t('titleLead')}{' '}
-              <span className="text-primary">{t('titleAccent')}</span>
-            </h1>
-          </Reveal>
+              <span className="text-gradient-brand">{t('titleAccent')}</span>
+            </span>
+          </Animate>
 
-          {/* The standfirst is indented into the far half of the measure, the
-              way an opening paragraph sits under a headline in print. */}
-          <Reveal delay={0.1}>
-            <div className="grid gap-8 sm:grid-cols-12">
-              <div className="sm:col-span-7 sm:col-start-6">
-                <p className="text-[1.0625rem] leading-[1.75] text-muted-foreground sm:text-lg">
-                  {t('subtitle')}
-                </p>
-                <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
-                  <Link
-                    href="/#contact"
-                    className="border-b border-primary pb-1 text-sm font-medium text-primary transition-colors hover:border-foreground hover:text-foreground"
-                  >
-                    {t('primaryCta')}
-                  </Link>
-                  <Link
-                    href="/work"
-                    className="border-b border-transparent pb-1 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-                  >
-                    {t('secondaryCta')}
-                  </Link>
-                </div>
-              </div>
+          <Animate name="fadeInUp" seq={2} as="p">
+            <span className="mx-auto block max-w-[606px] text-sm leading-[1.6] text-ink-muted lg:text-base">
+              {t('subtitle')}
+            </span>
+          </Animate>
+
+          {/* Kept LTR so the ornament, button and ornament keep their order in
+              both directions — the row is a composition, not a sentence. */}
+          <Animate name="zoomIn" seq={3}>
+            <div dir="ltr" className="flex items-center gap-3 lg:gap-5">
+              <span aria-hidden className="hidden h-px w-16 bg-gradient-to-r from-transparent to-brand-from sm:block lg:w-24" />
+              <BrandButton href="#cta">{t('primaryCta')}</BrandButton>
+              <span aria-hidden className="hidden h-px w-16 bg-gradient-to-l from-transparent to-brand-to sm:block lg:w-24" />
             </div>
-          </Reveal>
+          </Animate>
         </div>
+      </div>
 
-        {/* Foot: the facts as a ruled table. A figure beside its label, rather
-            than three oversized numbers in a row. */}
-        <Reveal delay={0.15}>
-          <dl className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
-            {facts.map((fact) => (
-              <div
-                key={fact.label}
-                className="flex items-baseline gap-3 border-b border-border py-3.5 sm:border-b-0 sm:border-e sm:pe-6 sm:last:border-e-0"
-              >
-                <dt className="order-2 text-sm text-muted-foreground">
-                  {fact.label}
-                </dt>
-                <dd className="order-1 font-mono text-sm text-primary">
-                  {fact.value}
-                </dd>
+      {/* Product wordmarks, looping. Every name here is a system that is live
+          and has an open demonstration, so the strip is evidence, not decor. */}
+      <div className="page-gutter pb-10 lg:pb-14">
+        <div className="section-container marquee-viewport" style={{ ['--duration' as string]: '38s' }}>
+          <div className="marquee-inner flex w-max items-center">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
+                {projects.map((project) => (
+                  <div key={`${copy}-${project.slug}`} className="flex items-center">
+                    <span className="whitespace-nowrap px-5 text-sm text-ink-muted lg:px-7 lg:text-base">
+                      {pick(project.name, locale)}
+                    </span>
+                    <span aria-hidden className="h-6 w-px bg-stroke" />
+                  </div>
+                ))}
               </div>
             ))}
-          </dl>
-        </Reveal>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -2,64 +2,40 @@ import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Amiri, Fraunces, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google';
+import { Geist_Mono, Noto_Kufi_Arabic } from 'next/font/google';
 
 import '../globals.css';
 
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { MotionProvider } from '@/components/motion-provider';
+import { RevealObserver } from '@/components/primitives/reveal-observer';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { company } from '@/content/company';
 import { localeDirection, routing, type Locale } from '@/i18n/routing';
 
-const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
-  display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-  display: 'swap',
-});
-
 /**
- * خطا العرض.
+ * One family across both languages.
  *
- * Fraunces سيريف متغيّر بحجم بصري، وAmiri نسخ كلاسيكي — يتجانسان في الطابع
- * القديم، فلا تبدو الصفحة علامتين مختلفتين بين لغة وأخرى. يُستخدمان في
- * العناوين فقط: تباينهما العالي يضرّ القراءة في حجم النص العادي.
+ * Noto Kufi Arabic carries a full Latin set of matching proportion, so an
+ * Arabic page and an English page read as the same brand rather than as two
+ * typographic systems bolted together.
  */
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  axes: ['SOFT', 'WONK', 'opsz'],
-});
-
-const amiri = Amiri({
-  subsets: ['arabic'],
-  weight: ['400', '700'],
-  variable: '--font-amiri',
-  display: 'swap',
-});
-
-const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-plex-arabic',
+const kufi = Noto_Kufi_Arabic({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-kufi',
   display: 'swap',
 });
 
 /** يطابق basePath في next.config.ts؛ فارغ عند النشر على جذر نطاق. */
 const basePath = process.env.BASE_PATH ?? '';
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -132,9 +108,9 @@ export default async function LocaleLayout({
       lang={locale}
       dir={localeDirection[locale as Locale]}
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable} ${fraunces.variable} ${amiri.variable}`}
+      className={`${kufi.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-dvh bg-background text-foreground">
+      <body className="min-h-dvh bg-page text-ink">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -145,10 +121,11 @@ export default async function LocaleLayout({
             <MotionProvider>
               <a
                 href="#main"
-                className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-accent-foreground"
+                className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"
               >
                 {t('skipToContent')}
               </a>
+              <RevealObserver />
               <Header />
               <main id="main">{children}</main>
               <Footer />

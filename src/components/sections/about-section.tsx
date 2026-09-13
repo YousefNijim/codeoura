@@ -1,9 +1,9 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { Reveal } from '@/components/primitives/reveal';
-import { Section } from '@/components/primitives/section';
-import { SectionHeading } from '@/components/primitives/section-heading';
-import { principles, processSteps } from '@/content/company';
+import { Animate } from '@/components/primitives/animate';
+import { ProjectCover } from '@/components/primitives/project-cover';
+import { principles } from '@/content/company';
+import { featuredProjects } from '@/content/projects';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
@@ -11,62 +11,87 @@ export async function AboutSection() {
   const t = await getTranslations('about');
   const locale = (await getLocale()) as Locale;
 
+  const stats = [
+    { value: '7', label: t('stats.systems') },
+    { value: '6', label: t('stats.sectors') },
+    { value: '24/7', label: t('stats.support') },
+    { value: '100%', label: t('stats.typed') },
+  ];
+
+  // The lead project stands in as the section's illustration: a real screen
+  // from a real system, rather than an image bought to fill the column.
+  const showcase = featuredProjects[0];
+
   return (
-    <Section id="about">
-      <SectionHeading
-        eyebrow={t('eyebrow')}
-        title={t('title')}
-        subtitle={t('subtitle')}
-      />
-
-      {/* The principles read as a numbered argument, one after another, rather
-          than as four interchangeable tiles. */}
-      <ul className="mt-16">
-        {principles.map((principle, index) => (
-          <Reveal as="li" key={principle.title.en} delay={index * 0.04}>
-            <div className="grid gap-4 border-t border-border py-8 sm:grid-cols-12 sm:gap-8">
-              <span className="font-mono text-xs text-primary sm:col-span-1 sm:pt-1.5">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="text-xl leading-snug sm:col-span-4">
-                {pick(principle.title, locale)}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:col-span-7">
-                {pick(principle.description, locale)}
-              </p>
+    <section id="about" className="section-pad relative overflow-hidden">
+      <div className="page-gutter">
+        <div className="section-container flex flex-col gap-[30px] lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
+          <Animate name="fadeInLeft" seq={0} className="order-1">
+            <div className="overflow-hidden rounded-2xl border border-card-border">
+              <ProjectCover
+                project={showcase}
+                label={pick(showcase.name, locale)}
+                priority
+              />
             </div>
-          </Reveal>
-        ))}
-      </ul>
-      <div className="border-t border-border" />
+          </Animate>
 
-      <div className="mt-28">
-        <SectionHeading
-          title={t('processTitle')}
-          subtitle={t('processSubtitle')}
-        />
-
-        {/* Four stages on one horizontal rule: the sequence is the point, so
-            they are read across, not down a column of cards. */}
-        <ol className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((step, index) => (
-            <li
-              key={step.title.en}
-              className="flex flex-col gap-3 border-t border-border pt-5"
-            >
-              <span className="font-mono text-xs text-primary">
-                {String(index + 1).padStart(2, '0')}
+          <div className="order-2 flex flex-col">
+            <Animate name="fadeInUp" seq={0} as="p" className="mb-5">
+              <span className="text-gradient-brand inline-flex items-center gap-2 text-base font-medium lg:text-xl">
+                {t('eyebrow')}
+                <span aria-hidden>↗</span>
               </span>
-              <h3 className="text-lg leading-snug">
-                {pick(step.title, locale)}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {pick(step.description, locale)}
-              </p>
-            </li>
-          ))}
-        </ol>
+            </Animate>
+
+            <Animate name="fadeInUp" seq={1} as="h2" className="mb-6">
+              <span className="block text-[26px] leading-[1.2] lg:text-[30px]">
+                {t('title')}
+              </span>
+            </Animate>
+
+            <Animate name="fadeInUp" seq={2} as="p" className="mb-9">
+              <span className="block text-sm leading-[1.6] text-ink-muted lg:text-base">
+                {t('subtitle')}
+              </span>
+            </Animate>
+
+            <div aria-hidden className="rule-brand mb-9" />
+
+            <dl className="mb-9 grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <Animate key={stat.label} name="fadeInUp" seq={index}>
+                  <div className="flex flex-col gap-1">
+                    <dd className="text-gradient-brand text-3xl font-bold lg:text-4xl">
+                      {stat.value}
+                    </dd>
+                    <dt className="text-xs text-ink-muted lg:text-sm">
+                      {stat.label}
+                    </dt>
+                  </div>
+                </Animate>
+              ))}
+            </dl>
+
+            <Animate name="fadeInUp" seq={3}>
+              <ul className="flex flex-col gap-3">
+                {principles.map((principle) => (
+                  <li
+                    key={principle.title.en}
+                    className="flex items-start gap-3 text-sm text-ink-secondary"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-2 h-px w-3 shrink-0 bg-gradient-brand"
+                    />
+                    {pick(principle.title, locale)}
+                  </li>
+                ))}
+              </ul>
+            </Animate>
+          </div>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

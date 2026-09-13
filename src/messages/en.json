@@ -31,16 +31,11 @@
     "home": "Home"
   },
   "hero": {
-    "titleLead": "Software systems",
-    "titleAccent": "built to endure",
-    "subtitle": "We design and build enterprise web platforms, cross-platform mobile applications and custom SaaS systems, with an engineering approach that places architecture, performance and maintainability at the centre of every decision. Seven of our systems run in production today across six industries, and you are welcome to try any of them.",
-    "primaryCta": "Start a project",
-    "secondaryCta": "View our work",
-    "stats": {
-      "projects": "Systems in production",
-      "domains": "Industries served",
-      "since": "Working since"
-    }
+    "titleLead": "We don't show you our work.",
+    "titleAccent": "We hand you the keys.",
+    "subtitle": "Codeoura builds and operates enterprise software across six industries. Every system on this page runs in production, and every one has a demonstration you can open and use right now — no sign-up, no call booked.",
+    "primaryCta": "Start here",
+    "badge": "Seven systems running today"
   },
   "services": {
     "eyebrow": "Services",
@@ -85,11 +80,17 @@
     "subtitle": "We select our technologies on the basis of maturity, reliability and long-term support. This is the stack we operate in production, and the one in which we hold the depth of experience required to guarantee stability and scale."
   },
   "about": {
-    "eyebrow": "Our approach",
-    "title": "Engineering discipline at every stage",
-    "subtitle": "The value of a system is not evident at launch. It shows in how readily it can be extended a year later, how clearly it reads to the engineer who inherits it, and how steadily it performs under growing load. These are the standards we hold from the first line onward.",
+    "eyebrow": "About us",
+    "title": "An engineering studio, not a delivery agency",
+    "subtitle": "We take a system from its first architectural decision through to its production environment, and stay with it after handover. What distinguishes what we build is not how it looks on launch day, but what it costs to extend a year later and how readily a new engineer can read it.",
     "processTitle": "How we work",
-    "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress."
+    "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress.",
+    "stats": {
+      "systems": "Systems in production",
+      "sectors": "Industries served",
+      "support": "Monitoring and alerting",
+      "typed": "Typed end to end"
+    }
   },
   "contact": {
     "eyebrow": "Get in touch",
@@ -127,16 +128,51 @@
     "direct": "Direct contact"
   },
   "footer": {
-    "description": "A software engineering studio specialising in enterprise web, mobile and SaaS systems.",
-    "sitemap": "Navigate",
-    "services": "Services",
-    "connect": "Connect",
+    "description": "Codeoura builds and operates enterprise web, mobile and SaaS systems. Seven of them run in production across six industries.",
+    "sitemap": "Company",
+    "connect": "Contact",
     "copyright": "© {year} Codeoura. All rights reserved.",
-    "builtWith": "Built with Next.js and served from the edge."
+    "systems": "Systems",
+    "caseStudies": "Case studies",
+    "reply": "We read every message ourselves and reply within one business day."
   },
   "notFound": {
     "title": "Page not found",
     "description": "The page you are looking for is not available or has been moved.",
     "cta": "Return to home"
+  },
+  "products": {
+    "eyebrow": "Our ecosystem",
+    "title": "Seven systems, seven open demonstrations",
+    "subtitle": "From an online storefront to a clinical platform to a delivery marketplace. Open any card to launch its demonstration in a new tab — entirely illustrative data, with nothing you can break.",
+    "readCases": "Read the full case studies"
+  },
+  "path": {
+    "eyebrow": "Choose your route",
+    "title": "Where are you now?",
+    "subtitle": "You do not need all seven. You need the right order for the ones you do. Read the route that matches your situation and begin at its first step."
+  },
+  "ecosystem": {
+    "eyebrow": "Codeoura",
+    "title": "The whole ecosystem in one place",
+    "subtitle": "Every system has an open door. Pick the one that concerns you and walk in.",
+    "category": {
+      "ecommerce": "E-commerce",
+      "erp": "Inventory",
+      "logistics": "Logistics",
+      "travel": "Travel",
+      "hospitality": "Hospitality",
+      "healthcare": "Healthcare"
+    }
+  },
+  "outcomes": {
+    "eyebrow": "Results",
+    "title": "What actually changed",
+    "subtitle": "Extracts from the case studies, attributed to the system that produced them. Not courtesy testimonials — outcomes you can verify by opening the demonstration yourself."
+  },
+  "cta": {
+    "title": "Try the systems first, then talk to us",
+    "subtitle": "Open any demonstration above and use it the way a real customer would. When you have decided, write to us with what you need and we will respond within one business day.",
+    "action": "Write to us"
   }
 }

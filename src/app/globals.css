@@ -4,189 +4,189 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ────────────────────────────────────────────────────────────────────────────
-   Design tokens — "Ink & Champagne"
+   Design tokens
 
-   OKLCH throughout, so an opacity reads perceptually the same in both themes.
+   Every colour is declared once on :root and only overridden inside .dark, so
+   switching themes is a single class on <html> and nothing else.
 
-   A warm ink ground and a single metallic, and nothing else. No second hue,
-   no glow, no gradient: emphasis is carried by the metal in type and by the
-   one filled button per screen.
+   The navigation shell stays dark in both themes on purpose: it is the one
+   fixed element on screen, and keeping it constant gives the page a stable
+   identity as the ground changes underneath it.
    ──────────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: oklch(0.982 0.006 85);
-  --foreground: oklch(0.175 0.012 55);
-  --card: oklch(0.997 0.003 85);
-  --card-foreground: oklch(0.175 0.012 55);
-  --popover: oklch(0.997 0.003 85);
-  --popover-foreground: oklch(0.175 0.012 55);
+  /* Surfaces */
+  --page: #ffffff;
+  --panel: #ffffff;
+  --panel-alt: #f1f5f9;
+  --card: #ffffff;
+  --overlay: #ffffffd9;
+  --card-glass: #ffffff99;
 
-  /* Darkened on paper so the metal still clears AA against a light ground */
-  --primary: oklch(0.475 0.072 68);
-  --primary-foreground: oklch(0.985 0.005 85);
-  --accent: oklch(0.455 0.082 62);
-  --accent-foreground: oklch(0.985 0.005 85);
+  /* Text */
+  --ink: #02081b;
+  --ink-secondary: #4b5b6e;
+  --ink-muted: #64748b;
+  --ink-lighter: #64748b;
+  --ink-faint: #94a3b8;
 
-  --muted: oklch(0.955 0.006 80);
-  --muted-foreground: oklch(0.47 0.018 60);
-  --destructive: oklch(0.52 0.19 27);
-  --destructive-foreground: oklch(0.985 0 0);
+  /* Borders */
+  --stroke: #91a3ba33;
+  --stroke-light: #91a3ba1f;
+  --card-border: #91a3ba33;
 
-  --border: oklch(0.175 0.012 55 / 11%);
-  --input: oklch(0.175 0.012 55 / 15%);
-  --ring: oklch(0.475 0.072 68);
+  /* Brand */
+  --accent: #00bf77;
+  --accent-light: #27cd271a;
+  --brand-from: #00bf77;
+  --brand-to: #27cd27;
 
-  --surface: oklch(0.966 0.008 84);
-  --hairline: oklch(0.175 0.012 55 / 9%);
+  /* Navigation shell — dark in both themes */
+  --nav-ink: #ffffff;
+  --nav-border: transparent;
+  --nav-shell: #02081b;
+  --border-social: #213239;
 
-  --radius: 0.125rem;
+  /* Path rail */
+  --path-rail-dot: #91a3ba73;
+  --path-rail-line: #91a3ba59;
+  --path-rail-dot-active: #00bf77;
+  --path-rail-line-active: #00bf77;
+
+  --radius: 1rem;
 }
 
 .dark {
-  --background: oklch(0.138 0.007 62);
-  --foreground: oklch(0.958 0.008 82);
-  --card: oklch(0.176 0.009 64);
-  --card-foreground: oklch(0.958 0.008 82);
-  --popover: oklch(0.176 0.009 64);
-  --popover-foreground: oklch(0.958 0.008 82);
+  --page: #02081b;
+  --panel: #ffffff08;
+  --panel-alt: #ffffff0d;
+  --card: #0a1422;
+  --overlay: #010a12b3;
+  --card-glass: #01131d66;
 
-  --primary: oklch(0.825 0.085 85);
-  --primary-foreground: oklch(0.138 0.007 62);
-  --accent: oklch(0.805 0.098 78);
-  --accent-foreground: oklch(0.138 0.007 62);
+  --ink: #ffffff;
+  --ink-secondary: #dae0e0;
+  --ink-muted: #94a3b8;
+  --ink-lighter: #64748b;
+  --ink-faint: #475569;
 
-  --muted: oklch(0.228 0.009 64);
-  --muted-foreground: oklch(0.672 0.016 72);
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.97 0 0);
+  --stroke: #ffffff1a;
+  --stroke-light: #ffffff0d;
+  --card-border: #ffffff1a;
 
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.825 0.085 85);
+  --accent: #27cd27;
+  --brand-from: #00bf77;
+  --brand-to: #27cd27;
 
-  --surface: oklch(0.166 0.008 63);
-  --hairline: oklch(1 0 0 / 7%);
+  --nav-border: #ffffff1f;
+  --nav-shell: #0a142266;
+  --border-social: #ffffff1f;
+
+  --path-rail-dot: #ffffff47;
+  --path-rail-line: #ffffff33;
+  --path-rail-line-active: #27cd27;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-panel-alt: var(--panel-alt);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-surface: var(--surface);
-  --color-hairline: var(--hairline);
+  --color-overlay: var(--overlay);
+  --color-card-glass: var(--card-glass);
 
-  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
-  --font-arabic: var(--font-plex-arabic), var(--font-geist), sans-serif;
-  --font-arabic-display: var(--font-amiri), var(--font-plex-arabic), serif;
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-lighter: var(--ink-lighter);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-stroke: var(--stroke);
+  --color-stroke-light: var(--stroke-light);
+  --color-card-border: var(--card-border);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-brand-from: var(--brand-from);
+  --color-brand-to: var(--brand-to);
+
+  --color-nav-ink: var(--nav-ink);
+  --color-nav-border: var(--nav-border);
+  --color-nav-shell: var(--nav-shell);
+  --color-border-social: var(--border-social);
+
+  /* Aliases kept so shadcn-derived primitives keep resolving */
+  --color-background: var(--page);
+  --color-foreground: var(--ink);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--accent);
+  --color-primary-foreground: #ffffff;
+  --color-accent-foreground: #ffffff;
+  --color-muted: var(--panel-alt);
+  --color-muted-foreground: var(--ink-muted);
+  --color-destructive: #e5484d;
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--card-border);
+  --color-input: var(--card-border);
+  --color-ring: var(--accent);
+  --color-surface: var(--panel-alt);
+
+  --font-sans: var(--font-kufi), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-kufi), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 10px);
-
-  /* Fluid display scale — no breakpoint jumps. Larger than the sans-only
-     scale it replaces: a serif needs the size to show its drawing. */
-  --text-display-sm: clamp(2.25rem, 1.5rem + 3.4vw, 3.5rem);
-  --text-display-md: clamp(2.75rem, 1.5rem + 5.4vw, 5.25rem);
-  --text-display-lg: clamp(3.25rem, 1.6rem + 7vw, 6.75rem);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1rem;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
+  --ease-reveal: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @layer base {
   * {
-    border-color: var(--border);
+    border-color: var(--card-border);
   }
 
   html {
     scroll-behavior: smooth;
-    /* Header height + breathing room, so anchors don't land under the nav */
-    scroll-padding-top: 6rem;
+    /* Floating navbar height plus its top offset */
+    scroll-padding-top: 7.5rem;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--page);
+    color: var(--ink);
     font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    /* Direction-aware motion: slide-ins travel the correct way in Arabic */
-    --motion-dir: 1;
   }
 
-  [dir='rtl'] body {
-    font-family: var(--font-arabic);
-    --motion-dir: -1;
-  }
-
-  /* Display type.
-     The serif is the single loudest signal of craft on the page, so it is
-     reserved for headlines and never used at body size, where its contrast
-     hurts reading. Arabic gets a naskh of matching character rather than the
-     body sans — a serif Latin headline beside a sans Arabic one reads as two
-     different brands. */
-  h1, h2, h3 {
-    font-family: var(--font-display);
-    font-weight: 400;
-    /* Almost none. A serif at display size already sets its own rhythm, and
-       the negative tracking that flatters a geometric sans closes the
-       counters here until words read as one run of letters. */
-    letter-spacing: -0.005em;
-    word-spacing: 0.02em;
-    line-height: 1.08;
-    text-wrap: balance;
-  }
-
-  [dir='rtl'] h1,
-  [dir='rtl'] h2,
-  [dir='rtl'] h3 {
-    font-family: var(--font-arabic-display);
+  h1, h2, h3, h4 {
     font-weight: 700;
-    /* Arabic letterforms connect; negative tracking damages them */
-    letter-spacing: 0;
-    line-height: 1.45;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
 
-  h4, h5, h6 {
-    font-weight: 600;
-    letter-spacing: -0.01em;
+  h3, h4 {
+    font-weight: 500;
+    letter-spacing: -0.2px;
   }
 
-  p {
-    text-wrap: pretty;
-  }
-
-  /* Visible, consistent focus everywhere — never removed, only restyled */
   :focus-visible {
-    outline: 2px solid var(--ring);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 3px;
+    border-radius: 4px;
   }
 
   ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    background: var(--brand-to);
+    color: #ffffff;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -202,30 +202,249 @@
 }
 
 @layer components {
-  /* A hairline that fades at both ends, rather than stopping dead. Used to
-     separate sections without drawing a hard line across the page. */
-  .rule-fade {
+  /* ── Layout ─────────────────────────────────────────────────────────── */
+  .page-gutter {
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .page-gutter { padding-inline: 3.75rem; }
+  }
+
+  .section-container {
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  .section-pad {
+    padding-block: 1.875rem;
+  }
+  @media (min-width: 1024px) {
+    .section-pad { padding-block: 4.375rem; }
+  }
+
+  /* ── Brand gradient ─────────────────────────────────────────────────── */
+  .text-gradient-brand {
+    background-image: linear-gradient(90deg, var(--brand-from), var(--brand-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(90deg, var(--brand-from), var(--brand-to));
+  }
+
+  /* A rule that carries the brand gradient instead of a flat border colour */
+  .rule-brand {
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--border), transparent);
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--brand-to), transparent);
   }
 
-  /* Small uppercase label above a heading, with a short metal rule. */
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted-foreground);
+  /* ── Product card ───────────────────────────────────────────────────── */
+  /* The artwork is passed per card as inline custom properties, so the image
+     follows the theme with no JavaScript and no duplicated markup. */
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--card-bg-light);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    transition: opacity 0.4s var(--ease-out-expo);
+  }
+  .dark .product-card::before {
+    background-image: var(--card-bg-dark);
+    opacity: 0.35;
+  }
+  .product-card:hover::before {
+    opacity: 0.72;
+  }
+  .dark .product-card:hover::before {
+    opacity: 0.55;
   }
 
-  [dir='rtl'] .eyebrow {
-    font-family: var(--font-arabic);
-    letter-spacing: 0;
-    text-transform: none;
-    font-size: 0.8125rem;
+  .hover-lift {
+    transition: transform 0.3s var(--ease-out-expo), border-color 0.3s;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 0 1px var(--accent-light), 0 18px 40px -24px var(--brand-to);
+  }
+
+  /* ── Path rail ──────────────────────────────────────────────────────── */
+  .path-track-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 8px minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+
+  .path-rail-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.625rem;
+  }
+
+  .path-rail-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+  }
+
+  .path-rail-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--path-rail-dot);
+    box-shadow: 0 0 0 2px var(--page);
+    transition: background-color 0.45s var(--ease-out-expo);
+    flex-shrink: 0;
+  }
+
+  .path-rail-line {
+    width: 1px;
+    flex: 1;
+    background: var(--path-rail-line);
+    transition: background-color 0.45s var(--ease-out-expo);
+  }
+
+  .path-rail-segment.is-active .path-rail-dot {
+    background: var(--path-rail-dot-active);
+  }
+  .path-rail-segment.is-active .path-rail-line {
+    background: var(--path-rail-line-active);
+  }
+
+  /* ── Marquee ────────────────────────────────────────────────────────── */
+  .marquee-viewport {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-inner {
+    animation: marquee var(--duration, 60s) linear infinite;
+  }
+
+  .marquee-inner--reverse {
+    animation-direction: reverse;
+  }
+
+  [dir='rtl'] .marquee-inner {
+    animation-name: marquee-rtl;
+  }
+
+  .marquee-viewport:hover .marquee-inner {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rtl {
+    to { transform: translateX(50%); }
   }
 }
 
+/* ── Reveal on scroll ─────────────────────────────────────────────────────
+   One observer adds .is-visible; the delay comes from --seq so a group of
+   elements enters in sequence without a timer per element. */
+.animated {
+  opacity: 0;
+}
+
+.animated.is-visible {
+  animation-duration: 0.6s;
+  animation-timing-function: var(--ease-reveal);
+  animation-fill-mode: forwards;
+  animation-delay: calc(var(--seq, 0) * 80ms);
+}
+
+.anim-fadeInUp.is-visible { animation-name: fadeInUp; }
+.anim-fadeInDown.is-visible { animation-name: fadeInDown; }
+.anim-fadeInLeft.is-visible { animation-name: fadeInLeft; }
+.anim-fadeInRight.is-visible { animation-name: fadeInRight; }
+.anim-scaleIn.is-visible { animation-name: scaleIn; }
+.anim-zoomIn.is-visible { animation-name: zoomIn; }
+.anim-fadeInScale.is-visible { animation-name: fadeInScale; }
+.anim-rotateIn.is-visible { animation-name: rotateIn; }
+.anim-slideInUp.is-visible { animation-name: slideInUp; }
+.anim-slideInLeft.is-visible { animation-name: slideInLeft; }
+.anim-slideInRight.is-visible { animation-name: slideInRight; }
+.anim-bounceIn.is-visible { animation-name: bounceIn; }
+.anim-flipIn.is-visible { animation-name: flipIn; }
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * -40px)); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * 40px)); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes zoomIn {
+  0% { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes rotateIn {
+  0% { opacity: 0; transform: rotate(-6deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(0) scale(1); }
+}
+@keyframes slideInUp {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * -60px)); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * 60px)); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes flipIn {
+  0% { opacity: 0; transform: perspective(400px) rotateY(-90deg); }
+  100% { opacity: 1; transform: perspective(400px) rotateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated { opacity: 1 !important; animation: none !important; }
+  .marquee-inner { animation: none !important; }
+}
+
+[dir='rtl'] body {
+  --motion-dir: -1;
+}
+
 @utility hairline {
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--stroke-light);
 }

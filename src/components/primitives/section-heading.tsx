@@ -1,44 +1,65 @@
+import { Animate } from './animate';
 import { cn } from '@/lib/utils';
 
 /**
- * A section opening, set on the twelve-column grid.
+ * Section opening: eyebrow, heading, description.
  *
- * The label sits in its own narrow column beside the heading rather than
- * stacked above it and centred, which is what gives the page a spine: every
- * section begins on the same two vertical lines.
+ * Centred by default, with the heading held to a narrower measure than the
+ * block itself so the two never share a ragged edge.
  */
 export function SectionHeading({
   eyebrow,
   title,
   subtitle,
+  align = 'center',
   className,
-  aside,
+  children,
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   subtitle?: string;
+  align?: 'center' | 'start';
   className?: string;
-  /** Optional trailing element, aligned to the foot of the heading. */
-  aside?: React.ReactNode;
+  children?: React.ReactNode;
 }) {
+  const centred = align === 'center';
+
   return (
-    <div className={cn('border-t border-border pt-8', className)}>
-      <div className="grid gap-6 sm:grid-cols-12 sm:gap-8">
-        {eyebrow && (
-          <p className="eyebrow sm:col-span-3 sm:pt-2">{eyebrow}</p>
-        )}
-        <div className={cn('flex flex-col gap-5', eyebrow ? 'sm:col-span-9' : 'sm:col-span-12')}>
-          <h2 className="max-w-[20ch] text-[length:var(--text-display-sm)]">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="max-w-[46ch] text-[1.0625rem] leading-[1.75] text-muted-foreground">
-              {subtitle}
-            </p>
-          )}
-          {aside}
-        </div>
-      </div>
+    <div
+      className={cn(
+        'flex flex-col gap-5',
+        centred && 'mx-auto max-w-[866px] items-center text-center',
+        className,
+      )}
+    >
+      {eyebrow && (
+        <Animate name="fadeInUp" seq={0} as="p">
+          <span className="text-gradient-brand text-base font-medium lg:text-xl">
+            {eyebrow}
+          </span>
+        </Animate>
+      )}
+
+      <Animate name="fadeInUp" seq={1} as="h2">
+        <span className="block text-[26px] leading-[1.2] lg:text-[40px]">
+          {title}
+        </span>
+      </Animate>
+
+      {subtitle && (
+        <Animate name="fadeInUp" seq={2} as="p">
+          <span
+            className={cn(
+              'block text-sm leading-[1.6] text-ink-muted lg:text-base',
+              centred && 'mx-auto max-w-[606px]',
+            )}
+          >
+            {subtitle}
+          </span>
+        </Animate>
+      )}
+
+      {children}
     </div>
   );
 }

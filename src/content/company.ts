@@ -23,11 +23,11 @@ export const company = {
 } as const;
 
 export const navigation: { href: string; label: Localized }[] = [
-  { href: '/#services', label: { en: 'Services', ar: 'الخدمات' } },
-  { href: '/work', label: { en: 'Work', ar: 'أعمالنا' } },
-  { href: '/#stack', label: { en: 'Stack', ar: 'التقنيات' } },
   { href: '/#about', label: { en: 'About', ar: 'من نحن' } },
-  { href: '/#contact', label: { en: 'Contact', ar: 'تواصل' } },
+  { href: '/#products', label: { en: 'Systems', ar: 'الأنظمة' } },
+  { href: '/#path', label: { en: 'Your route', ar: 'مسارك' } },
+  { href: '/#outcomes', label: { en: 'Results', ar: 'النتائج' } },
+  { href: '/#cta', label: { en: 'Contact', ar: 'تواصل' } },
 ];
 
 export const principles: {
