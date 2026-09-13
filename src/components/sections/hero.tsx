@@ -39,7 +39,7 @@ export async function Hero() {
         <div className="absolute inset-x-[-30%] bottom-[-102%] h-[130%] rounded-[100%] border-t-2 border-accent/35" />
         <div className="absolute inset-x-[-48%] bottom-[-110%] h-[130%] rounded-[100%] border-t border-accent/15" />
 
-        <MarkLoop />
+        <MarkLoop className="absolute inset-x-0 top-1/2 mx-auto h-[24rem] w-[40rem] max-w-[108vw] -translate-y-1/2 lg:h-[38rem] lg:w-[66rem]" />
       </div>
 
       <div className="page-gutter flex flex-1 flex-col justify-center">

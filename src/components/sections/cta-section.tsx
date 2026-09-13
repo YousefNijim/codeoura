@@ -2,8 +2,8 @@ import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
 import { BrandButton } from '@/components/primitives/brand-button';
+import { MarkLoop } from '@/components/primitives/mark-loop';
 import { company } from '@/content/company';
-import { asset } from '@/lib/asset';
 import { whatsappLink } from '@/lib/whatsapp';
 
 export async function CtaSection() {
@@ -31,20 +31,9 @@ export async function CtaSection() {
       <div className="page-gutter relative z-10 flex items-center lg:min-h-[534px]">
         <div className="section-container flex w-full flex-col items-center justify-center gap-7 py-12 text-center">
           <Animate name="zoomIn" seq={0}>
-            <span
-              aria-hidden
-              className="block h-[52px] w-[94px]"
-              style={{
-                backgroundColor: 'var(--accent)',
-                maskImage: `url(${asset('/brand/mark-mask.png')})`,
-                WebkitMaskImage: `url(${asset('/brand/mark-mask.png')})`,
-                maskRepeat: 'no-repeat',
-                WebkitMaskRepeat: 'no-repeat',
-                maskPosition: 'center',
-                WebkitMaskPosition: 'center',
-                maskSize: 'contain',
-                WebkitMaskSize: 'contain',
-              }}
+            <MarkLoop
+              variant="solid"
+              className="h-[86px] w-[160px] lg:h-[104px] lg:w-[190px]"
             />
           </Animate>
 

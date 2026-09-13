@@ -371,6 +371,20 @@
       hue-rotate(96deg) saturate(3.4);
   }
 
+  .mark-loop--solid {
+    mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
+    -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
+  }
+
+  .mark-loop--solid video,
+  .dark .mark-loop--solid video {
+    opacity: 1;
+  }
+
+  .mark-loop--solid .mark-loop-still {
+    opacity: 1;
+  }
+
   .mark-loop-still {
     display: none;
     position: absolute;
@@ -380,7 +394,21 @@
 
   @media (prefers-reduced-motion: reduce) {
     .mark-loop video { display: none; }
-    .mark-loop-still { display: block; }
+    .mark-loop--solid {
+    mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
+    -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
+  }
+
+  .mark-loop--solid video,
+  .dark .mark-loop--solid video {
+    opacity: 1;
+  }
+
+  .mark-loop--solid .mark-loop-still {
+    opacity: 1;
+  }
+
+  .mark-loop-still { display: block; }
   }
 
   /* ── Marquee ────────────────────────────────────────────────────────── */
