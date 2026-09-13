@@ -2,9 +2,9 @@ import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
 import { BrandButton } from '@/components/primitives/brand-button';
+import { MarkLoop } from '@/components/primitives/mark-loop';
 import { SystemMark } from '@/components/primitives/system-mark';
 import { projects } from '@/content/projects';
-import { asset } from '@/lib/asset';
 
 export async function Hero() {
   const t = await getTranslations('hero');
@@ -39,20 +39,7 @@ export async function Hero() {
         <div className="absolute inset-x-[-30%] bottom-[-102%] h-[130%] rounded-[100%] border-t-2 border-accent/35" />
         <div className="absolute inset-x-[-48%] bottom-[-110%] h-[130%] rounded-[100%] border-t border-accent/15" />
 
-        <div
-          className="absolute inset-x-0 top-1/2 mx-auto h-[18rem] w-[30rem] max-w-[92vw] -translate-y-1/2 opacity-[0.05] lg:h-[26rem] lg:w-[46rem]"
-          style={{
-            backgroundColor: 'var(--accent)',
-            maskImage: `url(${asset('/brand/mark-mask.png')})`,
-            WebkitMaskImage: `url(${asset('/brand/mark-mask.png')})`,
-            maskRepeat: 'no-repeat',
-            WebkitMaskRepeat: 'no-repeat',
-            maskPosition: 'center',
-            WebkitMaskPosition: 'center',
-            maskSize: 'contain',
-            WebkitMaskSize: 'contain',
-          }}
-        />
+        <MarkLoop />
       </div>
 
       <div className="page-gutter flex flex-1 flex-col justify-center">

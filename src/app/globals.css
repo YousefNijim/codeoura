@@ -343,6 +343,46 @@
     background: var(--path-rail-line-active);
   }
 
+  /* ── Animated mark ──────────────────────────────────────────────────
+     Opacity is deliberately low and set per theme: the copy in front of it
+     has to stay the first thing read. */
+  /* The frame is feathered at both the container and the element, so the
+     video's rectangle never announces itself as a rectangle — compression
+     noise in the ground is enough to draw a visible edge otherwise. */
+  .mark-loop {
+    mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 78%);
+  }
+
+  .mark-loop video {
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+    /* Clamps the paper to pure white so it multiplies away completely. */
+    filter: brightness(1.06) contrast(1.25);
+  }
+
+  .dark .mark-loop video {
+    opacity: 0.3;
+    mix-blend-mode: screen;
+    /* invert: white ground becomes black, which `screen` then drops.
+       contrast: clamps that ground past the codec's noise floor.
+       sepia + rotation + saturation: rebuilds the brand hue on what is left. */
+    filter: invert(1) grayscale(1) contrast(2.2) brightness(0.92) sepia(1)
+      hue-rotate(96deg) saturate(3.4);
+  }
+
+  .mark-loop-still {
+    display: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mark-loop video { display: none; }
+    .mark-loop-still { display: block; }
+  }
+
   /* ── Marquee ────────────────────────────────────────────────────────── */
   .marquee-viewport {
     overflow: hidden;
