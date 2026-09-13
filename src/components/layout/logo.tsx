@@ -4,8 +4,8 @@ import { asset } from '@/lib/asset';
 import { cn } from '@/lib/utils';
 import { company } from '@/content/company';
 
-/** Intrinsic aspect ratio of public/brand/mark-color.png (640 x 358). */
-const LOGO_RATIO = 640 / 358;
+/** Intrinsic aspect ratio of public/brand/mark-color.png (640 x 340). */
+const LOGO_RATIO = 640 / 340;
 
 export function Logo({
   className,
