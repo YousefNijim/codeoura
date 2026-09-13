@@ -263,6 +263,108 @@ export const projects: Project[] = [
       },
     },
   },
+  {
+    slug: 'sho-abalak',
+    name: { en: 'Sho Abalak', ar: 'شو عبالك؟' },
+    tagline: {
+      en: 'Four apps, one order, one truth',
+      ar: 'أربعة تطبيقات، طلب واحد، حقيقة واحدة',
+    },
+    summary: {
+      en: 'A delivery marketplace for the West Bank: customers order from local restaurants and stores, business owners run their menus and incoming orders, and drivers claim and fulfil deliveries — three mobile apps and an operations console coordinated in real time over one API.',
+      ar: 'سوق توصيل في الضفة الغربية: الزبون يطلب من مطاعم ومتاجر منطقته، وصاحب المتجر يدير قائمته وطلباته الواردة، والسائق يلتقط الطلب وينفّذه — ثلاثة تطبيقات موبايل ولوحة تشغيل تتناسق لحظياً عبر واجهة برمجة واحدة.',
+    },
+    year: 2026,
+    category: 'logistics',
+    services: ['web', 'mobile', 'cloud'],
+    platforms: ['web', 'mobile', 'admin'],
+    stack: ['NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'Socket.IO', 'React Native', 'Expo', 'Next.js', 'Nx'],
+    cover: { from: 'oklch(0.72 0.17 45)', to: 'oklch(0.45 0.11 155)', image: '/work/sho-abalak.webp' },
+    featured: true,
+    url: 'https://shu-abalak-admin-dashboard.vercel.app',
+    caseStudy: {
+      challenge: {
+        en: 'The hard part is not any single app. It is that four clients and one API must agree on the state of an order at every moment, over unreliable mobile connections, without ever showing two people a different truth.',
+        ar: 'الصعوبة ليست في أي تطبيق بمفرده. الصعوبة أن أربعة عملاء وواجهة برمجة واحدة يجب أن يتفقوا على حالة الطلب في كل لحظة، فوق اتصالات موبايل غير موثوقة، دون أن يرى شخصان حقيقتين مختلفتين.',
+      },
+      solution: {
+        en: 'Order transitions are validated server-side against an explicit allowed-transitions map, so a driver cannot mark delivered an order that was never picked up. One role-based identity model serves all four clients rather than four auth systems. Live state travels over WebSockets while an app is open; push notifications exist only to bring the user back, never as the source of truth.',
+        ar: 'انتقالات حالة الطلب تُتحقَّق على الخادم مقابل خريطة انتقالات مسموحة صريحة، فلا يستطيع سائق أن يعلّم طلباً بأنه سُلِّم ولم يُستلم أصلاً. ونموذج هوية واحد قائم على الأدوار يخدم العملاء الأربعة بدل أربعة أنظمة مصادقة. والحالة اللحظية تنتقل عبر WebSockets ما دام التطبيق مفتوحاً؛ أما الإشعارات فوظيفتها إعادة المستخدم فقط، لا أن تكون مصدر الحقيقة.',
+      },
+      outcome: {
+        en: 'One monorepo where types flow from the database schema out to every client, and an operations console built for someone actually running the business — live order oversight, business approvals, areas, commissions and financial reports.',
+        ar: 'مستودع واحد تتدفّق فيه الأنواع من مخطط قاعدة البيانات إلى كل عميل، ولوحة تشغيل مبنية لمن يدير العملية فعلاً — مراقبة طلبات لحظية، واعتماد متاجر، ومناطق وعمولات وتقارير مالية.',
+      },
+    },
+  },
+  {
+    slug: 'focusoura',
+    name: { en: 'FocusOura', ar: 'فوكس أورا' },
+    tagline: {
+      en: 'Study time, turned into progression',
+      ar: 'وقت الدراسة، يتحوّل إلى تقدّم',
+    },
+    summary: {
+      en: 'A gamified productivity app that wraps focus sessions in a game loop: you grow a virtual plant, earn currency, spend it on cosmetics, and challenge friends — with AI-generated insights drawn from your own session history.',
+      ar: 'تطبيق إنتاجية مُلعَّب يضع جلسات التركيز داخل حلقة لعب: تُنمّي نبتة افتراضية، وتكسب عملة، وتنفقها على مقتنيات، وتتحدّى أصدقاءك — مع رؤى يولّدها الذكاء الاصطناعي من سجل جلساتك أنت.',
+    },
+    year: 2026,
+    category: 'productivity',
+    services: ['web', 'saas', 'ai'],
+    platforms: ['web'],
+    stack: ['React', 'Vite', 'TypeScript', 'Express', 'Drizzle ORM', 'PostgreSQL', 'Google Gemini'],
+    cover: { from: 'oklch(0.72 0.14 160)', to: 'oklch(0.3 0.06 165)', image: '/work/focusoura.webp' },
+    featured: false,
+    url: 'https://focusoura.vercel.app',
+    caseStudy: {
+      challenge: {
+        en: 'Timers do not make people study. Progression does. But a reward only motivates while it feels earned, which means the session data has to be trustworthy and the feedback has to be about the user’s actual behaviour.',
+        ar: 'المؤقّتات لا تجعل الناس يدرسون، التقدّم هو ما يفعل. لكن المكافأة لا تحفّز إلا ما دامت تبدو مستحقّة، وهذا يعني أن بيانات الجلسة يجب أن تكون جديرة بالثقة، وأن تكون التغذية الراجعة عن سلوك المستخدم الفعلي.',
+      },
+      solution: {
+        en: 'A twelve-table schema models users, sessions, plant progression, wallet, cosmetics ownership and friend challenges. Every coin earned or spent is a row rather than a column on the user, so the wallet is auditable and a bug can be traced instead of guessed at. Gemini receives server-side aggregates, not raw rows, which keeps the prompt stable as the dataset grows.',
+        ar: 'مخطط من اثني عشر جدولاً ينمذج المستخدمين والجلسات ونمو النبتة والمحفظة وملكية المقتنيات وتحديات الأصدقاء. وكل عملة تُكسب أو تُنفق هي صف لا عمود على المستخدم، فتبقى المحفظة قابلة للتدقيق ويُتتبَّع الخلل بدل تخمينه. ويستقبل Gemini تجميعات مُحضَّرة على الخادم لا صفوفاً خاماً، فيبقى الطلب ثابتاً مهما كبرت البيانات.',
+      },
+      outcome: {
+        en: 'A reward loop backed by an auditable ledger, and study insights a user can act on rather than a log they have to read.',
+        ar: 'حلقة مكافأة يسندها دفتر قابل للتدقيق، ورؤى دراسية يتصرّف المستخدم بناءً عليها بدل سجل عليه أن يقرأه.',
+      },
+    },
+  },
+  {
+    slug: 'arjwan-istanbul',
+    name: { en: 'Arjwan Istanbul', ar: 'أرجوان إسطنبول' },
+    tagline: {
+      en: 'A perfume house that takes real orders',
+      ar: 'دار عطور تستقبل طلبات حقيقية',
+    },
+    summary: {
+      en: 'A commercial storefront for a perfume brand — catalogue, product pages and checkout — designed mobile-first for traffic arriving from social links, and pre-rendered so the store stays fast and cheap to run.',
+      ar: 'متجر تجاري لعلامة عطور — كتالوج وصفحات منتج وإتمام شراء — مصمَّم للهاتف أولاً لأن الزيارات تأتي من روابط التواصل، ومُولَّد مسبقاً ليبقى المتجر سريعاً وقليل الكلفة.',
+    },
+    year: 2026,
+    category: 'ecommerce',
+    services: ['web', 'cloud'],
+    platforms: ['web'],
+    stack: ['Next.js', 'Tailwind CSS', 'JavaScript', 'Vercel'],
+    cover: { from: 'oklch(0.55 0.18 15)', to: 'oklch(0.38 0.12 330)', image: '/work/arjwan-istanbul.webp' },
+    featured: false,
+    url: 'https://arjwan.store',
+    caseStudy: {
+      challenge: {
+        en: 'This is a working business, not a portfolio mockup. The site takes real orders, which changes the priorities: the catalogue has to stay editable by a non-developer, checkout has to work on a phone held in one hand, and the brand has to look expensive without a photographer’s budget.',
+        ar: 'هذا نشاط تجاري قائم لا نموذج لمعرض أعمال. الموقع يستقبل طلبات حقيقية، وهذا يغيّر الأولويات: الكتالوج يجب أن يبقى قابلاً للتعديل من غير مبرمج، وإتمام الشراء يجب أن يعمل على هاتف بيد واحدة، والعلامة يجب أن تبدو فاخرة دون ميزانية مصوّر.',
+      },
+      solution: {
+        en: 'The phone layout was designed first and the desktop layout derived from it, because the majority of traffic is phones arriving from social links. Catalogue pages are pre-rendered, so the store stays fast at low traffic and costs almost nothing to keep online.',
+        ar: 'صُمِّم تخطيط الهاتف أولاً واشتُقّ منه تخطيط سطح المكتب، لأن أغلب الزيارات هواتف قادمة من روابط التواصل. وصفحات الكتالوج مُولَّدة مسبقاً، فيبقى المتجر سريعاً عند الزيارات القليلة ولا يكاد يكلّف شيئاً ليبقى متاحاً.',
+      },
+      outcome: {
+        en: 'A storefront selling under its own domain, with a catalogue the owner updates and a checkout that holds up on a phone.',
+        ar: 'متجر يبيع تحت نطاقه الخاص، بكتالوج يحدّثه صاحبه وإتمام شراء يصمد على الهاتف.',
+      },
+    },
+  },
 ];
 
 export const projectCategories: {
@@ -276,6 +378,7 @@ export const projectCategories: {
   { id: 'travel', label: { en: 'Travel', ar: 'سفر' } },
   { id: 'hospitality', label: { en: 'Hospitality', ar: 'ضيافة' } },
   { id: 'healthcare', label: { en: 'Healthcare', ar: 'صحة' } },
+  { id: 'productivity', label: { en: 'Productivity', ar: 'إنتاجية' } },
 ];
 
 export function getProject(slug: string): Project | undefined {

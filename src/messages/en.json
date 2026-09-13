@@ -48,7 +48,7 @@
   "work": {
     "eyebrow": "Selected work",
     "title": "Systems running today",
-    "subtitle": "A selection of the systems we have designed and delivered, operating in production environments with real users, real data and real operational constraints. Each one is accompanied by a demonstration version you can explore yourself.",
+    "subtitle": "A selection of the systems we have designed and delivered, operating in production environments with real users, real data and real operational constraints. Most are accompanied by a demonstration version, or the live system itself, you can explore yourself.",
     "viewAll": "View all work",
     "viewCase": "Read the case study",
     "filterLabel": "Filter projects by industry",
@@ -145,8 +145,8 @@
   },
   "products": {
     "eyebrow": "Explore our systems",
-    "title": "An ecosystem of seven systems",
-    "subtitle": "Every system has an open demonstration. Click to try it now.",
+    "title": "An ecosystem of ten systems",
+    "subtitle": "Each system opens onto a demonstration, or onto the live product. Click to try it now.",
     "readCases": "Details of each system"
   },
   "path": {
@@ -164,7 +164,8 @@
       "logistics": "Logistics",
       "travel": "Travel",
       "hospitality": "Hospitality",
-      "healthcare": "Healthcare"
+      "healthcare": "Healthcare",
+      "productivity": "Productivity"
     }
   },
   "outcomes": {
