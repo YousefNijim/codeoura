@@ -18,6 +18,7 @@ export const projects: Project[] = [
     platforms: ['web', 'mobile', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Vercel'],
     cover: { from: 'oklch(0.62 0.19 340)', to: 'oklch(0.52 0.16 300)', image: '/work/glamora.webp' },
+    logo: '/brand/systems/glamora.png',
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/glamora/',
@@ -55,6 +56,7 @@ export const projects: Project[] = [
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Supabase', 'Redis', 'Tailwind CSS'],
     cover: { from: 'oklch(0.7 0.15 165)', to: 'oklch(0.55 0.13 210)', image: '/work/couponak.webp' },
+    logo: '/brand/systems/couponak.png',
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/couponak-inventory/dashboard/',
@@ -166,6 +168,7 @@ export const projects: Project[] = [
     platforms: ['web', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     cover: { from: 'oklch(0.72 0.13 195)', to: 'oklch(0.58 0.12 250)', image: '/work/firuze-system.webp' },
+    logo: '/brand/systems/firuze.png',
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/firuze-system/',

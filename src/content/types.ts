@@ -42,6 +42,8 @@ export interface Project {
    * for projects with no demo to photograph yet.
    */
   cover: { from: string; to: string; image?: string };
+  /** The system's own mark, where one exists. A monogram stands in otherwise. */
+  logo?: string;
   featured: boolean;
   url?: string;
   /**

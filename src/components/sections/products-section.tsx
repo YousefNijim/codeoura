@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Animate, type AnimName } from '@/components/primitives/animate';
 import { SectionHeading } from '@/components/primitives/section-heading';
+import { SystemMark } from '@/components/primitives/system-mark';
 import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -53,7 +54,8 @@ export async function ProductsSection() {
 
           <ul className="mx-auto mt-12 grid max-w-[1240px] grid-cols-1 items-stretch gap-[26px] lg:mt-16 lg:grid-cols-3 lg:grid-rows-3">
             {projects.map((project, index) => {
-              const name = pick(project.name, locale);
+              // English only: these are product names, not translated words.
+              const name = project.name.en;
               const cover = project.cover.image
                 ? `url('${asset(project.cover.image)}')`
                 : 'none';
@@ -78,12 +80,10 @@ export async function ProductsSection() {
                       ['--card-bg-dark' as string]: cover,
                     }}
                   >
-                    <span className="relative z-10 inline-flex size-[52px] shrink-0 items-center justify-center self-start rounded-full border border-card-border bg-page/70 font-mono text-sm text-accent backdrop-blur-[5px]">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
+                    <SystemMark project={project} className="relative z-10 self-start" />
 
                     <div className="relative z-10 mt-auto grid gap-3">
-                      <h3 className="text-xl text-ink">{name}</h3>
+                      <h3 className="text-xl text-ink" dir="ltr">{name}</h3>
                       <p className="text-sm leading-[1.4] text-ink-secondary">
                         {pick(project.tagline, locale)}
                       </p>

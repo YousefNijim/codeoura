@@ -1,15 +1,13 @@
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
 import { SectionHeading } from '@/components/primitives/section-heading';
+import { SystemMark } from '@/components/primitives/system-mark';
 import { projects } from '@/content/projects';
-import type { Locale } from '@/i18n/routing';
-import { pick } from '@/lib/localized';
 
 /** Every system in one row, as a directory of ways in. */
 export async function EcosystemSection() {
   const t = await getTranslations('ecosystem');
-  const locale = (await getLocale()) as Locale;
 
   return (
     <section id="ecosystem" className="section-pad relative overflow-hidden">
@@ -36,11 +34,9 @@ export async function EcosystemSection() {
                   rel={project.demo ? 'noopener noreferrer' : undefined}
                   className="hover-lift hover-glow flex h-full min-h-[124px] flex-col items-center justify-center gap-2 rounded-2xl border border-card-border bg-card p-4 text-center transition-colors hover:border-accent/40"
                 >
-                  <span className="font-mono text-xs text-accent">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-sm text-ink">
-                    {pick(project.name, locale)}
+                  <SystemMark project={project} size={44} />
+                  <span className="text-sm text-ink" dir="ltr">
+                    {project.name.en}
                   </span>
                   <span className="text-[11px] text-ink-muted">
                     {t(`category.${project.category}`)}

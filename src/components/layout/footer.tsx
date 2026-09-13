@@ -66,9 +66,10 @@ export async function Footer() {
                     href={project.demo?.href ?? '#products'}
                     target={project.demo ? '_blank' : undefined}
                     rel={project.demo ? 'noopener noreferrer' : undefined}
+                    dir="ltr"
                     className="text-sm text-ink-muted transition-colors hover:text-accent"
                   >
-                    {pick(project.name, locale)}
+                    {project.name.en}
                   </a>
                 ))}
               </FooterColumn>

@@ -30,7 +30,8 @@ export function ProjectCard({
 }) {
   const t = useTranslations('work');
   const locale = useLocale() as Locale;
-  const name = pick(project.name, locale);
+  // Product names are not translated.
+  const name = project.name.en;
 
   // Without a handler the entry is presentational, so the caller can wrap it in
   // a link. Nesting a button inside an anchor would be invalid HTML.

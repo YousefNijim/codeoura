@@ -3,6 +3,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Animate } from '@/components/primitives/animate';
 import { PathRail } from '@/components/primitives/path-rail';
 import { SectionHeading } from '@/components/primitives/section-heading';
+import { SystemMark } from '@/components/primitives/system-mark';
 import { pathTracks } from '@/content/paths';
 import { getProject } from '@/content/projects';
 import type { Locale } from '@/i18n/routing';
@@ -62,9 +63,12 @@ export async function PathSection() {
                       <p className="text-gradient-brand text-sm font-medium">
                         {pick(step.eyebrow, locale)}
                       </p>
-                      <h4 className="text-xl text-ink">
-                        {project ? pick(project.name, locale) : step.projectSlug}
-                      </h4>
+                      <div className="flex items-center gap-3">
+                        {project && <SystemMark project={project} size={40} />}
+                        <h4 className="text-xl text-ink" dir="ltr">
+                          {project ? project.name.en : step.projectSlug}
+                        </h4>
+                      </div>
                       <p className="text-sm leading-[1.5] text-ink-muted">
                         {pick(step.description, locale)}
                       </p>

@@ -1,15 +1,12 @@
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
 import { BrandButton } from '@/components/primitives/brand-button';
 import { projects } from '@/content/projects';
-import type { Locale } from '@/i18n/routing';
 import { asset } from '@/lib/asset';
-import { pick } from '@/lib/localized';
 
 export async function Hero() {
   const t = await getTranslations('hero');
-  const locale = (await getLocale()) as Locale;
 
   return (
     <section
@@ -78,8 +75,11 @@ export async function Hero() {
               <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
                 {projects.map((project) => (
                   <div key={`${copy}-${project.slug}`} className="flex items-center">
-                    <span className="whitespace-nowrap px-5 text-sm text-ink-muted lg:px-7 lg:text-base">
-                      {pick(project.name, locale)}
+                    <span
+                      dir="ltr"
+                      className="whitespace-nowrap px-5 text-sm text-ink-muted lg:px-7 lg:text-base"
+                    >
+                      {project.name.en}
                     </span>
                     <span aria-hidden className="h-6 w-px bg-stroke" />
                   </div>

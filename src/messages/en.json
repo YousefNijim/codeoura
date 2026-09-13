@@ -31,11 +31,11 @@
     "home": "Home"
   },
   "hero": {
-    "titleLead": "We don't show our work.",
-    "titleAccent": "We hand you the keys.",
-    "subtitle": "Seven systems in production, each with an open demonstration. Try one before you ask.",
-    "primaryCta": "Start here",
-    "badge": "7 systems running now"
+    "titleLead": "We build an integrated ecosystem of systems and platforms",
+    "titleAccent": "to support business growth.",
+    "subtitle": "We build and operate the core systems and platforms that help businesses launch, grow and scale.",
+    "primaryCta": "Discover our systems",
+    "badge": "Building the software ecosystem for business"
   },
   "services": {
     "eyebrow": "Services",
@@ -80,9 +80,9 @@
     "subtitle": "We select our technologies on the basis of maturity, reliability and long-term support. This is the stack we operate in production, and the one in which we hold the depth of experience required to guarantee stability and scale."
   },
   "about": {
-    "eyebrow": "About",
-    "title": "An engineering studio, not a delivery agency",
-    "subtitle": "From the first architectural decision to the production environment. We stay with the system after handover.",
+    "eyebrow": "About us",
+    "title": "We build the systems, we run them, and we stay with them",
+    "subtitle": "We take a system from the first architectural decision to its production environment, and stay with it after handover.",
     "processTitle": "How we work",
     "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress.",
     "stats": {
@@ -128,11 +128,11 @@
     "direct": "Direct contact"
   },
   "footer": {
-    "description": "Enterprise web, mobile and SaaS systems. Seven of them in production.",
+    "description": "We build and operate an ecosystem of systems and platforms that support business growth.",
     "sitemap": "Company",
-    "connect": "Contact",
+    "connect": "Contact us",
     "copyright": "© {year} Codeoura. All rights reserved.",
-    "systems": "Systems",
+    "systems": "Our systems",
     "caseStudies": "Case studies",
     "reply": "We reply within one business day."
   },
@@ -142,20 +142,20 @@
     "cta": "Return to home"
   },
   "products": {
-    "eyebrow": "Systems",
-    "title": "Seven systems. Seven open demos.",
-    "subtitle": "Open any card to launch it. Entirely fabricated data.",
-    "readCases": "Case studies"
+    "eyebrow": "Explore our systems",
+    "title": "An ecosystem of seven systems",
+    "subtitle": "Every system has an open demonstration. Click to try it now.",
+    "readCases": "Details of each system"
   },
   "path": {
-    "eyebrow": "Your route",
-    "title": "Where are you now?",
-    "subtitle": "You don't need all of them. Read the route that matches your situation."
+    "eyebrow": "Choose your route",
+    "title": "Where do you stand now?",
+    "subtitle": "Every stage of your growth has the system that suits it. Choose the route closest to you."
   },
   "ecosystem": {
-    "eyebrow": "Ecosystem",
-    "title": "Every door on one page",
-    "subtitle": "Pick the one that concerns you.",
+    "eyebrow": "The ecosystem",
+    "title": "All our systems in one place",
+    "subtitle": "Pick the system that serves your business and go straight in.",
     "category": {
       "ecommerce": "E-commerce",
       "erp": "Inventory",
@@ -167,12 +167,12 @@
   },
   "outcomes": {
     "eyebrow": "Results",
-    "title": "What changed",
-    "subtitle": "From the case studies, attributed to the system that produced them."
+    "title": "What our systems delivered",
+    "subtitle": "Actual outcomes from each system, as recorded in the case studies."
   },
   "cta": {
-    "title": "Try it first. Then talk to us.",
-    "subtitle": "We reply within one business day.",
-    "action": "Write to us"
+    "title": "Start with our ecosystem",
+    "subtitle": "Try any system now and contact us when you decide. We reply within one business day.",
+    "action": "Contact us"
   }
 }
