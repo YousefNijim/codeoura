@@ -3,7 +3,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Animate } from '@/components/primitives/animate';
 import { ProjectCover } from '@/components/primitives/project-cover';
 import { principles } from '@/content/company';
-import { featuredProjects } from '@/content/projects';
+import { featuredProjects, projects } from '@/content/projects';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
@@ -11,9 +11,14 @@ export async function AboutSection() {
   const t = await getTranslations('about');
   const locale = (await getLocale()) as Locale;
 
+  // Counted from the work itself rather than typed in: a figure a visitor can
+  // check against the grid has to move when a project is added, and a hand-kept
+  // number silently stops being true the first time one is.
+  const sectors = new Set(projects.map((project) => project.category));
+
   const stats = [
-    { value: '7', label: t('stats.systems') },
-    { value: '6', label: t('stats.sectors') },
+    { value: `${projects.length}`, label: t('stats.systems') },
+    { value: `${sectors.size}`, label: t('stats.sectors') },
     { value: '24/7', label: t('stats.support') },
     { value: '100%', label: t('stats.typed') },
   ];
