@@ -16,7 +16,8 @@ export type ProjectCategory =
   | 'logistics'
   | 'travel'
   | 'hospitality'
-  | 'healthcare';
+  | 'healthcare'
+  | 'productivity';
 
 export type Platform = 'web' | 'mobile' | 'admin';
 
