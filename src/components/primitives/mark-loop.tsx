@@ -21,7 +21,7 @@ export function MarkLoop() {
   return (
     <div
       aria-hidden
-      className="mark-loop pointer-events-none absolute inset-x-0 top-1/2 mx-auto h-[18rem] w-[30rem] max-w-[92vw] -translate-y-1/2 lg:h-[26rem] lg:w-[46rem]"
+      className="mark-loop pointer-events-none absolute inset-x-0 top-1/2 mx-auto h-[24rem] w-[40rem] max-w-[108vw] -translate-y-1/2 lg:h-[38rem] lg:w-[66rem]"
     >
       <video
         className="size-full object-contain"

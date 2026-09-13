@@ -355,14 +355,14 @@
   }
 
   .mark-loop video {
-    opacity: 0.15;
+    opacity: 0.3;
     mix-blend-mode: multiply;
     /* Clamps the paper to pure white so it multiplies away completely. */
     filter: brightness(1.06) contrast(1.25);
   }
 
   .dark .mark-loop video {
-    opacity: 0.3;
+    opacity: 0.44;
     mix-blend-mode: screen;
     /* invert: white ground becomes black, which `screen` then drops.
        contrast: clamps that ground past the codec's noise floor.
