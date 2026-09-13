@@ -3,16 +3,17 @@ import type { Localized } from './types';
 /**
  * Company facts and links.
  *
- * TODO(codeoura): replace the placeholder contact details and social URLs below
- * with the real ones. They are the only invented values in the content layer.
+ * TODO(codeoura): the domain and the social URLs are still placeholders.
  */
 export const company = {
   name: 'Codeoura',
   legalName: 'Codeoura',
   tagline: { en: 'Smart code. Real growth.', ar: 'كود ذكي. نمو حقيقي.' } satisfies Localized,
   url: 'https://codeoura.com',
-  email: 'hello@codeoura.com',
-  phone: '',
+  email: 'ysweety666@gmail.com',
+  /** Digits only, no plus and no separators: the form wa.me expects. */
+  whatsapp: '972552421638',
+  phone: '+972 55 242 1638',
   founded: 2024,
   social: {
     github: 'https://github.com/YousefNijim',
@@ -22,12 +23,17 @@ export const company = {
   },
 } as const;
 
-export const navigation: { href: string; label: Localized }[] = [
+export const navigation: {
+  href: string;
+  label: Localized;
+  /** Rendered as a plain anchor that opens in a new tab. */
+  external?: boolean;
+}[] = [
   { href: '/#about', label: { en: 'About us', ar: 'من نحن' } },
   { href: '/#products', label: { en: 'Our systems', ar: 'تعرّف على أنظمتنا' } },
   { href: '/#path', label: { en: 'Choose your route', ar: 'اختر مسارك' } },
   { href: '/#outcomes', label: { en: 'Results', ar: 'النتائج' } },
-  { href: '/#cta', label: { en: 'Contact us', ar: 'تواصل معنا' } },
+  { href: 'whatsapp', label: { en: 'Contact us', ar: 'تواصل معنا' }, external: true },
 ];
 
 export const principles: {

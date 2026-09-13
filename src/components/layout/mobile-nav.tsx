@@ -10,6 +10,7 @@ import { navigation } from '@/content/company';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export function MobileNav({
   open,
@@ -19,6 +20,7 @@ export function MobileNav({
   onOpenChange: (open: boolean) => void;
 }) {
   const t = useTranslations('nav');
+  const tc = useTranslations('cta');
   const locale = useLocale() as Locale;
 
   return (
@@ -32,17 +34,37 @@ export function MobileNav({
           </div>
 
           <nav aria-label="Mobile" className="flex flex-col gap-1 p-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => onOpenChange(false)}
-                className="flex items-center justify-between rounded-sm px-4 py-3.5 text-base font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
-              >
-                {pick(item.label, locale)}
+            {navigation.map((item) => {
+              const style =
+                'flex items-center justify-between rounded-sm px-4 py-3.5 text-base font-medium text-ink-muted transition-colors hover:bg-ink/5 hover:text-ink';
+              const arrow = (
                 <ArrowUpRight aria-hidden className="size-4 opacity-40 rtl:-scale-x-100" />
-              </Link>
-            ))}
+              );
+
+              return item.external ? (
+                <a
+                  key={item.href}
+                  href={whatsappLink(tc('whatsappMessage'))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => onOpenChange(false)}
+                  className={style}
+                >
+                  {pick(item.label, locale)}
+                  {arrow}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => onOpenChange(false)}
+                  className={style}
+                >
+                  {pick(item.label, locale)}
+                  {arrow}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="mt-auto border-t border-border p-4">

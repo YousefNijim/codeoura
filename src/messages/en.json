@@ -28,7 +28,8 @@
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
     "startProject": "Start a project",
-    "home": "Home"
+    "home": "Home",
+    "contact": "Contact us"
   },
   "hero": {
     "titleLead": "We build an integrated ecosystem of systems and platforms",
@@ -134,7 +135,8 @@
     "copyright": "© {year} Codeoura. All rights reserved.",
     "systems": "Our systems",
     "caseStudies": "Case studies",
-    "reply": "We reply within one business day."
+    "reply": "We reply within one business day.",
+    "whatsapp": "WhatsApp"
   },
   "notFound": {
     "title": "Page not found",
@@ -173,6 +175,7 @@
   "cta": {
     "title": "Start with our ecosystem",
     "subtitle": "Try any system now and contact us when you decide. We reply within one business day.",
-    "action": "Contact us"
+    "action": "Message us on WhatsApp",
+    "whatsappMessage": "Hello Codeoura,\nI have been through your site and your systems, and I would like to discuss a project.\n\nProject:\nCompany:"
   }
 }

@@ -12,6 +12,7 @@ import { navigation } from '@/content/company';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
+import { whatsappLink } from '@/lib/whatsapp';
 
 /**
  * A floating pill rather than a full-width bar.
@@ -22,6 +23,7 @@ import { pick } from '@/lib/localized';
  */
 export function Header() {
   const t = useTranslations('nav');
+  const tc = useTranslations('cta');
   const locale = useLocale() as Locale;
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,16 +38,29 @@ export function Header() {
         </Link>
 
         <ul className="hidden flex-1 items-center justify-center gap-10 md:flex">
-          {navigation.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="whitespace-nowrap text-base font-medium tracking-[0.2px] text-nav-ink transition-opacity hover:opacity-80"
-              >
-                {pick(item.label, locale)}
-              </Link>
-            </li>
-          ))}
+          {navigation.map((item) => {
+            const style =
+              'whitespace-nowrap text-base font-medium tracking-[0.2px] text-nav-ink transition-opacity hover:opacity-80';
+
+            return (
+              <li key={item.href}>
+                {item.external ? (
+                  <a
+                    href={whatsappLink(tc('whatsappMessage'))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={style}
+                  >
+                    {pick(item.label, locale)}
+                  </a>
+                ) : (
+                  <Link href={item.href} className={style}>
+                    {pick(item.label, locale)}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex shrink-0 items-center gap-2 lg:gap-3">

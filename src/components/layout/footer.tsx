@@ -5,6 +5,7 @@ import { Logo } from './logo';
 import { company, navigation } from '@/content/company';
 import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
+import { whatsappLink } from '@/lib/whatsapp';
 import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
@@ -20,6 +21,7 @@ const socialLinks = [
  */
 export async function Footer() {
   const t = await getTranslations('footer');
+  const tc = await getTranslations('cta');
   const locale = (await getLocale()) as Locale;
 
   return (
@@ -75,15 +77,17 @@ export async function Footer() {
               </FooterColumn>
 
               <FooterColumn title={t('sitemap')}>
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm text-ink-muted transition-colors hover:text-accent"
-                  >
-                    {pick(item.label, locale)}
-                  </Link>
-                ))}
+                {navigation
+                  .filter((item) => !item.external)
+                  .map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-sm text-ink-muted transition-colors hover:text-accent"
+                    >
+                      {pick(item.label, locale)}
+                    </Link>
+                  ))}
                 <Link
                   href="/work"
                   className="text-sm text-ink-muted transition-colors hover:text-accent"
@@ -93,6 +97,15 @@ export async function Footer() {
               </FooterColumn>
 
               <FooterColumn title={t('connect')}>
+                <a
+                  href={whatsappLink(tc('whatsappMessage'))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  dir="ltr"
+                  className="text-sm text-ink-muted transition-colors hover:text-accent"
+                >
+                  {company.phone}
+                </a>
                 <a
                   href={`mailto:${company.email}`}
                   dir="ltr"

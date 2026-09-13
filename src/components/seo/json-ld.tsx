@@ -9,6 +9,7 @@ export function OrganizationJsonLd() {
     name: company.name,
     url: company.url,
     email: company.email,
+    telephone: company.phone,
     foundingDate: String(company.founded),
     logo: `${company.url}/brand/icon.png`,
     sameAs: Object.values(company.social).filter(Boolean),

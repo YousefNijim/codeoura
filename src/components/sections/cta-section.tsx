@@ -4,6 +4,7 @@ import { Animate } from '@/components/primitives/animate';
 import { BrandButton } from '@/components/primitives/brand-button';
 import { company } from '@/content/company';
 import { asset } from '@/lib/asset';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export async function CtaSection() {
   const t = await getTranslations('cta');
@@ -32,7 +33,7 @@ export async function CtaSection() {
           <Animate name="zoomIn" seq={0}>
             <span
               aria-hidden
-              className="block size-[74px]"
+              className="block h-[52px] w-[94px]"
               style={{
                 backgroundColor: 'var(--accent)',
                 maskImage: `url(${asset('/brand/mark-mask.png')})`,
@@ -60,9 +61,25 @@ export async function CtaSection() {
           </Animate>
 
           <Animate name="fadeInUp" seq={3}>
-            <BrandButton href={`mailto:${company.email}`}>
-              {t('action')}
-            </BrandButton>
+            <div className="flex flex-col items-center gap-4">
+              {/* Opens the chat with the message already written, so the
+                  visitor only has to press send. */}
+              <BrandButton
+                href={whatsappLink(t('whatsappMessage'))}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('action')}
+              </BrandButton>
+
+              <a
+                href={`mailto:${company.email}`}
+                dir="ltr"
+                className="text-sm text-ink-muted underline-offset-8 transition-colors hover:text-accent hover:underline"
+              >
+                {company.email}
+              </a>
+            </div>
           </Animate>
         </div>
       </div>
