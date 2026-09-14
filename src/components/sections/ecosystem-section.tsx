@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
+import { ProjectCardButton } from '@/components/portfolio/project-card-button';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { SystemMark } from '@/components/primitives/system-mark';
 import { projects } from '@/content/projects';
@@ -27,11 +28,9 @@ export async function EcosystemSection() {
                 name="fadeInUp"
                 seq={index}
               >
-                <a
-                  href={project.demo?.href ?? '#products'}
-                  target={project.demo ? '_blank' : undefined}
-                  rel={project.demo ? 'noopener noreferrer' : undefined}
-                  className="hover-lift hover-glow flex h-full min-h-[124px] flex-col items-center justify-center gap-2 rounded-2xl border border-card-border bg-card p-4 text-center transition-colors hover:border-accent/40"
+                <ProjectCardButton
+                  project={project}
+                  className="hover-lift hover-glow flex h-full min-h-[124px] w-full flex-col items-center justify-center gap-2 rounded-2xl border border-card-border bg-card p-4 text-center transition-colors hover:border-accent/40"
                 >
                   <SystemMark project={project} size={44} />
                   <span className="text-sm text-ink" dir="ltr">
@@ -40,7 +39,7 @@ export async function EcosystemSection() {
                   <span className="text-[11px] text-ink-muted">
                     {t(`category.${project.category}`)}
                   </span>
-                </a>
+                </ProjectCardButton>
               </Animate>
             ))}
           </ul>
