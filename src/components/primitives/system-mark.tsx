@@ -8,9 +8,9 @@ import { cn } from '@/lib/utils';
 /**
  * The mark shown beside a system's name.
  *
- * Three of the seven ship real artwork, recovered from their own running
- * builds. The other four were drawn for them: see `system-logos`. Both arrive
- * here at the same optical size, so a row of them reads as one set.
+ * Six of the ten ship real artwork, taken from their own running builds and
+ * repositories. The other four were drawn for them: see `system-logos`. Both
+ * arrive here at the same optical size, so a row of them reads as one set.
  */
 export function SystemMark({
   project,

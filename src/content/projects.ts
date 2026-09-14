@@ -280,8 +280,9 @@ export const projects: Project[] = [
     platforms: ['web', 'mobile', 'admin'],
     stack: ['NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'Socket.IO', 'React Native', 'Expo', 'Next.js', 'Nx'],
     cover: { from: 'oklch(0.72 0.17 45)', to: 'oklch(0.45 0.11 155)', image: '/work/sho-abalak.webp' },
+    logo: '/brand/systems/sho-abalak.png',
     featured: true,
-    url: 'https://shu-abalak-admin-dashboard.vercel.app',
+    url: 'https://shoabalak.com',
     caseStudy: {
       challenge: {
         en: 'The hard part is not any single app. It is that four clients and one API must agree on the state of an order at every moment, over unreliable mobile connections, without ever showing two people a different truth.',
@@ -314,6 +315,7 @@ export const projects: Project[] = [
     platforms: ['web'],
     stack: ['React', 'Vite', 'TypeScript', 'Express', 'Drizzle ORM', 'PostgreSQL', 'Google Gemini'],
     cover: { from: 'oklch(0.72 0.14 160)', to: 'oklch(0.3 0.06 165)', image: '/work/focusoura.webp' },
+    logo: '/brand/systems/focusoura.png',
     featured: false,
     url: 'https://focusoura.vercel.app',
     caseStudy: {
@@ -348,6 +350,7 @@ export const projects: Project[] = [
     platforms: ['web'],
     stack: ['Next.js', 'Tailwind CSS', 'JavaScript', 'Vercel'],
     cover: { from: 'oklch(0.55 0.18 15)', to: 'oklch(0.38 0.12 330)', image: '/work/arjwan-istanbul.webp' },
+    logo: '/brand/systems/arjwan-istanbul.png',
     featured: false,
     url: 'https://arjwan.store',
     caseStudy: {
