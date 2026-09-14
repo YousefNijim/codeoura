@@ -65,6 +65,8 @@
     "close": "Close",
     "backToWork": "Back to all work",
     "nextProject": "Next project",
+    "screenPrev": "Previous screen",
+    "screenNext": "Next screen",
     "demoBadge": "Demonstration",
     "demoOpen": "Open the demonstration",
     "demoLabel": "Demonstration",
