@@ -279,8 +279,31 @@ export const projects: Project[] = [
     services: ['web', 'mobile', 'cloud'],
     platforms: ['web', 'mobile', 'admin'],
     stack: ['NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'Socket.IO', 'React Native', 'Expo', 'Next.js', 'Nx'],
-    cover: { from: 'oklch(0.72 0.17 45)', to: 'oklch(0.45 0.11 155)', image: '/work/sho-abalak.webp' },
+    // The customer home screen stands as the cover. It is one of the shots
+    // below, uncropped on disk: the card crops it to its own ratio at render
+    // time, so there is no second, flattened copy to keep in step with it.
+    cover: {
+      from: 'oklch(0.72 0.17 45)',
+      to: 'oklch(0.45 0.11 155)',
+      image: '/work/sho-abalak/customer-home.jpg',
+    },
     logo: '/brand/systems/sho-abalak.png',
+    shots: {
+      featured: [
+        '/work/sho-abalak/customer-home.jpg',
+        '/work/sho-abalak/business-menu.png',
+        '/work/sho-abalak/driver-home.png',
+      ],
+      gallery: [
+        '/work/sho-abalak/customer-food.jpg',
+        '/work/sho-abalak/customer-stores.jpg',
+        '/work/sho-abalak/customer-orders.png',
+        '/work/sho-abalak/business-orders.jpg',
+        '/work/sho-abalak/business-profile.jpg',
+        '/work/sho-abalak/driver-earnings.png',
+        '/work/sho-abalak/driver-profile.png',
+      ],
+    },
     featured: true,
     url: 'https://shoabalak.com',
     caseStudy: {
