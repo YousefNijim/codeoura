@@ -55,7 +55,7 @@ export async function ProductsSection() {
         <div className="section-container">
           <SectionHeading
             eyebrow={t('eyebrow')}
-            title={t('title')}
+            title={t('title', { count: projects.length })}
             subtitle={t('subtitle')}
           />
 

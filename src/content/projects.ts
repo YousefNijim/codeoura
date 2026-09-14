@@ -391,6 +391,40 @@ export const projects: Project[] = [
       },
     },
   },
+  {
+    slug: 'domi-brand',
+    name: { en: 'DOMI BRAND', ar: 'دومي براند' },
+    tagline: {
+      en: 'A boutique that sells in three languages',
+      ar: 'بوتيك يبيع بثلاث لغات',
+    },
+    summary: {
+      en: 'A storefront for bags, accessories, make-up and skincare, running in Arabic, English and Hebrew with the whole interface mirroring for the two right-to-left ones. Orders are placed without an online payment step: the customer picks a delivery region and the order arrives as a prepared WhatsApp message, paid on delivery.',
+      ar: 'متجر للحقائب والإكسسوارات والمكياج والعناية بالبشرة، يعمل بالعربية والإنجليزية والعبرية مع انعكاس الواجهة بالكامل في اللغتين من اليمين إلى اليسار. يُرسَل الطلب دون خطوة دفع إلكتروني: تختار الزبونة منطقة التوصيل فيصل الطلب رسالة واتساب جاهزة، والدفع عند الاستلام.',
+    },
+    year: 2026,
+    category: 'ecommerce',
+    services: ['web', 'cloud'],
+    platforms: ['web', 'admin'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    cover: { from: 'oklch(0.48 0.13 330)', to: 'oklch(0.34 0.09 315)', image: '/work/domi-brand.webp' },
+    featured: true,
+    url: 'https://domi-brand.vercel.app',
+    caseStudy: {
+      challenge: {
+        en: 'Three languages, two of which run right to left, over one catalogue — every product name, description and colour exists three times and has to stay in step. And the shop had to take orders without a payment gateway, which is a real constraint here rather than a missing feature: the customer pays on delivery, so the order has to reach the owner in a form she can act on immediately.',
+        ar: 'ثلاث لغات، اثنتان منها من اليمين إلى اليسار، فوق كتالوج واحد — كل اسم منتج ووصف ولون موجود ثلاث مرات ويجب أن يبقى متطابقاً. وكان على المتجر أن يستقبل الطلبات دون بوابة دفع، وهذا قيد حقيقي هنا لا ميزة ناقصة: الدفع عند الاستلام، فيجب أن يصل الطلب إلى صاحبة المتجر بصيغة تستطيع التصرّف بها فوراً.',
+      },
+      solution: {
+        en: 'The product record carries all three languages together, so a product is written once in the admin console and never drifts between them; direction is a property of the page, not a stylesheet fork. Checkout and basket sit on one screen, the delivery fee follows the region chosen, and submitting composes a WhatsApp message that already contains the items, the total and the address. The console is entirely in Arabic: products, orders and their status, coupons, delivery rates, banners and contact details.',
+        ar: 'سجل المنتج يحمل اللغات الثلاث معاً، فيُكتب المنتج مرة واحدة في لوحة التحكم ولا يتفرّق بينها؛ والاتجاه خاصية في الصفحة لا نسخة ثانية من التنسيقات. السلة والدفع في شاشة واحدة، ورسوم التوصيل تتبع المنطقة المختارة، والإرسال يبني رسالة واتساب تحتوي الأصناف والمجموع والعنوان. ولوحة التحكم بالعربية بالكامل: المنتجات والطلبات وحالاتها والكوبونات ورسوم التوصيل والبانرات وبيانات التواصل.',
+      },
+      outcome: {
+        en: 'A live boutique its owner runs herself, in three languages, with orders arriving where she already answers her customers.',
+        ar: 'بوتيك يعمل وتديره صاحبته بنفسها، بثلاث لغات، والطلبات تصلها حيث تردّ على زبوناتها أصلاً.',
+      },
+    },
+  },
 ];
 
 export const projectCategories: {

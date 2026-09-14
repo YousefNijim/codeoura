@@ -124,6 +124,26 @@ function CafeMark({ className }: MarkProps) {
   );
 }
 
+/** DOMI BRAND: a handbag — the body with its handle drawn as one arc. */
+function DomiMark({ className }: MarkProps) {
+  return (
+    <Tile from="#6d2f63" to="#9c4a86" className={className}>
+      <path
+        d="M18 18a6 6 0 0 1 12 0"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 18h20l2.5 16a2 2 0 0 1-2 2.4H13.5a2 2 0 0 1-2-2.4L14 18z"
+        fill="#fff"
+      />
+      <path d="M19 24v3M29 24v3" stroke="#6d2f63" strokeWidth="2.2" strokeLinecap="round" />
+    </Tile>
+  );
+}
+
 /** Keyed by project slug; a system with real artwork is simply absent here. */
 export const systemLogos: Record<
   string,
@@ -133,4 +153,5 @@ export const systemLogos: Record<
   babunec: BabunecMark,
   'cleveland-medicals': ClevelandMark,
   'cafe-albaraa': CafeMark,
+  'domi-brand': DomiMark,
 };

@@ -146,7 +146,7 @@
   },
   "products": {
     "eyebrow": "Explore our systems",
-    "title": "An ecosystem of ten systems",
+    "title": "An ecosystem of {count} systems",
     "subtitle": "Open a system for its detail, and go through to the demonstration or the live product from there.",
     "readCases": "Details of each system"
   },
