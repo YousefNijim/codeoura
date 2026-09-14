@@ -289,6 +289,7 @@ export const projects: Project[] = [
     },
     logo: '/brand/systems/sho-abalak.png',
     shots: {
+      shape: 'portrait',
       featured: [
         '/work/sho-abalak/customer-home.jpg',
         '/work/sho-abalak/business-menu.png',
@@ -337,8 +338,21 @@ export const projects: Project[] = [
     services: ['web', 'saas', 'ai'],
     platforms: ['web'],
     stack: ['React', 'Vite', 'TypeScript', 'Express', 'Drizzle ORM', 'PostgreSQL', 'Google Gemini'],
-    cover: { from: 'oklch(0.72 0.14 160)', to: 'oklch(0.3 0.06 165)', image: '/work/focusoura.webp' },
+    cover: {
+      from: 'oklch(0.72 0.14 160)',
+      to: 'oklch(0.3 0.06 165)',
+      image: '/work/focusoura/home.jpg',
+    },
     logo: '/brand/systems/focusoura.png',
+    shots: {
+      shape: 'portrait',
+      featured: [
+        '/work/focusoura/home.jpg',
+        '/work/focusoura/focus-session.jpg',
+        '/work/focusoura/garden.jpg',
+      ],
+      gallery: ['/work/focusoura/profile.jpg', '/work/focusoura/arena.jpg'],
+    },
     featured: false,
     url: 'https://focusoura.vercel.app',
     caseStudy: {
@@ -372,8 +386,23 @@ export const projects: Project[] = [
     services: ['web', 'cloud'],
     platforms: ['web'],
     stack: ['Next.js', 'Tailwind CSS', 'JavaScript', 'Vercel'],
-    cover: { from: 'oklch(0.55 0.18 15)', to: 'oklch(0.38 0.12 330)', image: '/work/arjwan-istanbul.webp' },
+    cover: {
+      from: 'oklch(0.55 0.18 15)',
+      to: 'oklch(0.38 0.12 330)',
+      image: '/work/arjwan-istanbul/catalog.jpg',
+    },
     logo: '/brand/systems/arjwan-istanbul.png',
+    shots: {
+      shape: 'landscape',
+      featured: [
+        '/work/arjwan-istanbul/catalog.jpg',
+        '/work/arjwan-istanbul/product.jpg',
+      ],
+      gallery: [
+        '/work/arjwan-istanbul/best-sellers.jpg',
+        '/work/arjwan-istanbul/cart.jpg',
+      ],
+    },
     featured: false,
     url: 'https://arjwan.store',
     caseStudy: {
