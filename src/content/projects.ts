@@ -336,7 +336,7 @@ export const projects: Project[] = [
     year: 2026,
     category: 'productivity',
     services: ['web', 'saas', 'ai'],
-    platforms: ['web'],
+    platforms: ['web', 'mobile'],
     stack: ['React', 'Vite', 'TypeScript', 'Express', 'Drizzle ORM', 'PostgreSQL', 'Google Gemini'],
     cover: {
       from: 'oklch(0.72 0.14 160)',
