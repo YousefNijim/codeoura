@@ -31,10 +31,21 @@ export function ProjectDialog({
 
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[90dvh] max-w-2xl overflow-y-auto p-0">
-        <ProjectCover project={project} label={name} className="rounded-t-lg" />
+      {/* A column, not one long scroller: the artwork and the actions hold
+          their place and only the reading matter between them moves. On a
+          short phone the whole dialog used to scroll as one, which left the
+          actions below the fold with nothing to say they were there. */}
+      <DialogContent className="flex max-h-[90dvh] max-w-2xl flex-col gap-0 overflow-hidden p-0">
+        {/* Capped on a small screen. The cover is a 16:10 crop, and of a
+            portrait capture that is a sliver of a phone's status bar — not
+            worth a third of a 568px screen. */}
+        <ProjectCover
+          project={project}
+          label={name}
+          className="max-h-[132px] shrink-0 rounded-t-lg sm:max-h-none"
+        />
 
-        <div className="flex flex-col gap-6 p-6 sm:p-8">
+        <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-6 sm:p-8">
           <div className="flex flex-col gap-2">
             <DialogTitle className="text-2xl font-semibold tracking-tight">
               {name}
@@ -70,6 +81,9 @@ export function ProjectDialog({
             ))}
           </div>
 
+        </div>
+
+        <div className="shrink-0 border-t border-border p-5 sm:p-8 sm:pt-6">
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-3 sm:flex-row">
               {project.demo && (
