@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Animate, type AnimName } from '@/components/primitives/animate';
+import { ProjectCardButton } from '@/components/portfolio/project-card-button';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { SystemMark } from '@/components/primitives/system-mark';
 import { projects } from '@/content/projects';
@@ -71,13 +72,13 @@ export async function ProductsSection() {
                   seq={index}
                   className={`h-full lg:col-span-2 ${trailingOffset(index, projects.length)}`}
                 >
-                  {/* The whole card is one link: there is nothing on it a
-                      visitor would want that is not the demonstration. */}
-                  <a
-                    href={project.demo?.href ?? '#work'}
-                    target={project.demo ? '_blank' : undefined}
-                    rel={project.demo ? 'noopener noreferrer' : undefined}
-                    className="product-card hover-lift group relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl border border-card-border bg-card p-[23px] text-start backdrop-blur-[4px] hover:border-accent/40"
+                  {/* The whole card opens the system's detail. It used to be a
+                      link to the demonstration, which sent a visitor off the
+                      site before they had read what the system is; the dialog
+                      still offers the demonstration and the case study. */}
+                  <ProjectCardButton
+                    project={project}
+                    className="product-card hover-lift group relative flex h-full w-full flex-col gap-3 overflow-hidden rounded-2xl border border-card-border bg-card p-[23px] text-start backdrop-blur-[4px] hover:border-accent/40"
                   >
                     {/* The artwork is an image element rather than a CSS
                         background: a background is fetched at its full size
@@ -117,7 +118,7 @@ export async function ProductsSection() {
                         )}
                       </div>
                     </div>
-                  </a>
+                  </ProjectCardButton>
                 </Animate>
               );
             })}
