@@ -9,20 +9,36 @@ export const projects: Project[] = [
       ar: 'تجارة التجميل، من المتجر إلى باب البيت',
     },
     summary: {
-      en: 'A complete beauty and cosmetics commerce ecosystem: a conversion-tuned storefront, a companion mobile app, and an operations console that keeps catalogue, stock and orders in a single source of truth.',
-      ar: 'منظومة تجارة إلكترونية متكاملة لمستحضرات التجميل: متجر مُحسَّن للتحويل، وتطبيق موبايل مرافق، ولوحة تشغيل تُبقي الكتالوج والمخزون والطلبات في مصدر حقيقة واحد.',
+      en: 'A beauty and cosmetics commerce ecosystem led by its app: browse the categories, search a catalogue of hundreds, fill a cart and check out on the phone. Behind it a web storefront and an operations console keep catalogue, stock and orders in a single source of truth.',
+      ar: 'منظومة تجارة إلكترونية لمستحضرات التجميل يتصدّرها تطبيقها: تصفَّح التصنيفات، وابحث في كتالوج بالمئات، واملأ السلة وأتمّ الشراء من الهاتف. وخلفه متجر على الويب ولوحة تشغيل تُبقي الكتالوج والمخزون والطلبات في مصدر حقيقة واحد.',
     },
     year: 2025,
     category: 'ecommerce',
     services: ['web', 'mobile', 'cloud'],
     platforms: ['web', 'mobile', 'admin'],
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Vercel'],
-    cover: { from: 'oklch(0.62 0.19 340)', to: 'oklch(0.52 0.16 300)', image: '/work/glamora.webp' },
+    cover: {
+      from: 'oklch(0.62 0.19 340)',
+      to: 'oklch(0.52 0.16 300)',
+      image: '/work/glamora/home.png',
+    },
     logo: '/brand/systems/glamora.png',
+    shots: {
+      shape: 'portrait',
+      featured: [
+        '/work/glamora/home.png',
+        '/work/glamora/cart.png',
+        '/work/glamora/order-confirmed.png',
+      ],
+      gallery: [],
+    },
     featured: true,
     demo: {
       href: 'https://ysweety666-crypto.github.io/codeoura-demos/glamora/',
-      surface: { en: 'Operations console', ar: 'لوحة التشغيل' },
+      // The demonstration opens the console, not the app. Naming it for what
+      // it is keeps the label honest now that the app leads the page: a
+      // visitor who taps it should know they are going behind the counter.
+      surface: { en: 'The console behind the app', ar: 'اللوحة خلف التطبيق' },
     },
     caseStudy: {
       challenge: {
