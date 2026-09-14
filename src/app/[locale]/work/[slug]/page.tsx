@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Container } from '@/components/primitives/container';
+import { BrandButton } from '@/components/primitives/brand-button';
 import { ProjectCover } from '@/components/primitives/project-cover';
 import { ProjectShots } from '@/components/primitives/project-shots';
 import { Section } from '@/components/primitives/section';
@@ -96,6 +97,29 @@ export default async function ProjectPage({
           <p className="text-base leading-relaxed text-muted-foreground">
             {pick(project.summary, typedLocale)}
           </p>
+
+          {/* The way in, at the top where a visitor lands, rather than at the
+              foot of a column they have to reach first. No system carries both
+              a demonstration and a live site, so there is one action here and
+              it takes the page's single filled treatment. */}
+          {(project.url || project.demo) && (
+            <div className="mt-2 flex flex-wrap items-center gap-4">
+              <BrandButton
+                href={project.url ?? project.demo!.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.url ? t('visitSite') : t('demoOpen')}
+                <ExternalLink aria-hidden className="size-[18px]" />
+              </BrandButton>
+
+              {project.demo && (
+                <span className="text-sm text-muted-foreground">
+                  {pick(project.demo.surface, typedLocale)}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </Section>
 
@@ -153,28 +177,14 @@ export default async function ProjectPage({
               </div>
             </MetaBlock>
 
+            {/* The note stays: it is the caveat that belongs beside the
+                detail, not beside the button. Both buttons are gone from here
+                — the opening carries the one action now, and a second filled
+                button on a page halves the pull of the first. */}
             {project.demo && (
               <MetaBlock label={t('demoLabel')}>
-                <p className="text-sm text-muted-foreground">
-                  {pick(project.demo.surface, typedLocale)}
-                </p>
-                <Button asChild variant="primary" size="sm" className="mt-1 w-fit">
-                  <a href={project.demo.href} target="_blank" rel="noopener noreferrer">
-                    {t('demoOpen')}
-                    <ExternalLink aria-hidden />
-                  </a>
-                </Button>
                 <p className="text-xs text-muted-foreground">{t('demoNote')}</p>
               </MetaBlock>
-            )}
-
-            {project.url && (
-              <Button asChild variant="outline" size="sm" className="w-fit">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  {t('visitSite')}
-                  <ExternalLink aria-hidden />
-                </a>
-              </Button>
             )}
           </aside>
 
