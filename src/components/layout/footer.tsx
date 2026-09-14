@@ -62,17 +62,20 @@ export async function Footer() {
 
             <div className="grid gap-10 sm:grid-cols-3">
               <FooterColumn title={t('systems')}>
+                {/* Each name goes to its own case study. It used to go to the
+                    demonstration, which sent a visitor off the site from a
+                    footer, and left the systems without one falling back to an
+                    anchor that only jumps up the page. The case study exists
+                    for all ten and leads on to the demonstration itself. */}
                 {projects.map((project) => (
-                  <a
+                  <Link
                     key={project.slug}
-                    href={project.demo?.href ?? '#products'}
-                    target={project.demo ? '_blank' : undefined}
-                    rel={project.demo ? 'noopener noreferrer' : undefined}
+                    href={`/work/${project.slug}`}
                     dir="ltr"
                     className="text-sm text-ink-muted transition-colors hover:text-accent"
                   >
                     {project.name.en}
-                  </a>
+                  </Link>
                 ))}
               </FooterColumn>
 
