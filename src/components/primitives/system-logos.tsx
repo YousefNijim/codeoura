@@ -124,6 +124,48 @@ function CafeMark({ className }: MarkProps) {
   );
 }
 
+/** Sho Abalak: one parcel, seen by four apps — a box with a single seam. */
+function ShoAbalakMark({ className }: MarkProps) {
+  return (
+    <Tile from="#b4561a" to="#d9782c" className={className}>
+      <path
+        d="M24 12l11 6v12l-11 6-11-6V18l11-6z"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+      <path d="M13 18l11 6 11-6M24 24v12" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinejoin="round" />
+    </Tile>
+  );
+}
+
+/** FocusOura: a target — concentric rings closing on one point. */
+function FocusOuraMark({ className }: MarkProps) {
+  return (
+    <Tile from="#5b3fd6" to="#7d5cf0" className={className}>
+      <circle cx="24" cy="24" r="11" fill="none" stroke="#fff" strokeWidth="2.6" opacity=".55" />
+      <circle cx="24" cy="24" r="6" fill="none" stroke="#fff" strokeWidth="2.8" />
+      <circle cx="24" cy="24" r="2.2" fill="#fff" />
+    </Tile>
+  );
+}
+
+/** Arjwan Istanbul: a flacon — shoulders, neck and stopper in one outline. */
+function ArjwanMark({ className }: MarkProps) {
+  return (
+    <Tile from="#9c2d4a" to="#c4405f" className={className}>
+      <rect x="21" y="11" width="6" height="5" rx="1.4" fill="#fff" />
+      <path d="M22 16h4v3h-4z" fill="#fff" opacity=".75" />
+      <path
+        d="M20 19h8a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z"
+        fill="#fff"
+      />
+      <path d="M19 26h10" stroke="#9c2d4a" strokeWidth="2" strokeLinecap="round" />
+    </Tile>
+  );
+}
+
 /** Keyed by project slug; a system with real artwork is simply absent here. */
 export const systemLogos: Record<
   string,
@@ -133,4 +175,7 @@ export const systemLogos: Record<
   babunec: BabunecMark,
   'cleveland-medicals': ClevelandMark,
   'cafe-albaraa': CafeMark,
+  'sho-abalak': ShoAbalakMark,
+  focusoura: FocusOuraMark,
+  'arjwan-istanbul': ArjwanMark,
 };

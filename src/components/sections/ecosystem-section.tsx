@@ -19,14 +19,13 @@ export async function EcosystemSection() {
             subtitle={t('subtitle')}
           />
 
-          <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-16 lg:flex lg:items-stretch lg:justify-between">
+          <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:grid-cols-5">
             {projects.map((project, index) => (
               <Animate
                 as="li"
                 key={project.slug}
                 name="fadeInUp"
                 seq={index}
-                className="lg:flex-1"
               >
                 <a
                   href={project.demo?.href ?? '#products'}

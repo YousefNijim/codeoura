@@ -10,23 +10,28 @@ import { asset } from '@/lib/asset';
 import { pick } from '@/lib/localized';
 
 /**
- * Bento placement for the seven systems.
+ * Placement for the grid.
  *
- * Six fill two rows of three; the seventh sits alone in the middle of the
- * third. A short final row reads as a mistake — a centred one reads as the
- * end of a list.
+ * Six columns with every card spanning two gives three to a row, and lets a
+ * trailing row be centred — which three equal columns cannot do. A short last
+ * row reads as a mistake; a centred one reads as the end of a list.
+ *
+ * Derived from the count rather than written out, so adding a system to the
+ * content layer never leaves one unplaced.
  */
-const layout = [
-  'lg:col-start-1 lg:row-start-1',
-  'lg:col-start-2 lg:row-start-1',
-  'lg:col-start-3 lg:row-start-1',
-  'lg:col-start-1 lg:row-start-2',
-  'lg:col-start-2 lg:row-start-2',
-  'lg:col-start-3 lg:row-start-2',
-  'lg:col-start-2 lg:row-start-3',
-];
+function trailingOffset(index: number, total: number): string {
+  const remainder = total % 3;
+  if (remainder === 0) return '';
 
-/** One entrance per card, so the grid does not arrive as a single block. */
+  const firstOfLastRow = total - remainder;
+  if (index < firstOfLastRow) return '';
+
+  // One left over sits in the middle; two sit either side of it.
+  if (remainder === 1) return index === firstOfLastRow ? 'lg:col-start-3' : '';
+  return index === firstOfLastRow ? 'lg:col-start-2' : '';
+}
+
+/** One entrance per card, cycled, so the grid never arrives as one block. */
 const entrances: AnimName[] = [
   'scaleIn',
   'fadeInUp',
@@ -52,7 +57,7 @@ export async function ProductsSection() {
             subtitle={t('subtitle')}
           />
 
-          <ul className="mx-auto mt-12 grid max-w-[1240px] grid-cols-1 items-stretch gap-[26px] lg:mt-16 lg:grid-cols-3 lg:grid-rows-3">
+          <ul className="mx-auto mt-12 grid max-w-[1240px] grid-cols-1 items-stretch gap-[26px] lg:mt-16 lg:grid-cols-6">
             {projects.map((project, index) => {
               // English only: these are product names, not translated words.
               const name = project.name.en;
@@ -64,9 +69,9 @@ export async function ProductsSection() {
                 <Animate
                   as="li"
                   key={project.slug}
-                  name={entrances[index] ?? 'fadeInUp'}
+                  name={entrances[index % entrances.length]}
                   seq={index}
-                  className={`h-full ${layout[index] ?? ''}`}
+                  className={`h-full lg:col-span-2 ${trailingOffset(index, projects.length)}`}
                 >
                   {/* The whole card is one link: there is nothing on it a
                       visitor would want that is not the demonstration. */}
