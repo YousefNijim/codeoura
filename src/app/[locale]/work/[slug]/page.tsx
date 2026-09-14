@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Container } from '@/components/primitives/container';
-import { BrandButton } from '@/components/primitives/brand-button';
 import { ProjectCover } from '@/components/primitives/project-cover';
+import { ProjectCta } from '@/components/primitives/project-cta';
 import { ProjectShots } from '@/components/primitives/project-shots';
 import { Section } from '@/components/primitives/section';
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
@@ -101,24 +101,20 @@ export default async function ProjectPage({
           {/* The way in, at the top where a visitor lands, rather than at the
               foot of a column they have to reach first. No system carries both
               a demonstration and a live site, so there is one action here and
-              it takes the page's single filled treatment. */}
+              it takes the page's single filled treatment. It docks to the
+              corner once it scrolls away — a case study is long enough that a
+              reader who is convinced by the end would otherwise have to go
+              back up to act on it. */}
           {(project.url || project.demo) && (
-            <div className="mt-2 flex flex-wrap items-center gap-4">
-              <BrandButton
-                href={project.url ?? project.demo!.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {project.url ? t('visitSite') : t('demoOpen')}
-                <ExternalLink aria-hidden className="size-[18px]" />
-              </BrandButton>
-
-              {project.demo && (
-                <span className="text-sm text-muted-foreground">
-                  {pick(project.demo.surface, typedLocale)}
-                </span>
-              )}
-            </div>
+            <ProjectCta
+              href={project.url ?? project.demo!.href}
+              label={project.url ? t('visitSite') : t('demoOpen')}
+              surface={
+                project.demo
+                  ? pick(project.demo.surface, typedLocale)
+                  : undefined
+              }
+            />
           )}
         </div>
       </Section>

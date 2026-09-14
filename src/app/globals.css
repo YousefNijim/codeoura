@@ -525,6 +525,33 @@
   .marquee-inner { animation: none !important; }
 }
 
+/* The case-study call, docked to the corner once the real one has scrolled
+   away. It rises into place rather than appearing, which reads as the same
+   button following the reader rather than a second one arriving. */
+.cta-dock {
+  transition:
+    opacity 0.35s var(--ease-out-expo),
+    transform 0.35s var(--ease-out-expo);
+}
+.cta-dock--out {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.cta-dock--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-dock {
+    transition: opacity 0.2s linear;
+  }
+  .cta-dock--out,
+  .cta-dock--in {
+    transform: none;
+  }
+}
+
 [dir='rtl'] body {
   --motion-dir: -1;
 }
