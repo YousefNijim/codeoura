@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Animate, type AnimName } from '@/components/primitives/animate';
@@ -61,9 +62,6 @@ export async function ProductsSection() {
             {projects.map((project, index) => {
               // English only: these are product names, not translated words.
               const name = project.name.en;
-              const cover = project.cover.image
-                ? `url('${asset(project.cover.image)}')`
-                : 'none';
 
               return (
                 <Animate
@@ -80,11 +78,22 @@ export async function ProductsSection() {
                     target={project.demo ? '_blank' : undefined}
                     rel={project.demo ? 'noopener noreferrer' : undefined}
                     className="product-card hover-lift group relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl border border-card-border bg-card p-[23px] text-start backdrop-blur-[4px] hover:border-accent/40"
-                    style={{
-                      ['--card-bg-light' as string]: cover,
-                      ['--card-bg-dark' as string]: cover,
-                    }}
                   >
+                    {/* The artwork is an image element rather than a CSS
+                        background: a background is fetched at its full size
+                        whatever the card measures, so one phone screenshot at
+                        its capture resolution would cost the page more than
+                        everything else on it put together. */}
+                    {project.cover.image && (
+                      <Image
+                        src={asset(project.cover.image)}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 33vw, 100vw"
+                        className="product-card-art absolute inset-0 z-0 object-cover object-top"
+                      />
+                    )}
+
                     <SystemMark project={project} className="relative z-10 self-start" />
 
                     <div className="relative z-10 mt-auto grid gap-3">

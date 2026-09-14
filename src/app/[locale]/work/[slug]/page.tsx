@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Container } from '@/components/primitives/container';
 import { ProjectCover } from '@/components/primitives/project-cover';
+import { ProjectShots } from '@/components/primitives/project-shots';
 import { Section } from '@/components/primitives/section';
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
@@ -99,11 +100,18 @@ export default async function ProjectPage({
       </Section>
 
       <Container className="mt-14">
-        <ProjectCover
-          project={project}
-          label={name}
-          className="rounded-none border border-border"
-        />
+        {/* Where the product's own screens exist they lead, whole and at their
+            own resolution. The cover is a crop of one of them, which on this
+            page would only repeat what the shots already show, larger. */}
+        {project.shots ? (
+          <ProjectShots project={project} label={name} />
+        ) : (
+          <ProjectCover
+            project={project}
+            label={name}
+            className="rounded-none border border-border"
+          />
+        )}
       </Container>
 
       <Section>

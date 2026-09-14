@@ -45,6 +45,16 @@ export interface Project {
   cover: { from: string; to: string; image?: string };
   /** The system's own mark, where one exists. A monogram stands in otherwise. */
   logo?: string;
+  /**
+   * Screens from the product itself, shipped at the resolution they were
+   * captured at rather than flattened into one composite. A composite is a
+   * re-encode: it throws away the detail that makes a screenshot worth
+   * showing, and it cannot be re-cropped later without the originals.
+   *
+   * `featured` leads the case study at full width; `gallery` follows it
+   * smaller, for the screens that add depth rather than carry the story.
+   */
+  shots?: { featured: string[]; gallery: string[] };
   featured: boolean;
   url?: string;
   /**

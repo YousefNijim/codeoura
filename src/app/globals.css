@@ -244,25 +244,21 @@
   /* ── Product card ───────────────────────────────────────────────────── */
   /* The artwork is passed per card as inline custom properties, so the image
      follows the theme with no JavaScript and no duplicated markup. */
-  .product-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image: var(--card-bg-light);
-    background-size: cover;
-    background-position: center;
+  /* The artwork sits behind the copy at a low opacity. It is a real image
+     element, not a background on this pseudo-element: a CSS background is
+     fetched whole, at whatever size the file happens to be, while an image
+     element is served at the size the card actually renders. */
+  .product-card-art {
     opacity: 0.4;
     transition: opacity 0.4s var(--ease-out-expo);
   }
-  .dark .product-card::before {
-    background-image: var(--card-bg-dark);
+  .dark .product-card-art {
     opacity: 0.3;
   }
-  .product-card:hover::before {
+  .product-card:hover .product-card-art {
     opacity: 0.6;
   }
-  .dark .product-card:hover::before {
+  .dark .product-card:hover .product-card-art {
     opacity: 0.48;
   }
 
