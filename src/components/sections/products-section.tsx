@@ -12,14 +12,15 @@ import { asset } from '@/lib/asset';
 import { pick } from '@/lib/localized';
 
 /**
- * Placement for the grid.
+ * Placement within a group.
  *
  * Six columns with every card spanning two gives three to a row, and lets a
  * trailing row be centred — which three equal columns cannot do. A short last
  * row reads as a mistake; a centred one reads as the end of a list.
  *
  * Derived from the count rather than written out, so adding a system to the
- * content layer never leaves one unplaced.
+ * content layer never leaves one unplaced. It takes the group's own count, so
+ * each group centres its own trailing row rather than the page's.
  */
 function trailingOffset(index: number, total: number): string {
   const remainder = total % 3;
@@ -49,6 +50,21 @@ export async function ProductsSection() {
   const tw = await getTranslations('work');
   const locale = (await getLocale()) as Locale;
 
+  // A system that reaches a phone is shown as an app; everything else is a
+  // platform you open in a browser. The split reads off `platforms` rather
+  // than a hand-kept list, so a system that gains a mobile build moves group
+  // by saying so once in the content layer.
+  const groups = [
+    {
+      label: t('groupApps'),
+      items: projects.filter((project) => project.platforms.includes('mobile')),
+    },
+    {
+      label: t('groupWeb'),
+      items: projects.filter((project) => !project.platforms.includes('mobile')),
+    },
+  ].filter((group) => group.items.length > 0);
+
   return (
     <section id="products" className="section-pad relative overflow-hidden">
       <div className="page-gutter relative z-[1]">
@@ -59,75 +75,89 @@ export async function ProductsSection() {
             subtitle={t('subtitle')}
           />
 
-          <ul className="mx-auto mt-12 grid max-w-[1240px] grid-cols-1 items-stretch gap-[26px] lg:mt-16 lg:grid-cols-6">
-            {projects.map((project, index) => {
-              // English only: these are product names, not translated words.
-              const name = project.name.en;
+          {groups.map((group) => (
+            <div key={group.label} className="mt-12 lg:mt-16">
+              {/* The two kinds do not compare: an app is judged on the screens
+                  a person holds, a platform on what it runs. Naming the group
+                  saves a visitor working that out from the artwork. */}
+              <div className="mx-auto flex max-w-[1240px] items-center gap-5">
+                <h3 className="shrink-0 text-xs font-medium uppercase tracking-[0.16em] text-ink-muted">
+                  {group.label}
+                </h3>
+                <span aria-hidden className="rule-brand" />
+              </div>
 
-              return (
-                <Animate
-                  as="li"
-                  key={project.slug}
-                  name={entrances[index % entrances.length]}
-                  seq={index}
-                  className={`h-full lg:col-span-2 ${trailingOffset(index, projects.length)}`}
-                >
-                  {/* The whole card opens the system's detail. It used to be a
-                      link to the demonstration, which sent a visitor off the
-                      site before they had read what the system is; the dialog
-                      still offers the demonstration and the case study. */}
-                  <ProjectCardButton
-                    project={project}
-                    className="product-card hover-lift group relative flex h-full w-full flex-col gap-3 overflow-hidden rounded-2xl border border-card-border bg-card p-[23px] text-start backdrop-blur-[4px] hover:border-accent/40"
-                  >
-                    {/* The artwork is an image element rather than a CSS
-                        background: a background is fetched at its full size
-                        whatever the card measures, so one phone screenshot at
-                        its capture resolution would cost the page more than
-                        everything else on it put together. */}
-                    {project.cover.image && (
-                      <Image
-                        src={asset(project.cover.image)}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 33vw, 100vw"
-                        className="product-card-art absolute inset-0 z-0 object-cover object-top"
-                      />
-                    )}
+              <ul className="mx-auto mt-7 grid max-w-[1240px] grid-cols-1 items-stretch gap-[26px] lg:grid-cols-6">
+                {group.items.map((project, index) => {
+                  // English only: these are product names, not translated words.
+                  const name = project.name.en;
 
-                    <SystemMark project={project} className="relative z-10 self-start" />
-
-                    <div className="relative z-10 mt-auto grid gap-3">
-                      <h3 className="text-xl text-ink" dir="ltr">{name}</h3>
-                      <p className="text-sm leading-[1.4] text-ink-secondary">
-                        {pick(project.tagline, locale)}
-                      </p>
-                      <div className="flex flex-wrap items-start gap-2">
-                        {project.stack.slice(0, 3).map((tech) => (
-                          <span
-                            key={tech}
-                            className="h-6 rounded-full bg-accent-light px-3 font-mono text-[10px] leading-6 text-accent"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.demo && (
-                          <span className="h-6 rounded-full border border-accent/40 px-3 text-[10px] leading-6 text-accent">
-                            {tw('demoBadge')}
-                          </span>
+                  return (
+                    <Animate
+                      as="li"
+                      key={project.slug}
+                      name={entrances[index % entrances.length]}
+                      seq={index}
+                      className={`h-full lg:col-span-2 ${trailingOffset(index, group.items.length)}`}
+                    >
+                      {/* The whole card opens the system's detail. It used to be a
+                          link to the demonstration, which sent a visitor off the
+                          site before they had read what the system is; the dialog
+                          still offers the demonstration and the case study. */}
+                      <ProjectCardButton
+                        project={project}
+                        className="product-card hover-lift group relative flex h-full w-full flex-col gap-3 overflow-hidden rounded-2xl border border-card-border bg-card p-[23px] text-start backdrop-blur-[4px] hover:border-accent/40"
+                      >
+                        {/* The artwork is an image element rather than a CSS
+                            background: a background is fetched at its full size
+                            whatever the card measures, so one phone screenshot at
+                            its capture resolution would cost the page more than
+                            everything else on it put together. */}
+                        {project.cover.image && (
+                          <Image
+                            src={asset(project.cover.image)}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1024px) 33vw, 100vw"
+                            className="product-card-art absolute inset-0 z-0 object-cover object-top"
+                          />
                         )}
-                        {project.url && (
-                          <span className="h-6 rounded-full border border-accent/40 px-3 text-[10px] leading-6 text-accent">
-                            {tw('visitSite')}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </ProjectCardButton>
-                </Animate>
-              );
-            })}
-          </ul>
+
+                        <SystemMark project={project} className="relative z-10 self-start" />
+
+                        <div className="relative z-10 mt-auto grid gap-3">
+                          <h3 className="text-xl text-ink" dir="ltr">{name}</h3>
+                          <p className="text-sm leading-[1.4] text-ink-secondary">
+                            {pick(project.tagline, locale)}
+                          </p>
+                          <div className="flex flex-wrap items-start gap-2">
+                            {project.stack.slice(0, 3).map((tech) => (
+                              <span
+                                key={tech}
+                                className="h-6 rounded-full bg-accent-light px-3 font-mono text-[10px] leading-6 text-accent"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                            {project.demo && (
+                              <span className="h-6 rounded-full border border-accent/40 px-3 text-[10px] leading-6 text-accent">
+                                {tw('demoBadge')}
+                              </span>
+                            )}
+                            {project.url && (
+                              <span className="h-6 rounded-full border border-accent/40 px-3 text-[10px] leading-6 text-accent">
+                                {tw('visitSite')}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </ProjectCardButton>
+                    </Animate>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
 
           <Animate name="fadeInUp" seq={0} className="mt-12 flex justify-center">
             <Link

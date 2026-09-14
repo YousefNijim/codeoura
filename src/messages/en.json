@@ -148,6 +148,8 @@
     "eyebrow": "Explore our systems",
     "title": "An ecosystem of {count} systems",
     "subtitle": "Open a system for its detail, and go through to the demonstration or the live product from there.",
+    "groupApps": "Mobile apps",
+    "groupWeb": "Web platforms",
     "readCases": "Details of each system"
   },
   "path": {
