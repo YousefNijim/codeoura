@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
-import { ProjectCover } from '@/components/primitives/project-cover';
 import { principles } from '@/content/company';
-import { featuredProjects, projects } from '@/content/projects';
+import { projects } from '@/content/projects';
 import type { Locale } from '@/i18n/routing';
+import { asset } from '@/lib/asset';
 import { pick } from '@/lib/localized';
 
 export async function AboutSection() {
@@ -23,20 +24,19 @@ export async function AboutSection() {
     { value: '100%', label: t('stats.typed') },
   ];
 
-  // The lead project stands in as the section's illustration: a real screen
-  // from a real system, rather than an image bought to fill the column.
-  const showcase = featuredProjects[0];
-
   return (
     <section id="about" className="section-pad relative overflow-hidden">
       <div className="page-gutter">
         <div className="section-container flex flex-col gap-[30px] lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
           <Animate name="fadeInLeft" seq={0} className="order-1">
-            <div className="overflow-hidden rounded-2xl border border-card-border">
-              <ProjectCover
-                project={showcase}
-                label={pick(showcase.name, locale)}
+            <div className="relative aspect-3/2 overflow-hidden rounded-2xl border border-card-border">
+              <Image
+                src={asset('/brand/studio.webp')}
+                alt={t('imageAlt')}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 priority
+                className="object-cover"
               />
             </div>
           </Animate>
