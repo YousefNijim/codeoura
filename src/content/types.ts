@@ -54,7 +54,16 @@ export interface Project {
    * `featured` leads the case study at full width; `gallery` follows it
    * smaller, for the screens that add depth rather than carry the story.
    */
-  shots?: { featured: string[]; gallery: string[] };
+  shots?: {
+    /**
+     * Phone captures are tall and sit several to a row; desktop captures are
+     * wide and need the full measure. The frame cannot infer this — the file's
+     * dimensions are not known until it is fetched — so the content says it.
+     */
+    shape: 'portrait' | 'landscape';
+    featured: string[];
+    gallery: string[];
+  };
   featured: boolean;
   url?: string;
   /**

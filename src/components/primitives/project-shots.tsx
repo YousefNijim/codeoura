@@ -12,10 +12,32 @@ import type { Project } from '@/content/types';
  * A composite would have fixed that decision at build time, at whatever size
  * happened to suit one layout.
  *
- * Portrait is assumed — these are phone screens — so the frame is sized by
- * width and lets height follow, and `object-contain` keeps a shot that is not
- * quite the same ratio whole rather than cropping it.
+ * Two shapes, because a phone capture and a desktop capture cannot share a
+ * frame: three tall screens sit in a row where two wide ones need the full
+ * measure one under the other.
  */
+const layout = {
+  portrait: {
+    featured: 'grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 sm:items-start',
+    featuredItem: 'w-full max-w-[320px]',
+    featuredSize: 320,
+    gallery: 'grid grid-cols-2 justify-items-center gap-5 sm:grid-cols-4 lg:grid-cols-7',
+    galleryItem: 'w-full max-w-[150px]',
+    gallerySize: 150,
+    // The tallest capture in the set; `h-auto` lets the others keep their own.
+    ratio: { width: 1408, height: 3044 },
+  },
+  landscape: {
+    featured: 'grid grid-cols-1 gap-8',
+    featuredItem: 'w-full',
+    featuredSize: 1200,
+    gallery: 'grid grid-cols-1 gap-6 sm:grid-cols-2',
+    galleryItem: 'w-full',
+    gallerySize: 600,
+    ratio: { width: 1908, height: 919 },
+  },
+} as const;
+
 export function ProjectShots({
   project,
   label,
@@ -26,21 +48,23 @@ export function ProjectShots({
   const shots = project.shots;
   if (!shots) return null;
 
+  const l = layout[shots.shape];
+
   return (
     <div className="flex flex-col gap-8">
-      <ul className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 sm:items-start">
+      <ul className={l.featured}>
         {shots.featured.map((src) => (
-          <li key={src} className="w-full max-w-[320px]">
-            <Shot src={src} label={label} width={320} priority />
+          <li key={src} className={l.featuredItem}>
+            <Shot src={src} label={label} width={l.featuredSize} ratio={l.ratio} priority />
           </li>
         ))}
       </ul>
 
       {shots.gallery.length > 0 && (
-        <ul className="grid grid-cols-2 justify-items-center gap-5 sm:grid-cols-4 lg:grid-cols-7">
+        <ul className={l.gallery}>
           {shots.gallery.map((src) => (
-            <li key={src} className="w-full max-w-[150px]">
-              <Shot src={src} label={label} width={150} />
+            <li key={src} className={l.galleryItem}>
+              <Shot src={src} label={label} width={l.gallerySize} ratio={l.ratio} />
             </li>
           ))}
         </ul>
@@ -53,11 +77,13 @@ function Shot({
   src,
   label,
   width,
+  ratio,
   priority = false,
 }: {
   src: string;
   label: string;
   width: number;
+  ratio: { width: number; height: number };
   priority?: boolean;
 }) {
   return (
@@ -65,11 +91,9 @@ function Shot({
       <Image
         src={asset(src)}
         alt={label}
-        // The intrinsic ratio of these captures; `h-auto` lets a shot that
-        // differs keep its own, since the box is sized by width alone.
-        width={1408}
-        height={3044}
-        sizes={`${width}px`}
+        width={ratio.width}
+        height={ratio.height}
+        sizes={`(min-width: 1024px) ${width}px, 100vw`}
         priority={priority}
         className="h-auto w-full object-contain"
       />
