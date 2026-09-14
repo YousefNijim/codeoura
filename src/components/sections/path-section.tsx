@@ -72,7 +72,7 @@ export async function PathSection() {
                       <p className="text-sm leading-[1.5] text-ink-muted">
                         {pick(step.description, locale)}
                       </p>
-                      {project?.demo && (
+                      {project?.demo ? (
                         <a
                           href={project.demo.href}
                           target="_blank"
@@ -81,7 +81,16 @@ export async function PathSection() {
                         >
                           {tw('demoOpen')}
                         </a>
-                      )}
+                      ) : project?.url ? (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-fit text-sm font-medium text-accent underline-offset-8 hover:underline"
+                        >
+                          {tw('visitSite')}
+                        </a>
+                      ) : null}
                     </div>
                   </Animate>
                 </div>

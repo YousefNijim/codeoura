@@ -80,9 +80,23 @@ export function ProjectDialog({
                   </a>
                 </Button>
               )}
+              {/* A system with no demonstration but a live site of its own
+                  still has somewhere to send the visitor. */}
+              {project.url && (
+                <Button
+                  asChild
+                  variant={project.demo ? 'outline' : 'primary'}
+                  className="w-full sm:w-fit"
+                >
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    {t('visitSite')}
+                    <ExternalLink aria-hidden />
+                  </a>
+                </Button>
+              )}
               <Button
                 asChild
-                variant={project.demo ? 'outline' : 'primary'}
+                variant={project.demo || project.url ? 'outline' : 'primary'}
                 className="w-full sm:w-fit"
               >
                 <Link href={`/work/${project.slug}`}>

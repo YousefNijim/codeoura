@@ -116,6 +116,11 @@ export async function ProductsSection() {
                             {tw('demoBadge')}
                           </span>
                         )}
+                        {project.url && (
+                          <span className="h-6 rounded-full border border-accent/40 px-3 text-[10px] leading-6 text-accent">
+                            {tw('visitSite')}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </ProjectCardButton>
