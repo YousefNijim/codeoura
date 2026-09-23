@@ -4,12 +4,12 @@ export const techCategories: {
   id: TechItem['category'];
   label: Localized;
 }[] = [
-  { id: 'frontend', label: { en: 'Frontend', ar: 'الواجهة' } },
-  { id: 'backend', label: { en: 'Backend', ar: 'الخلفية' } },
-  { id: 'mobile', label: { en: 'Mobile', ar: 'الموبايل' } },
-  { id: 'data', label: { en: 'Data', ar: 'البيانات' } },
-  { id: 'infra', label: { en: 'Infrastructure', ar: 'البنية التحتية' } },
-  { id: 'ai', label: { en: 'AI', ar: 'الذكاء الاصطناعي' } },
+  { id: 'frontend', label: { en: 'Frontend', ar: 'الواجهة', tr: 'Ön yüz' } },
+  { id: 'backend', label: { en: 'Backend', ar: 'الخلفية', tr: 'Arka uç' } },
+  { id: 'mobile', label: { en: 'Mobile', ar: 'الموبايل', tr: 'Mobil' } },
+  { id: 'data', label: { en: 'Data', ar: 'البيانات', tr: 'Veri' } },
+  { id: 'infra', label: { en: 'Infrastructure', ar: 'البنية التحتية', tr: 'Altyapı' } },
+  { id: 'ai', label: { en: 'AI', ar: 'الذكاء الاصطناعي', tr: 'Yapay zekâ' } },
 ];
 
 export const techStack: TechItem[] = [

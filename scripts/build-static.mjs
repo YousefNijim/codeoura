@@ -69,8 +69,12 @@ function writeRootRedirect() {
 <link rel="canonical" href="${basePath}/en/">
 <meta http-equiv="refresh" content="0; url=${basePath}/en/">
 <script>
-  var lang = (navigator.language || 'en').toLowerCase().startsWith('ar') ? 'ar' : 'en';
-  location.replace('${basePath}/' + lang + '/');
+  // English is the canonical landing: the meta refresh above sends everyone
+  // there, and this only redirects the visitor whose browser actually asks
+  // for one of the other two.
+  var lang = (navigator.language || 'en').toLowerCase();
+  var match = lang.indexOf('ar') === 0 ? 'ar' : lang.indexOf('tr') === 0 ? 'tr' : 'en';
+  location.replace('${basePath}/' + match + '/');
 </script>
 </head>
 <body>

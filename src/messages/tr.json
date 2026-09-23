@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "home": {
+      "title": "Codeoura | Kurumsal yazılım mühendisliği",
+      "description": "Kurumsal web platformları, çoklu platform mobil uygulamalar ve özel SaaS sistemleri tasarlıyor ve geliştiriyoruz. Yedi sektörde, üretim ortamında çalışan on sistem."
+    },
+    "work": {
+      "title": "Çalışmalarımız",
+      "description": "Teslim ettiğimiz ve bugün üretim ortamında çalışan sistemler: e-ticaret, stok yönetimi, lojistik, seyahat, konaklama ve sağlık."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Mimariyi, performansı ve sürdürülebilirliği her teknik kararın merkezine koyan bir mühendislik stüdyosu."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Projenizin ayrıntılarını paylaşın, bir iş günü içinde size dönelim."
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "description": "Aradığınız sayfa mevcut değil."
+    }
+  },
+  "nav": {
+    "skipToContent": "İçeriğe geç",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "toggleTheme": "Temayı değiştir",
+    "switchLanguage": "Dil değiştir",
+    "startProject": "Projeye başlayın",
+    "home": "Ana sayfa",
+    "contact": "Bize ulaşın"
+  },
+  "hero": {
+    "titleLead": "İşletmeler için bütünleşik bir",
+    "titleAccent": "sistem ekosistemi kuruyoruz.",
+    "subtitle": "İşletmelerin kurulmasına, büyümesine ve ölçeklenmesine yarayan temel sistemleri ve platformları kuruyor ve işletiyoruz.",
+    "primaryCta": "Sistemlerimizi keşfedin",
+    "badge": "İşletmeler için yazılım ekosistemi"
+  },
+  "services": {
+    "eyebrow": "Hizmetler",
+    "title": "Beş uzmanlık, tek standart",
+    "subtitle": "Bir sistemi ilk mimari karardan üretim ortamına kadar yanında yürütür, aradaki her katmanın sorumluluğunu üstleniriz. Hizmetlerimiz tek bir bütün olarak, çalışmaya ve ölçeklenmeye hazır teslim edilir.",
+    "capabilities": "Hizmet kapsamı",
+    "explore": "Hizmet ayrıntıları"
+  },
+  "work": {
+    "eyebrow": "Seçilmiş çalışmalar",
+    "title": "Bugün çalışan sistemler",
+    "subtitle": "Tasarlayıp teslim ettiğimiz, gerçek kullanıcılar, gerçek veriler ve gerçek işletme kısıtlarıyla üretim ortamında çalışan sistemlerden bir seçki. Çoğunun kendiniz inceleyebileceğiniz bir demo sürümü ya da doğrudan canlı sistemi var.",
+    "viewAll": "Tüm çalışmalar",
+    "viewCase": "Vaka çalışmasını okuyun",
+    "filterLabel": "Projeleri sektöre göre filtrele",
+    "empty": "Bu kategoride şu anda proje yok.",
+    "showing": "{count, plural, =0 {Proje yok} =1 {1 proje} other {# proje}}",
+    "challenge": "Zorluk",
+    "solution": "Çözümümüz",
+    "outcome": "Sonuç",
+    "stackLabel": "Teknolojiler",
+    "yearLabel": "Yıl",
+    "platformsLabel": "Platformlar",
+    "servicesLabel": "Hizmetler",
+    "visitSite": "Siteyi gezin",
+    "close": "Kapat",
+    "backToWork": "Tüm çalışmalara dön",
+    "nextProject": "Sonraki proje",
+    "demoBadge": "Demo",
+    "demoOpen": "Demoyu açın",
+    "demoLabel": "Demo",
+    "demoNote": "Örnek veriler üzerinde çalışan bir kopya. Yaptığınız değişiklikler kaydedilmez ve içinde hiçbir müşteri verisi bulunmaz.",
+    "platform": {
+      "web": "Web",
+      "mobile": "Mobil",
+      "admin": "Yönetim paneli"
+    }
+  },
+  "stack": {
+    "eyebrow": "Mimari",
+    "title": "Benimsediğimiz ve arkasında durduğumuz teknolojiler",
+    "subtitle": "Teknolojilerimizi olgunluk, güvenilirlik ve uzun vadeli destek ölçütlerine göre seçeriz. Bu, üretimde işlettiğimiz ve istikrarı ve ölçeklenmeyi güvence altına alacak derinlikte deneyime sahip olduğumuz yığındır."
+  },
+  "about": {
+    "eyebrow": "Hakkımızda",
+    "title": "Sistemleri kurar, işletir ve yanlarında kalırız",
+    "subtitle": "Bir sistemi ilk mimari karardan üretim ortamına kadar yanında yürütür, teslimden sonra da yanında kalırız.",
+    "stats": {
+      "systems": "Üretimdeki sistem",
+      "sectors": "Sektör",
+      "support": "İzleme ve uyarı",
+      "typed": "Tip kapsamı"
+    },
+    "imageAlt": "Codeoura ekibinden iki mühendis ekranda bir sistem mimarisi şemasını inceliyor",
+    "processTitle": "Nasıl çalışıyoruz",
+    "processSubtitle": "Net tanımlanmış dört aşama, ilk turdan itibaren çalışan bir ortam ve ilerlemeye dair düzenli raporlama."
+  },
+  "contact": {
+    "eyebrow": "İletişime geçin",
+    "title": "Projenizi konuşalım",
+    "subtitle": "Fikrinizi ya da karşılaştığınız teknik zorluğu paylaşın; ekibimiz inceleyip bir iş günü içinde ilk değerlendirmesiyle size dönsün.",
+    "form": {
+      "name": "Ad soyad",
+      "namePlaceholder": "Adınız",
+      "email": "E-posta",
+      "emailPlaceholder": "siz@sirket.com",
+      "company": "Şirket",
+      "companyPlaceholder": "İsteğe bağlı",
+      "budget": "Bütçe aralığı",
+      "budgetPlaceholder": "İsteğe bağlı",
+      "message": "Proje ayrıntıları",
+      "messagePlaceholder": "Projenin niteliği, hedef kitlesi ve temel gereksinimleri.",
+      "submit": "Talebi gönder",
+      "submitting": "Gönderiliyor…",
+      "required": "Zorunlu"
+    },
+    "success": {
+      "title": "Mesajınız alındı",
+      "description": "Bize ulaştığınız için teşekkürler. Bir iş günü içinde size döneceğiz."
+    },
+    "error": {
+      "title": "Mesaj gönderilemedi",
+      "description": "Mesajınızı gönderemedik. Lütfen tekrar deneyin ya da bize e-posta yazın."
+    },
+    "validation": {
+      "nameMin": "Lütfen en az 2 karakter girin.",
+      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin.",
+      "messageMin": "Lütfen en az 20 karakter girin.",
+      "messageMax": "Lütfen 4000 karakterin altında tutun."
+    },
+    "direct": "Doğrudan iletişim"
+  },
+  "footer": {
+    "description": "İşletmelerin büyümesini destekleyen bir sistem ve platform ekosistemi kuruyor ve işletiyoruz.",
+    "sitemap": "Şirket",
+    "connect": "Bize ulaşın",
+    "copyright": "© {year} Codeoura. Tüm hakları saklıdır.",
+    "systems": "Sistemlerimiz",
+    "caseStudies": "Vaka çalışmaları",
+    "reply": "Bir iş günü içinde yanıtlıyoruz.",
+    "whatsapp": "WhatsApp"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "description": "Aradığınız sayfa mevcut değil ya da taşınmış.",
+    "cta": "Ana sayfaya dön"
+  },
+  "products": {
+    "eyebrow": "Sistemlerimizi tanıyın",
+    "title": "{count} sistemlik bir ekosistem",
+    "subtitle": "Ayrıntıları için bir sistemi açın, oradan demosuna ya da canlı ürününe geçin.",
+    "readCases": "Her sistemin ayrıntıları"
+  },
+  "path": {
+    "eyebrow": "Yolunuzu seçin",
+    "title": "Şu anda neredesiniz?",
+    "subtitle": "Büyümenizin her aşamasının kendine uygun sistemi var. Size en yakın yolu seçin."
+  },
+  "ecosystem": {
+    "eyebrow": "Ekosistem",
+    "title": "Tüm sistemlerimiz tek yerde",
+    "subtitle": "İşinize hizmet eden sistemi seçin ve açın.",
+    "category": {
+      "ecommerce": "E-ticaret",
+      "erp": "Stok",
+      "logistics": "Lojistik",
+      "travel": "Seyahat",
+      "hospitality": "Konaklama",
+      "healthcare": "Sağlık",
+      "productivity": "Üretkenlik"
+    }
+  },
+  "outcomes": {
+    "eyebrow": "Sonuçlar",
+    "title": "Sistemlerimiz neyi değiştirdi",
+    "subtitle": "Vaka çalışmalarında kayıtlı olduğu haliyle, her sistemin gerçek sonuçları."
+  },
+  "cta": {
+    "title": "Ekosistemimizle başlayın",
+    "subtitle": "İstediğiniz sistemi hemen deneyin, karar verdiğinizde bize yazın. Bir iş günü içinde yanıtlıyoruz.",
+    "action": "WhatsApp'tan yazın",
+    "whatsappMessage": "Merhaba Codeoura,\nSitenizi ve sistemlerinizi inceledim, bir proje hakkında konuşmak istiyorum.\n\nProje:\nŞirket:"
+  }
+}
