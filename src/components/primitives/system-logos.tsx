@@ -144,6 +144,42 @@ function DomiMark({ className }: MarkProps) {
   );
 }
 
+/** AL GOAT SPORTS: the goat of the name, reduced to horn, head and beard. */
+function AlGoatMark({ className }: MarkProps) {
+  return (
+    <Tile from="#0f6b3f" to="#18a05c" className={className}>
+      <path
+        d="M17 20c0-4 3-7 7-7s7 3 7 7v5a7 7 0 0 1-7 7 7 7 0 0 1-7-7v-5z"
+        fill="#fff"
+      />
+      <path
+        d="M17 20c-2-2-4-3-5-6 3 0 5 1 6 3M31 20c2-2 4-3 5-6-3 0-5 1-6 3"
+        stroke="#fff"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path d="M22 32l2 4 2-4" fill="#fff" />
+      <circle cx="21" cy="21" r="1.6" fill="#0f6b3f" />
+      <circle cx="27" cy="21" r="1.6" fill="#0f6b3f" />
+    </Tile>
+  );
+}
+
+/** Rufoof: shelves — the word itself, drawn as three stacked boards. */
+function RufoofMark({ className }: MarkProps) {
+  return (
+    <Tile from="#1f5b43" to="#2e8b63" className={className}>
+      <path d="M13 15h22M13 24h22M13 33h22" stroke="#fff" strokeWidth="2.8" strokeLinecap="round" />
+      <rect x="17" y="9" width="4" height="6" rx="1" fill="#fff" />
+      <rect x="24" y="11" width="6" height="4" rx="1" fill="#fff" opacity=".8" />
+      <rect x="20" y="18" width="5" height="6" rx="1" fill="#fff" opacity=".85" />
+      <rect x="27" y="20" width="4" height="4" rx="1" fill="#fff" opacity=".7" />
+      <rect x="16" y="28" width="6" height="5" rx="1" fill="#fff" opacity=".8" />
+    </Tile>
+  );
+}
+
 /** Keyed by project slug; a system with real artwork is simply absent here. */
 export const systemLogos: Record<
   string,
@@ -154,4 +190,6 @@ export const systemLogos: Record<
   'cleveland-medicals': ClevelandMark,
   'cafe-albaraa': CafeMark,
   'domi-brand': DomiMark,
+  'al-goat': AlGoatMark,
+  rufoof: RufoofMark,
 };

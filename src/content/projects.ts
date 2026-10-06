@@ -436,61 +436,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'arjwan-istanbul',
-    name: { en: 'Arjwan Istanbul', ar: 'أرجوان إسطنبول', tr: 'Arjwan Istanbul' },
-    tagline: {
-      en: 'A perfume house that takes real orders',
-      ar: 'دار عطور تستقبل طلبات حقيقية',
-      tr: 'Gerçek sipariş alan bir parfüm evi',
-    },
-    summary: {
-      en: 'A commercial storefront for a perfume brand — catalogue, product pages and checkout — designed mobile-first for traffic arriving from social links, and pre-rendered so the store stays fast and cheap to run.',
-      ar: 'متجر تجاري لعلامة عطور — كتالوج وصفحات منتج وإتمام شراء — مصمَّم للهاتف أولاً لأن الزيارات تأتي من روابط التواصل، ومُولَّد مسبقاً ليبقى المتجر سريعاً وقليل الكلفة.',
-      tr: 'Bir parfüm markası için ticari bir vitrin — katalog, ürün sayfaları ve ödeme — sosyal bağlantılardan gelen trafiğe göre önce mobil tasarlanmış ve mağazanın hızlı ve düşük maliyetli kalması için önceden üretilmiş.',
-    },
-    year: 2026,
-    category: 'ecommerce',
-    services: ['web', 'cloud'],
-    platforms: ['web'],
-    stack: ['Next.js', 'Tailwind CSS', 'JavaScript', 'Vercel'],
-    cover: {
-      from: 'oklch(0.55 0.18 15)',
-      to: 'oklch(0.38 0.12 330)',
-      image: '/work/arjwan-istanbul/catalog.jpg',
-    },
-    logo: '/brand/systems/arjwan-istanbul.png',
-    shots: {
-      shape: 'landscape',
-      featured: [
-        '/work/arjwan-istanbul/catalog.jpg',
-        '/work/arjwan-istanbul/product.jpg',
-      ],
-      gallery: [
-        '/work/arjwan-istanbul/best-sellers.jpg',
-        '/work/arjwan-istanbul/cart.jpg',
-      ],
-    },
-    featured: false,
-    url: 'https://arjwan.store',
-    caseStudy: {
-      challenge: {
-        en: 'This is a working business, not a portfolio mockup. The site takes real orders, which changes the priorities: the catalogue has to stay editable by a non-developer, checkout has to work on a phone held in one hand, and the brand has to look expensive without a photographer’s budget.',
-        ar: 'هذا نشاط تجاري قائم لا نموذج لمعرض أعمال. الموقع يستقبل طلبات حقيقية، وهذا يغيّر الأولويات: الكتالوج يجب أن يبقى قابلاً للتعديل من غير مبرمج، وإتمام الشراء يجب أن يعمل على هاتف بيد واحدة، والعلامة يجب أن تبدو فاخرة دون ميزانية مصوّر.',
-        tr: 'Bu bir portföy maketi değil, çalışan bir işletme. Site gerçek sipariş alıyor ve bu öncelikleri değiştiriyor: kataloğun geliştirici olmayan biri tarafından düzenlenebilir kalması, ödemenin tek elle tutulan bir telefonda çalışması ve markanın bir fotoğrafçı bütçesi olmadan pahalı görünmesi gerekiyor.',
-      },
-      solution: {
-        en: 'The phone layout was designed first and the desktop layout derived from it, because the majority of traffic is phones arriving from social links. Catalogue pages are pre-rendered, so the store stays fast at low traffic and costs almost nothing to keep online.',
-        ar: 'صُمِّم تخطيط الهاتف أولاً واشتُقّ منه تخطيط سطح المكتب، لأن أغلب الزيارات هواتف قادمة من روابط التواصل. وصفحات الكتالوج مُولَّدة مسبقاً، فيبقى المتجر سريعاً عند الزيارات القليلة ولا يكاد يكلّف شيئاً ليبقى متاحاً.',
-        tr: 'Önce telefon düzeni tasarlandı, masaüstü düzeni ondan türetildi; çünkü trafiğin çoğunluğu sosyal bağlantılardan gelen telefonlar. Katalog sayfaları önceden üretiliyor, böylece mağaza düşük trafikte de hızlı kalıyor ve çevrimiçi tutulması neredeyse hiçbir şeye mal olmuyor.',
-      },
-      outcome: {
-        en: 'A storefront selling under its own domain, with a catalogue the owner updates and a checkout that holds up on a phone.',
-        ar: 'متجر يبيع تحت نطاقه الخاص، بكتالوج يحدّثه صاحبه وإتمام شراء يصمد على الهاتف.',
-        tr: 'Kendi alan adı altında satış yapan, sahibinin güncellediği bir katalogla ve telefonda ayakta kalan bir ödeme akışıyla bir vitrin.',
-      },
-    },
-  },
-  {
     slug: 'domi-brand',
     name: { en: 'DOMI BRAND', ar: 'دومي براند', tr: 'DOMI BRAND' },
     tagline: {
@@ -526,6 +471,84 @@ export const projects: Project[] = [
         en: 'A live boutique its owner runs herself, in three languages, with orders arriving where she already answers her customers.',
         ar: 'بوتيك يعمل وتديره صاحبته بنفسها، بثلاث لغات، والطلبات تصلها حيث تردّ على زبوناتها أصلاً.',
         tr: 'Sahibinin kendi yönettiği, üç dilde çalışan ve siparişlerin zaten müşterilerine yanıt verdiği yere düştüğü canlı bir butik.',
+      },
+    },
+  },
+  {
+    slug: 'al-goat',
+    name: { en: 'AL GOAT SPORTS', ar: 'آل جوت سبورتس', tr: 'AL GOAT SPORTS' },
+    tagline: {
+      en: 'Football shirts, and a game that pays for them',
+      ar: 'قمصان كرة قدم، ولعبة تدفع ثمنها',
+      tr: 'Futbol formaları ve onların parasını ödeyen bir oyun',
+    },
+    summary: {
+      en: 'A football shirt store in Arabic and English: player and fan versions, national teams, retro reproductions, kids and shorts. Built around a loyalty idea rather than a coupon code — an arcade game on the storefront earns points that come off the next order.',
+      ar: 'متجر قمصان كرة قدم بالعربية والإنجليزية: نسخ اللاعبين والجمهور، والمنتخبات، وإعادة إنتاج الكلاسيكيات، والأطفال والشورتات. مبني حول فكرة ولاء لا حول كود خصم — لعبة داخل المتجر تكسب نقاطاً تُخصم من الطلب التالي.',
+      tr: 'Arapça ve İngilizce bir futbol forması mağazası: oyuncu ve taraftar versiyonları, milli takımlar, retro üretimler, çocuk ürünleri ve şortlar. Bir indirim kodu yerine bir sadakat fikri etrafında kurulu — mağazadaki bir oyun, bir sonraki siparişten düşülen puanlar kazandırıyor.',
+    },
+    year: 2026,
+    category: 'ecommerce',
+    services: ['web', 'cloud'],
+    platforms: ['web', 'admin'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    cover: { from: 'oklch(0.55 0.15 150)', to: 'oklch(0.32 0.08 160)', image: '/work/al-goat.webp' },
+    featured: true,
+    url: 'https://goat-sports.vercel.app',
+    caseStudy: {
+      challenge: {
+        en: 'A shirt store competes with every other shirt store on price, and discounting to win that fight costs margin on every order. The question was how to give a customer a reason to come back that does not simply cost the shop money, on a catalogue where the same shirt exists as a player cut, a fan cut, a retro reproduction and a kids size.',
+        ar: 'متجر القمصان ينافس كل متجر قمصان آخر على السعر، والخصم للفوز بهذه المعركة يكلّف هامشاً في كل طلب. والسؤال كان: كيف نعطي الزبون سبباً للعودة لا يكلّف المتجر مالاً ببساطة، فوق كتالوج يوجد فيه القميص نفسه كنسخة لاعب ونسخة جمهور وإعادة إنتاج كلاسيكية ومقاس أطفال.',
+        tr: 'Bir forma mağazası fiyat üzerinden diğer tüm forma mağazalarıyla yarışır ve bu yarışı indirimle kazanmak her siparişte kâr marjına mal olur. Soru şuydu: aynı formanın oyuncu kesimi, taraftar kesimi, retro üretimi ve çocuk bedeni olarak var olduğu bir katalogda, müşteriye mağazaya doğrudan para kaybettirmeyen bir geri dönüş nedeni nasıl verilir.',
+      },
+      solution: {
+        en: 'Points are earned by playing rather than by spending, so the reward costs attention instead of margin, and the balance is a ledger the shop can audit rather than a discount rule nobody can trace. The catalogue models a shirt once and its versions as variants, so a club added for one cut appears in all of them. The account area carries points, favourites, orders and tracking in one place, and the storefront runs in Arabic and English with the layout mirroring for Arabic.',
+        ar: 'النقاط تُكتسب باللعب لا بالإنفاق، فيكلّف الحافز انتباهاً لا هامشاً، ويبقى الرصيد دفتراً يستطيع المتجر تدقيقه لا قاعدة خصم لا يتتبّعها أحد. والكتالوج يمثّل القميص مرة واحدة ونسخه كمتغيّرات، فالنادي الذي يُضاف لقَصّة واحدة يظهر فيها كلها. وصفحة الحساب تجمع النقاط والمفضلة والطلبات والتتبّع في مكان واحد، والمتجر يعمل بالعربية والإنجليزية مع انعكاس التخطيط في العربية.',
+        tr: 'Puanlar harcayarak değil oynayarak kazanılır; böylece ödül kâr marjına değil dikkate mal olur ve bakiye, kimsenin izleyemediği bir indirim kuralı değil mağazanın denetleyebileceği bir defter olarak kalır. Katalog bir formayı bir kez, versiyonlarını ise varyant olarak modeller; tek bir kesim için eklenen bir kulüp hepsinde görünür. Hesap alanı puanları, favorileri, siparişleri ve takibi tek yerde toplar; mağaza Arapça ve İngilizce çalışır ve Arapçada düzen yön değiştirir.',
+      },
+      outcome: {
+        en: 'A store with a reason to return built into it, sixty-three products live, and a points balance the shop can account for line by line.',
+        ar: 'متجر فيه سبب للعودة مبني في صلبه، وثلاثة وستون منتجاً تعمل، ورصيد نقاط يستطيع المتجر محاسبته سطراً سطراً.',
+        tr: 'İçine geri dönmek için bir neden kurulmuş bir mağaza, yayında altmış üç ürün ve mağazanın satır satır hesabını verebileceği bir puan bakiyesi.',
+      },
+    },
+  },
+  {
+    slug: 'rufoof',
+    name: { en: 'Rufoof', ar: 'رُفوف', tr: 'Rufoof' },
+    tagline: {
+      en: 'A Saudi store that takes card payments',
+      ar: 'متجر سعودي يقبل الدفع بالبطاقة',
+      tr: 'Kartla ödeme alan bir Suudi mağazası',
+    },
+    summary: {
+      en: 'A general store for the Saudi market: skincare, home tools, children’s toys, perfume and incense, electronics and accessories. Unlike the other storefronts here it settles the payment online, through a licensed gateway, with prices quoted inclusive of VAT.',
+      ar: 'متجر عام للسوق السعودي: عناية بالبشرة، وأدوات منزلية، وألعاب أطفال، وعطور وبخور، وإلكترونيات وإكسسوارات. وبخلاف بقية المتاجر هنا، يُتمّ الدفع إلكترونياً عبر بوابة مرخّصة، والأسعار معروضة شاملة ضريبة القيمة المضافة.',
+      tr: 'Suudi pazarı için genel bir mağaza: cilt bakımı, ev gereçleri, çocuk oyuncakları, parfüm ve buhur, elektronik ve aksesuar. Buradaki diğer vitrinlerden farklı olarak ödemeyi çevrimiçi, lisanslı bir altyapı üzerinden tahsil eder ve fiyatları KDV dâhil gösterir.',
+    },
+    year: 2026,
+    category: 'ecommerce',
+    services: ['web', 'cloud'],
+    platforms: ['web', 'admin'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    cover: { from: 'oklch(0.42 0.08 160)', to: 'oklch(0.28 0.05 155)', image: '/work/rufoof.webp' },
+    featured: true,
+    url: 'https://rufoof-three.vercel.app',
+    caseStudy: {
+      challenge: {
+        en: 'Selling into Saudi Arabia is not the same as taking an order on WhatsApp. The price a customer sees has to include VAT, the shipping charge has to appear before payment rather than after it, and the money has to move through a licensed gateway — which means the checkout is bound by rules the shop does not get to choose.',
+        ar: 'البيع في السوق السعودي ليس كاستقبال طلب على واتساب. السعر الذي يراه الزبون يجب أن يشمل الضريبة، ورسوم الشحن يجب أن تظهر قبل الدفع لا بعده، والمال يجب أن يمرّ عبر بوابة مرخّصة — أي أن صفحة الدفع محكومة بقواعد لا يختارها المتجر.',
+        tr: 'Suudi Arabistan’a satış yapmak, WhatsApp’tan sipariş almakla aynı şey değil. Müşterinin gördüğü fiyat KDV’yi içermeli, kargo ücreti ödemeden sonra değil önce görünmeli ve para lisanslı bir altyapı üzerinden geçmeli — yani ödeme adımı, mağazanın seçemeyeceği kurallarla bağlı.',
+      },
+      solution: {
+        en: 'Prices are stored and displayed inclusive of VAT rather than adding it at the last step, so the figure on the card is the figure that was promised on the shelf. Payment runs through Moyasar, which carries Mada, Visa, Mastercard and Apple Pay behind one integration instead of four. Five departments are modelled as one catalogue rather than five mini-stores, so search and basket work across them.',
+        ar: 'الأسعار تُخزَّن وتُعرض شاملة الضريبة بدل إضافتها في الخطوة الأخيرة، فيكون الرقم على البطاقة هو الرقم الموعود على الرف. والدفع يمرّ عبر ميسر، التي تحمل مدى وفيزا وماستركارد وآبل باي خلف تكامل واحد لا أربعة. والأقسام الخمسة ممثَّلة ككتالوج واحد لا كخمسة متاجر صغيرة، فيعمل البحث والسلة عبرها جميعاً.',
+        tr: 'Fiyatlar son adımda eklenmek yerine KDV dâhil saklanır ve gösterilir; böylece karttan çekilen tutar rafta vaat edilen tutardır. Ödeme, dört ayrı entegrasyon yerine Mada, Visa, Mastercard ve Apple Pay’i tek bir entegrasyonun arkasında taşıyan Moyasar üzerinden geçer. Beş bölüm, beş mini mağaza olarak değil tek bir katalog olarak modellenir; böylece arama ve sepet hepsinde birlikte çalışır.',
+      },
+      outcome: {
+        en: 'A store that can charge a Saudi card, quote a final price before checkout, and carry five unrelated departments without feeling like five sites.',
+        ar: 'متجر يستطيع تحصيل بطاقة سعودية، ويعرض السعر النهائي قبل الدفع، ويحمل خمسة أقسام غير مترابطة دون أن يبدو خمسة مواقع.',
+        tr: 'Suudi bir kartı tahsil edebilen, ödeme öncesinde nihai fiyatı gösteren ve birbiriyle ilgisiz beş bölümü beş ayrı site gibi hissettirmeden taşıyan bir mağaza.',
       },
     },
   },

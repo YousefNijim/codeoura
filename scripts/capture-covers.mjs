@@ -31,6 +31,8 @@ const TARGETS = [
   { slug: 'aber', url: `${DEMOS}/aber/admin/`, settle: 6000 },
   // Live commercial site rather than a demo build, so the URL is absolute.
   { slug: 'domi-brand', url: 'https://domi-brand.vercel.app/', settle: 8000 },
+  { slug: 'rufoof', url: 'https://rufoof-three.vercel.app/', settle: 9000 },
+  { slug: 'al-goat', url: 'https://goat-sports.vercel.app/ar', settle: 9000 },
 ];
 
 const CHROME = [
