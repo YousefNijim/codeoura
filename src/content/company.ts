@@ -12,8 +12,8 @@ export const company = {
   url: 'https://codeoura.com',
   email: 'ysweety666@gmail.com',
   /** Digits only, no plus and no separators: the form wa.me expects. */
-  whatsapp: '972552421638',
-  phone: '+972 55 242 1638',
+  whatsapp: '905446984235',
+  phone: '+90 544 698 42 35',
   founded: 2024,
   social: {
     github: 'https://github.com/YousefNijim',
