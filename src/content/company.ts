@@ -3,7 +3,7 @@ import type { Localized } from './types';
 /**
  * Company facts and links.
  *
- * TODO(codeoura): the domain and the social URLs are still placeholders.
+ * TODO(codeoura): the domain and the remaining social URLs are placeholders.
  */
 export const company = {
   name: 'Codeoura',
@@ -15,11 +15,13 @@ export const company = {
   whatsapp: '905446984235',
   phone: '+90 544 698 42 35',
   founded: 2024,
+  /** The handle on its own, for showing beside the link. */
+  instagramHandle: 'code.oura',
   social: {
     github: 'https://github.com/YousefNijim',
     linkedin: '',
     x: '',
-    instagram: '',
+    instagram: 'https://instagram.com/code.oura',
   },
 } as const;
 

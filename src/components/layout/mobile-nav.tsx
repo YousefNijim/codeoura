@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowUpRight } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/primitives/brand-icons';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { Logo } from './logo';
@@ -51,7 +52,7 @@ export function MobileNav({
                   className={style}
                 >
                   {pick(item.label, locale)}
-                  {arrow}
+                  <WhatsAppIcon className="size-5" />
                 </a>
               ) : (
                 <Link

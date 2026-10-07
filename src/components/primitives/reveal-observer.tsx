@@ -1,43 +1,59 @@
-'use client';
-
-import { useEffect } from 'react';
-
 /**
- * A single IntersectionObserver for every `[data-anim]` element on the page.
+ * The page-wide reveal observer, as an inline script rather than an effect.
  *
- * Elements start at opacity 0 in CSS and are animated in once. The delay comes
- * from `data-seq`, written to a custom property, so a group enters in sequence
- * without a timer per element. Each element is unobserved after its first
- * appearance: the animation is an entrance, not a state to maintain.
+ * As a React effect it could only start once the bundle had downloaded and
+ * the tree had hydrated, so on a slow connection the whole page sat invisible
+ * and then appeared at once — the opposite of an entrance. Inline, it runs as
+ * the body is parsed: the document is marked ready before anything paints, and
+ * each element is observed the moment it exists.
+ *
+ * A MutationObserver picks up elements added later, so pages reached by
+ * client-side navigation animate too instead of staying hidden.
+ *
+ * Nothing is hidden if the browser lacks IntersectionObserver or the visitor
+ * has asked for reduced motion: the `reveal-ready` class is what hides, and it
+ * is simply never added.
  */
-export function RevealObserver() {
-  useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>('[data-anim]');
-    if (!elements.length) return;
+const script = `(function () {
+  var doc = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  doc.classList.add('reveal-ready');
 
-    // Honour the OS setting here as well as in CSS, so nothing is left hidden
-    // if the animation is suppressed before it runs.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      elements.forEach((el) => el.classList.add('is-visible'));
-      return;
+  var io = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      if (!entry.isIntersecting) continue;
+      var el = entry.target;
+      el.style.setProperty('--seq', el.getAttribute('data-seq') || '0');
+      el.classList.add('is-visible');
+      io.unobserve(el);
     }
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const el = entry.target as HTMLElement;
-          el.style.setProperty('--seq', el.dataset.seq ?? '0');
-          el.classList.add('is-visible');
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' },
-    );
+  var seen = new WeakSet();
+  function watch(el) {
+    if (seen.has(el)) return;
+    seen.add(el);
+    io.observe(el);
+  }
+  function scan(root) {
+    if (root.matches && root.matches('[data-anim]')) watch(root);
+    if (root.querySelectorAll) root.querySelectorAll('[data-anim]').forEach(watch);
+  }
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  new MutationObserver(function (mutations) {
+    for (var i = 0; i < mutations.length; i++) {
+      var added = mutations[i].addedNodes;
+      for (var j = 0; j < added.length; j++) {
+        if (added[j].nodeType === 1) scan(added[j]);
+      }
+    }
+  }).observe(doc, { childList: true, subtree: true });
 
-  return null;
+  scan(document);
+})();`;
+
+export function RevealObserver() {
+  return <script dangerouslySetInnerHTML={{ __html: script }} />;
 }

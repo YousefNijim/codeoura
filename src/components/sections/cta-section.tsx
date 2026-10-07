@@ -2,7 +2,8 @@ import { getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
 import { BrandButton } from '@/components/primitives/brand-button';
-import { MarkLoop } from '@/components/primitives/mark-loop';
+import { WhatsAppIcon } from '@/components/primitives/brand-icons';
+import { MarkMotion } from '@/components/primitives/mark-motion';
 import { company } from '@/content/company';
 import { whatsappLink } from '@/lib/whatsapp';
 
@@ -31,7 +32,7 @@ export async function CtaSection() {
       <div className="page-gutter relative z-10 flex items-center lg:min-h-[534px]">
         <div className="section-container flex w-full flex-col items-center justify-center gap-7 py-12 text-center">
           <Animate name="zoomIn" seq={0}>
-            <MarkLoop
+            <MarkMotion
               variant="solid"
               className="h-[86px] w-[160px] lg:h-[104px] lg:w-[190px]"
             />
@@ -58,6 +59,9 @@ export async function CtaSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <span className="flex size-7 items-center justify-center rounded-full bg-white">
+                  <WhatsAppIcon className="size-[18px]" />
+                </span>
                 {t('action')}
               </BrandButton>
 

@@ -26,7 +26,7 @@ export function SystemMark({
   return (
     <span
       className={cn(
-        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[28%] border border-card-border bg-page/70 backdrop-blur-[5px]',
+        'system-mark inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[28%] border border-card-border bg-page/70 backdrop-blur-[5px]',
         className,
       )}
       style={{ width: size, height: size }}

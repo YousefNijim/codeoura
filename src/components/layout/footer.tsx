@@ -1,7 +1,12 @@
-import { Github, Instagram, Linkedin } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Logo } from './logo';
+import {
+  GitHubIcon,
+  InstagramIcon,
+  WhatsAppIcon,
+} from '@/components/primitives/brand-icons';
 import { company, navigation } from '@/content/company';
 import { projects } from '@/content/projects';
 import { Link } from '@/i18n/navigation';
@@ -10,9 +15,9 @@ import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
 const socialLinks = [
-  { key: 'github', href: company.social.github, Icon: Github, label: 'GitHub' },
+  { key: 'github', href: company.social.github, Icon: GitHubIcon, label: 'GitHub' },
   { key: 'linkedin', href: company.social.linkedin, Icon: Linkedin, label: 'LinkedIn' },
-  { key: 'instagram', href: company.social.instagram, Icon: Instagram, label: 'Instagram' },
+  { key: 'instagram', href: company.social.instagram, Icon: InstagramIcon, label: 'Instagram' },
 ] as const;
 
 /**
@@ -52,9 +57,9 @@ export async function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="rounded-full border border-border-social p-2.5 text-ink-muted transition-colors hover:border-accent/50 hover:text-ink"
+                      className="rounded-full border border-border-social p-2.5 text-ink-muted transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:text-ink"
                     >
-                      <Icon className="size-4" aria-hidden />
+                      <Icon className="size-[18px]" />
                     </a>
                   ))}
               </div>
@@ -104,17 +109,30 @@ export async function Footer() {
                   href={whatsappLink(tc('whatsappMessage'))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  dir="ltr"
-                  className="text-sm text-ink-muted transition-colors hover:text-accent"
-                >
-                  {company.phone}
+                  className="inline-flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-accent">
+                  <WhatsAppIcon className="size-[18px]" />
+                  <span dir="ltr">{company.phone}</span>
                 </a>
                 <a
                   href={`mailto:${company.email}`}
-                  dir="ltr"
-                  className="text-sm text-ink-muted transition-colors hover:text-accent"
+                  className="inline-flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-accent"
                 >
-                  {company.email}
+                  <Mail aria-hidden className="size-[18px] text-accent" />
+                  <span dir="ltr">{company.email}</span>
+                </a>
+                {/* Named and spelled out rather than left as an icon: a
+                    visitor who wants to check us first has to be able to
+                    read the handle, not guess it from a glyph. */}
+                <a
+                  href={company.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-accent">
+                  <InstagramIcon className="size-[18px]" />
+                  {t('followInstagram')}{' '}
+                  <span dir="ltr" className="text-accent">
+                    @{company.instagramHandle}
+                  </span>
                 </a>
                 <p className="text-sm leading-[1.6] text-ink-muted">
                   {t('reply')}

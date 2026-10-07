@@ -49,6 +49,9 @@ export function Animate({
       className={cn(props.className, className)}
       data-anim={props['data-anim']}
       data-seq={props['data-seq']}
+      // The reveal script sets the class and --seq before React hydrates,
+      // which is the point: it is not a mismatch worth reporting.
+      suppressHydrationWarning
     >
       {children}
     </Tag>

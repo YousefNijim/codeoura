@@ -111,6 +111,9 @@ export default async function LocaleLayout({
       className={`${kufi.variable} ${geistMono.variable}`}
     >
       <body className="min-h-dvh bg-page text-ink">
+        {/* First in the body, so it runs before the content it reveals is
+            parsed and nothing paints in its final state first. */}
+        <RevealObserver />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -125,7 +128,6 @@ export default async function LocaleLayout({
               >
                 {t('skipToContent')}
               </a>
-              <RevealObserver />
               <Header />
               <main id="main">{children}</main>
               <Footer />

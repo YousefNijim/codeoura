@@ -20,7 +20,7 @@ export async function EcosystemSection() {
             subtitle={t('subtitle')}
           />
 
-          <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:grid-cols-5">
+          <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:mt-16 lg:grid-cols-6">
             {projects.map((project, index) => (
               <Animate
                 as="li"

@@ -250,13 +250,24 @@
      element is served at the size the card actually renders. */
   .product-card-art {
     opacity: 0.4;
-    transition: opacity 0.4s var(--ease-out-expo);
+    transform: scale(1.001);
+    transition:
+      opacity 0.5s var(--reveal-ease),
+      transform 1.4s var(--reveal-ease);
   }
   .dark .product-card-art {
     opacity: 0.3;
   }
   .product-card:hover .product-card-art {
     opacity: 0.6;
+    transform: scale(1.06);
+  }
+
+  .product-card .system-mark {
+    transition: transform 0.5s var(--reveal-ease);
+  }
+  .product-card:hover .system-mark {
+    transform: translate3d(0, -3px, 0) rotate(-4deg);
   }
   .dark .product-card:hover .product-card-art {
     opacity: 0.48;
@@ -283,10 +294,14 @@
   }
 
   .hover-lift {
-    transition: transform 0.3s var(--ease-out-expo), border-color 0.3s;
+    transition:
+      transform 0.5s var(--reveal-ease),
+      border-color 0.3s ease,
+      box-shadow 0.5s var(--reveal-ease);
   }
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translate3d(0, -5px, 0);
+    box-shadow: 0 18px 40px -28px rgb(0 0 0 / 0.45);
   }
 
   .hover-glow:hover {
@@ -339,74 +354,6 @@
     background: var(--path-rail-line-active);
   }
 
-  /* ── Animated mark ──────────────────────────────────────────────────
-     Opacity is deliberately low and set per theme: the copy in front of it
-     has to stay the first thing read. */
-  /* The frame is feathered at both the container and the element, so the
-     video's rectangle never announces itself as a rectangle — compression
-     noise in the ground is enough to draw a visible edge otherwise. */
-  .mark-loop {
-    mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 78%);
-    -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 78%);
-  }
-
-  .mark-loop video {
-    opacity: 0.3;
-    mix-blend-mode: multiply;
-    /* Clamps the paper to pure white so it multiplies away completely. */
-    filter: brightness(1.06) contrast(1.25);
-  }
-
-  .dark .mark-loop video {
-    opacity: 0.44;
-    mix-blend-mode: screen;
-    /* invert: white ground becomes black, which `screen` then drops.
-       contrast: clamps that ground past the codec's noise floor.
-       sepia + rotation + saturation: rebuilds the brand hue on what is left. */
-    filter: invert(1) grayscale(1) contrast(2.2) brightness(0.92) sepia(1)
-      hue-rotate(96deg) saturate(3.4);
-  }
-
-  .mark-loop--solid {
-    mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
-    -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
-  }
-
-  .mark-loop--solid video,
-  .dark .mark-loop--solid video {
-    opacity: 1;
-  }
-
-  .mark-loop--solid .mark-loop-still {
-    opacity: 1;
-  }
-
-  .mark-loop-still {
-    display: none;
-    position: absolute;
-    inset: 0;
-    opacity: 0.06;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .mark-loop video { display: none; }
-    .mark-loop--solid {
-    mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
-    -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 50%, #000 72%, transparent 96%);
-  }
-
-  .mark-loop--solid video,
-  .dark .mark-loop--solid video {
-    opacity: 1;
-  }
-
-  .mark-loop--solid .mark-loop-still {
-    opacity: 1;
-  }
-
-  .mark-loop-still { display: block; }
-  }
-
   /* ── Marquee ────────────────────────────────────────────────────────── */
   .marquee-viewport {
     overflow: hidden;
@@ -415,6 +362,7 @@
 
   .marquee-inner {
     animation: marquee var(--duration, 60s) linear infinite;
+    will-change: transform;
   }
 
   .marquee-inner--reverse {
@@ -430,98 +378,202 @@
   }
 
   @keyframes marquee {
-    to { transform: translateX(-50%); }
+    to { transform: translate3d(-50%, 0, 0); }
   }
   @keyframes marquee-rtl {
-    to { transform: translateX(50%); }
+    to { transform: translate3d(50%, 0, 0); }
+  }
+}
+
+/* ── Animated mark (vector) ─────────────────────────────────────────────
+   Intro once, then a perpetual loop with no seam: the travelling light and
+   the breathing both run forever from where the intro leaves them. */
+.mark-motion {
+  --mm-stroke: var(--accent);
+  opacity: 0.22;
+}
+.dark .mark-motion { opacity: 0.3; }
+.mark-motion--solid,
+.dark .mark-motion--solid { opacity: 1; }
+
+.mark-motion svg { overflow: visible; }
+
+.mark-motion__body {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mm-breathe 6s ease-in-out 2.4s infinite alternate;
+}
+
+.mark-motion__loop,
+.mark-motion__light {
+  fill: none;
+  stroke-width: 10.5;
+  stroke-linejoin: round;
+}
+
+.mark-motion__loop {
+  stroke: var(--mm-stroke);
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: mm-draw 1.8s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+}
+
+/* A short bright run riding the loop. Starts once the loop is drawn and
+   never stops; its period is long so it reads as current, not as a spinner. */
+.mark-motion__light {
+  stroke: color-mix(in oklab, var(--mm-stroke) 45%, white);
+  stroke-dasharray: 110 890;
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation:
+    mm-fade-in 0.8s ease 2s forwards,
+    mm-travel 7s linear 2s infinite;
+}
+
+.mark-motion__bracket {
+  fill: none;
+  stroke: var(--mm-stroke);
+  stroke-width: 5;
+  stroke-linecap: square;
+  opacity: 0;
+}
+.mark-motion__bracket--open {
+  animation: mm-bracket-open 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
+}
+.mark-motion__bracket--close {
+  animation: mm-bracket-close 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.65s forwards;
+}
+
+@keyframes mm-draw { to { stroke-dashoffset: 0; } }
+@keyframes mm-travel { to { stroke-dashoffset: -1000; } }
+@keyframes mm-fade-in { to { opacity: 0.9; } }
+@keyframes mm-breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.025); }
+}
+@keyframes mm-bracket-open {
+  from { opacity: 0; transform: translateX(-34px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes mm-bracket-close {
+  from { opacity: 0; transform: translateX(34px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-motion__loop { stroke-dashoffset: 0; animation: none; }
+  .mark-motion__light { display: none; }
+  .mark-motion__bracket { opacity: 1; animation: none; }
+  .mark-motion__body { animation: none; }
+}
+
+/* ── Reading progress ───────────────────────────────────────────────────── */
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 60;
+    height: 2px;
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, var(--brand-from), var(--brand-to));
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+    pointer-events: none;
+  }
+
+  [dir='rtl'] .scroll-progress {
+    transform-origin: 100% 50%;
+  }
+
+  @keyframes scroll-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
 }
 
 /* ── Reveal on scroll ─────────────────────────────────────────────────────
-   One observer adds .is-visible; the delay comes from --seq so a group of
-   elements enters in sequence without a timer per element. */
-.animated {
+   Every entrance is the same gesture at a different strength: a short travel
+   and a fade, decelerating hard at the end. The names are kept so call sites
+   do not change, but none of them flips, spins or overshoots any more — a
+   card turning through 90 degrees or bouncing from a third of its size is what
+   made scrolling feel jerky rather than alive.
+
+   Content is only hidden once the head script has marked the document, so a
+   visitor without JavaScript sees everything, and nothing waits on React to
+   hydrate before it can appear. */
+:root {
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-duration: 0.85s;
+}
+
+.reveal-ready .animated {
   opacity: 0;
 }
 
-.animated.is-visible {
-  animation-duration: 0.6s;
-  animation-timing-function: var(--ease-reveal);
-  animation-fill-mode: forwards;
-  animation-delay: calc(var(--seq, 0) * 80ms);
+.reveal-ready .animated.is-visible {
+  animation-duration: var(--reveal-duration);
+  animation-timing-function: var(--reveal-ease);
+  animation-fill-mode: both;
+  /* Staggered, but capped: the eighth card in a grid should not stand still
+     for half a second waiting its turn. */
+  animation-delay: min(calc(var(--seq, 0) * 70ms), 420ms);
 }
 
-.anim-fadeInUp.is-visible { animation-name: fadeInUp; }
-.anim-fadeInDown.is-visible { animation-name: fadeInDown; }
-.anim-fadeInLeft.is-visible { animation-name: fadeInLeft; }
-.anim-fadeInRight.is-visible { animation-name: fadeInRight; }
-.anim-scaleIn.is-visible { animation-name: scaleIn; }
-.anim-zoomIn.is-visible { animation-name: zoomIn; }
-.anim-fadeInScale.is-visible { animation-name: fadeInScale; }
-.anim-rotateIn.is-visible { animation-name: rotateIn; }
-.anim-slideInUp.is-visible { animation-name: slideInUp; }
-.anim-slideInLeft.is-visible { animation-name: slideInLeft; }
-.anim-slideInRight.is-visible { animation-name: slideInRight; }
-.anim-bounceIn.is-visible { animation-name: bounceIn; }
-.anim-flipIn.is-visible { animation-name: flipIn; }
+.anim-fadeInUp.is-visible,
+.anim-flipIn.is-visible { animation-name: reveal-up; }
+.anim-slideInUp.is-visible { animation-name: reveal-up-far; }
+.anim-fadeInDown.is-visible { animation-name: reveal-down; }
+.anim-fadeInLeft.is-visible,
+.anim-slideInLeft.is-visible { animation-name: reveal-start; }
+.anim-fadeInRight.is-visible,
+.anim-slideInRight.is-visible { animation-name: reveal-end; }
+.anim-scaleIn.is-visible,
+.anim-rotateIn.is-visible,
+.anim-bounceIn.is-visible { animation-name: reveal-grow; }
+.anim-zoomIn.is-visible { animation-name: reveal-grow-more; }
+.anim-fadeInScale.is-visible { animation-name: reveal-settle; }
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes reveal-up {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes fadeInDown {
-  0% { opacity: 0; transform: translateY(-40px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes reveal-up-far {
+  from { opacity: 0; transform: translate3d(0, 34px, 0); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes fadeInLeft {
-  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * -40px)); }
-  100% { opacity: 1; transform: translateX(0); }
+@keyframes reveal-down {
+  from { opacity: 0; transform: translate3d(0, -14px, 0); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes fadeInRight {
-  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * 40px)); }
-  100% { opacity: 1; transform: translateX(0); }
+@keyframes reveal-start {
+  from { opacity: 0; transform: translate3d(calc(var(--motion-dir, 1) * -26px), 0, 0); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes scaleIn {
-  0% { opacity: 0; transform: scale(0.92); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes reveal-end {
+  from { opacity: 0; transform: translate3d(calc(var(--motion-dir, 1) * 26px), 0, 0); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes zoomIn {
-  0% { opacity: 0; transform: scale(0.6); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes reveal-grow {
+  from { opacity: 0; transform: translate3d(0, 14px, 0) scale(0.97); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes fadeInScale {
-  0% { opacity: 0; transform: scale(1.06); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes reveal-grow-more {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: none; }
 }
-@keyframes rotateIn {
-  0% { opacity: 0; transform: rotate(-6deg) scale(0.94); }
-  100% { opacity: 1; transform: rotate(0) scale(1); }
-}
-@keyframes slideInUp {
-  0% { opacity: 0; transform: translateY(60px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideInLeft {
-  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * -60px)); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-  0% { opacity: 0; transform: translateX(calc(var(--motion-dir, 1) * 60px)); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.3); }
-  50% { opacity: 1; transform: scale(1.05); }
-  70% { transform: scale(0.98); }
-  100% { opacity: 1; transform: scale(1); }
-}
-@keyframes flipIn {
-  0% { opacity: 0; transform: perspective(400px) rotateY(-90deg); }
-  100% { opacity: 1; transform: perspective(400px) rotateY(0); }
+@keyframes reveal-settle {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animated { opacity: 1 !important; animation: none !important; }
+  .reveal-ready .animated { opacity: 1 !important; animation: none !important; }
   .marquee-inner { animation: none !important; }
 }
 

@@ -82,7 +82,7 @@
   "stack": {
     "eyebrow": "Architecture",
     "title": "Technologies we adopt and stand behind",
-    "subtitle": "We select our technologies on the basis of maturity, reliability and long-term support. This is the stack we operate in production, and the one in which we hold the depth of experience required to guarantee stability and scale."
+    "subtitle": "Mature, well-supported tools we run in production every day."
   },
   "about": {
     "eyebrow": "About us",
@@ -141,7 +141,8 @@
     "systems": "Our systems",
     "caseStudies": "Case studies",
     "reply": "We reply within one business day.",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "followInstagram": "Follow us on Instagram"
   },
   "notFound": {
     "title": "Page not found",

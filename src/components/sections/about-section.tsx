@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Animate } from '@/components/primitives/animate';
+import { CountUp } from '@/components/primitives/count-up';
 import { principles } from '@/content/company';
 import { projects } from '@/content/projects';
 import type { Locale } from '@/i18n/routing';
@@ -43,14 +44,11 @@ export async function AboutSection() {
 
           <div className="order-2 flex flex-col">
             <Animate name="fadeInUp" seq={0} as="p" className="mb-5">
-              <span className="text-gradient-brand inline-flex items-center gap-2 text-base font-medium lg:text-xl">
-                {t('eyebrow')}
-                <span aria-hidden>↗</span>
-              </span>
+              <span className="text-gradient-brand text-base font-medium lg:text-xl">{t('eyebrow')}</span>
             </Animate>
 
             <Animate name="fadeInUp" seq={1} as="h2" className="mb-6">
-              <span className="block text-[26px] leading-[1.2] lg:text-[30px]">
+              <span className="block text-[26px] leading-[1.2] lg:text-[40px]">
                 {t('title')}
               </span>
             </Animate>
@@ -68,7 +66,7 @@ export async function AboutSection() {
                 <Animate key={stat.label} name="fadeInUp" seq={index}>
                   <div className="flex flex-col gap-1">
                     <dd className="text-gradient-brand text-3xl font-bold lg:text-4xl">
-                      {stat.value}
+                      <CountUp value={stat.value} />
                     </dd>
                     <dt className="text-xs text-ink-muted lg:text-sm">
                       {stat.label}

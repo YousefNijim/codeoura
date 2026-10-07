@@ -78,7 +78,7 @@
   "stack": {
     "eyebrow": "Mimari",
     "title": "Benimsediğimiz ve arkasında durduğumuz teknolojiler",
-    "subtitle": "Teknolojilerimizi olgunluk, güvenilirlik ve uzun vadeli destek ölçütlerine göre seçeriz. Bu, üretimde işlettiğimiz ve istikrarı ve ölçeklenmeyi güvence altına alacak derinlikte deneyime sahip olduğumuz yığındır."
+    "subtitle": "Her gün üretimde çalıştırdığımız olgun ve iyi desteklenen araçlar."
   },
   "about": {
     "eyebrow": "Hakkımızda",
@@ -137,7 +137,8 @@
     "systems": "Sistemlerimiz",
     "caseStudies": "Vaka çalışmaları",
     "reply": "Bir iş günü içinde yanıtlıyoruz.",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "followInstagram": "Instagram'da bizi takip edin"
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
