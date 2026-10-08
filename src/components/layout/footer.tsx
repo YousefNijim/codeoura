@@ -3,7 +3,6 @@ import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Logo } from './logo';
 import {
-  GitHubIcon,
   InstagramIcon,
   WhatsAppIcon,
 } from '@/components/primitives/brand-icons';
@@ -15,7 +14,6 @@ import type { Locale } from '@/i18n/routing';
 import { pick } from '@/lib/localized';
 
 const socialLinks = [
-  { key: 'github', href: company.social.github, Icon: GitHubIcon, label: 'GitHub' },
   { key: 'linkedin', href: company.social.linkedin, Icon: Linkedin, label: 'LinkedIn' },
   { key: 'instagram', href: company.social.instagram, Icon: InstagramIcon, label: 'Instagram' },
 ] as const;

@@ -10,7 +10,7 @@ export const company = {
   legalName: 'Codeoura',
   tagline: { en: 'Smart code. Real growth.', ar: 'كود ذكي. نمو حقيقي.', tr: 'Akıllı kod. Gerçek büyüme.' } satisfies Localized,
   url: 'https://codeoura.com',
-  email: 'ysweety666@gmail.com',
+  email: 'codeoura@gmail.com',
   /** Digits only, no plus and no separators: the form wa.me expects. */
   whatsapp: '905446984235',
   phone: '+90 544 698 42 35',
@@ -18,7 +18,6 @@ export const company = {
   /** The handle on its own, for showing beside the link. */
   instagramHandle: 'code.oura',
   social: {
-    github: 'https://github.com/YousefNijim',
     linkedin: '',
     x: '',
     instagram: 'https://instagram.com/code.oura',
