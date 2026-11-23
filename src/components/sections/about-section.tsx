@@ -21,8 +21,8 @@ export async function AboutSection() {
   const stats = [
     { value: `${projects.length}`, label: t('stats.systems') },
     { value: `${sectors.size}`, label: t('stats.sectors') },
-    { value: '24/7', label: t('stats.support') },
-    { value: '100%', label: t('stats.typed') },
+    { value: '3', label: t('stats.languages') },
+    { value: '1', label: t('stats.reply') },
   ];
 
   return (

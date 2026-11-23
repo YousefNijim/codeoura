@@ -74,7 +74,7 @@ export async function Hero() {
                 <span className="size-2 rounded-full bg-accent/50" />
               </span>
 
-              <BrandButton href="#products">{t('primaryCta')}</BrandButton>
+              <BrandButton href="#solutions">{t('primaryCta')}</BrandButton>
 
               <span aria-hidden className="hidden items-center sm:flex">
                 <span className="size-2 rounded-full bg-accent/50" />

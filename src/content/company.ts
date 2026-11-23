@@ -31,8 +31,9 @@ export const navigation: {
   external?: boolean;
 }[] = [
   { href: '/#about', label: { en: 'About us', ar: 'من نحن', tr: 'Hakkımızda' } },
-  { href: '/#products', label: { en: 'Our systems', ar: 'تعرّف على أنظمتنا', tr: 'Sistemlerimiz' } },
-  { href: '/#path', label: { en: 'Choose your route', ar: 'اختر مسارك', tr: 'Yolunuzu seçin' } },
+  { href: '/#solutions', label: { en: 'Solutions', ar: 'حلولنا', tr: 'Çözümler' } },
+  { href: '/#products', label: { en: 'Our work', ar: 'أعمالنا', tr: 'Çalışmalarımız' } },
+  { href: '/#path', label: { en: 'By business type', ar: 'حسب نوع عملك', tr: 'İşletme türüne göre' } },
   { href: '/#outcomes', label: { en: 'Results', ar: 'النتائج', tr: 'Sonuçlar' } },
   { href: 'whatsapp', label: { en: 'Contact us', ar: 'تواصل معنا', tr: 'Bize ulaşın' }, external: true },
 ];

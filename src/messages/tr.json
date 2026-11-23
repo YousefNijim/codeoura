@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Codeoura | Kurumsal yazılım mühendisliği",
-      "description": "Kurumsal web platformları, çoklu platform mobil uygulamalar ve özel SaaS sistemleri tasarlıyor ve geliştiriyoruz. Yedi sektörde, üretim ortamında çalışan on sistem."
+      "description": "Codeoura, şirketler için yönetim sistemleri, mobil uygulamalar ve e-ticaret siteleri geliştirir ve yayından sonra destek verir."
     },
     "work": {
       "title": "Çalışmalarımız",
@@ -32,11 +32,11 @@
     "contact": "Bize ulaşın"
   },
   "hero": {
-    "titleLead": "İşletmeler için bütünleşik bir",
-    "titleAccent": "sistem ekosistemi kuruyoruz.",
-    "subtitle": "İşletmelerin kurulmasına, büyümesine ve ölçeklenmesine yarayan temel sistemleri ve platformları kuruyor ve işletiyoruz.",
-    "primaryCta": "Sistemlerimizi keşfedin",
-    "badge": "İşletmeler için yazılım ekosistemi"
+    "titleLead": "İşinizi yöneten yazılım,",
+    "titleAccent": "işinizle birlikte büyür.",
+    "subtitle": "Şirketler için yönetim sistemleri, uygulamalar ve e-ticaret siteleri geliştiriyor, yayından sonra da destek ve geliştirmeyle yanınızda oluyoruz.",
+    "primaryCta": "Çözümlerimizi keşfedin",
+    "badge": "Yazılım şirketi · İşletmeler için yönetim sistemleri ve uygulamalar"
   },
   "services": {
     "eyebrow": "Hizmetler",
@@ -77,18 +77,18 @@
   },
   "stack": {
     "eyebrow": "Mimari",
-    "title": "Benimsediğimiz ve arkasında durduğumuz teknolojiler",
-    "subtitle": "Her gün üretimde çalıştırdığımız olgun ve iyi desteklenen araçlar."
+    "title": "Dünya standartlarında güvenilir teknolojiler",
+    "subtitle": "Önde gelen teknoloji şirketlerinin kullandığı araçlarla geliştiriyoruz; böylece hızlı, güvenli ve büyümeye hazır bir sisteminiz olur."
   },
   "about": {
     "eyebrow": "Hakkımızda",
-    "title": "Sistemleri kurar, işletir ve yanlarında kalırız",
-    "subtitle": "Bir sistemi ilk mimari karardan üretim ortamına kadar yanında yürütür, teslimden sonra da yanında kalırız.",
+    "title": "Fikirden işletmeye teknoloji ortağınız",
+    "subtitle": "Önce işinizin nasıl yürüdüğünü anlıyor, ona uygun sistemi tasarlıyor, kullanıma hazır teslim ediyor ve yayından sonra destek ve geliştirmeyle yanınızda kalıyoruz.",
     "stats": {
-      "systems": "Üretimdeki sistem",
-      "sectors": "Sektör",
-      "support": "İzleme ve uyarı",
-      "typed": "Tip kapsamı"
+      "systems": "Teslim edilen proje",
+      "sectors": "Hizmet verilen sektör",
+      "languages": "Dilde hizmet",
+      "reply": "İş gününde yanıt"
     },
     "imageAlt": "Codeoura ekibinden iki mühendis ekranda bir sistem mimarisi şemasını inceliyor",
     "processTitle": "Nasıl çalışıyoruz",
@@ -130,11 +130,11 @@
     "direct": "Doğrudan iletişim"
   },
   "footer": {
-    "description": "İşletmelerin büyümesini destekleyen bir sistem ve platform ekosistemi kuruyor ve işletiyoruz.",
+    "description": "Codeoura, işletmeler için yönetim sistemleri, uygulamalar ve e-ticaret siteleri geliştiren bir yazılım şirketidir.",
     "sitemap": "Şirket",
     "connect": "Bize ulaşın",
     "copyright": "© {year} Codeoura. Tüm hakları saklıdır.",
-    "systems": "Sistemlerimiz",
+    "systems": "Çalışmalarımız",
     "caseStudies": "Vaka çalışmaları",
     "reply": "Bir iş günü içinde yanıtlıyoruz.",
     "whatsapp": "WhatsApp",
@@ -145,40 +145,39 @@
     "description": "Aradığınız sayfa mevcut değil ya da taşınmış.",
     "cta": "Ana sayfaya dön"
   },
+  "solutions": {
+    "eyebrow": "Çözümlerimiz",
+    "title": "Belirli sektörler için eksiksiz çözümler",
+    "subtitle": "Bir sektörün ihtiyaçlarına göre tasarlanmış, çalışmaya hazır sistemler; ekibiniz için eğitim, destek ve sürekli güncellemelerle.",
+    "open": "Çözümü inceleyin",
+    "visit": "Ürün sitesini ziyaret edin",
+    "ask": "Deneme isteyin",
+    "modules": "Sistem bileşenleri",
+    "flow": "{name} içinde iş nasıl ilerler",
+    "highlights": "Neden {name}?",
+    "platforms": "Platformlar",
+    "back": "Tüm çözümler"
+  },
   "products": {
-    "eyebrow": "Sistemlerimizi tanıyın",
-    "title": "{count} sistemlik bir ekosistem",
-    "subtitle": "Ayrıntıları için bir sistemi açın, oradan demosuna ya da canlı ürününe geçin.",
-    "readCases": "Her sistemin ayrıntıları"
+    "eyebrow": "Çalışmalarımız",
+    "title": "Müşterilerimiz için hayata geçirdiğimiz projeler",
+    "subtitle": "Bugün müşterilerimizde çalışan e-ticaret siteleri, uygulamalar ve yönetim sistemleri. Her projenin ayrıntılarına bakın; demosunu ya da canlı sitesini deneyin.",
+    "readCases": "Her projenin ayrıntıları"
   },
   "path": {
-    "eyebrow": "Yolunuzu seçin",
-    "title": "Şu anda neredesiniz?",
-    "subtitle": "Büyümenizin her aşamasının kendine uygun sistemi var. Size en yakın yolu seçin."
-  },
-  "ecosystem": {
-    "eyebrow": "Ekosistem",
-    "title": "Tüm sistemlerimiz tek yerde",
-    "subtitle": "İşinize hizmet eden sistemi seçin ve açın.",
-    "category": {
-      "ecommerce": "E-ticaret",
-      "erp": "Stok",
-      "logistics": "Lojistik",
-      "travel": "Seyahat",
-      "hospitality": "Konaklama",
-      "healthcare": "Sağlık",
-      "productivity": "Üretkenlik"
-    }
+    "eyebrow": "İşletme türüne göre",
+    "title": "İşinizin neye ihtiyacı var?",
+    "subtitle": "Size uygun sistemleri görmek için işinize en yakın tanımı seçin."
   },
   "outcomes": {
     "eyebrow": "Sonuçlar",
-    "title": "Sistemlerimiz neyi değiştirdi",
-    "subtitle": "Vaka çalışmalarında kayıtlı olduğu haliyle, her sistemin gerçek sonuçları."
+    "title": "Projelerimiz müşterilerimize ne kazandırdı",
+    "subtitle": "Her müşterinin, kendisi için kurduğumuz sistemden ne kazandığı; vaka çalışmasında anlatıldığı gibi."
   },
   "cta": {
-    "title": "Ekosistemimizle başlayın",
-    "subtitle": "İstediğiniz sistemi hemen deneyin, karar verdiğinizde bize yazın. Bir iş günü içinde yanıtlıyoruz.",
-    "action": "WhatsApp'tan yazın",
+    "title": "Projenize başlamaya hazır mısınız?",
+    "subtitle": "Fikrinizi ya da şirketinizin ihtiyacını anlatın; bir iş günü içinde ilk bir taslak ve net adımlarla dönüş yapalım.",
+    "action": "WhatsApp'tan bize ulaşın",
     "whatsappMessage": "Merhaba Codeoura,\nSitenizi ve sistemlerinizi inceledim, bir proje hakkında konuşmak istiyorum.\n\nProje:\nŞirket:"
   }
 }
