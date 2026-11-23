@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 import { company } from '@/content/company';
 import { projects } from '@/content/projects';
 import { services } from '@/content/services';
+import { solutions } from '@/content/solutions';
 import { routing } from '@/i18n/routing';
 
 // مطلوب للتصدير الساكن: بلا هذا يعامل Next المسار كديناميكي ويفشل البناء.
@@ -11,6 +12,7 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     '',
+    ...solutions.map((solution) => `/solutions/${solution.slug}`),
     '/work',
     ...projects.map((project) => `/work/${project.slug}`),
     ...services.map((service) => `/services/${service.slug}`),

@@ -88,6 +88,42 @@ export interface Project {
   metrics?: Metric[];
 }
 
+/**
+ * A product Codeoura owns and sells to many companies, as opposed to a
+ * `Project`, which was built for one client. Kept as its own type so the two
+ * can never be mixed up on the page: a solution is something a visitor can
+ * buy, a project is evidence of what was built.
+ */
+export interface Solution {
+  slug: string;
+  /** Product name. English only in every locale: it is a name, not a word. */
+  name: string;
+  /** Who it is for, in a few words. */
+  audience: Localized;
+  tagline: Localized;
+  summary: Localized;
+  platforms: Platform[];
+  /** The product's own site. */
+  url: string;
+  /** Where a visitor writes to ask for a trial. */
+  email: string;
+  /** Grouped capabilities, shown as the system's modules. */
+  modules: {
+    title: Localized;
+    items: Localized<string[]>;
+  }[];
+  /** The path one unit of work takes through the system, in order. */
+  flow: {
+    title: Localized;
+    description: Localized;
+  }[];
+  /** Architectural guarantees worth stating to a buyer. */
+  highlights: {
+    title: Localized;
+    description: Localized;
+  }[];
+}
+
 export interface Service {
   id: ServiceId;
   slug: string;

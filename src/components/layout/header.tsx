@@ -61,10 +61,10 @@ export function Header() {
           <Logo dark />
         </Link>
 
-        <ul className="hidden flex-1 items-center justify-center gap-10 md:flex">
+        <ul className="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-10">
           {navigation.map((item) => {
             const style =
-              'whitespace-nowrap text-base font-medium tracking-[0.2px] text-nav-ink transition-opacity hover:opacity-80';
+              'whitespace-nowrap text-sm font-medium xl:text-base tracking-[0.2px] text-nav-ink transition-opacity hover:opacity-80';
 
             return (
               <li key={item.href}>
@@ -95,7 +95,7 @@ export function Header() {
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label={t('openMenu')}
-            className="inline-flex size-9 items-center justify-center rounded-full border border-white/15 text-nav-ink transition-colors hover:bg-white/10 md:hidden lg:size-[43px]"
+            className="inline-flex size-9 items-center justify-center rounded-full border border-white/15 text-nav-ink transition-colors hover:bg-white/10 lg:hidden lg:size-[43px]"
           >
             <Menu aria-hidden className="size-4" />
           </button>

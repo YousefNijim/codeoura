@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Codeoura | Enterprise software engineering",
-      "description": "We design and build enterprise web platforms, cross-platform mobile applications and custom SaaS systems. Ten systems running in production across seven industries."
+      "description": "Codeoura develops management systems, mobile apps and online stores for companies, and supports them after launch."
     },
     "work": {
       "title": "Work",
@@ -32,11 +32,11 @@
     "contact": "Contact us"
   },
   "hero": {
-    "titleLead": "We build an integrated ecosystem of systems and platforms",
-    "titleAccent": "to support business growth.",
-    "subtitle": "We build and operate the core systems and platforms that help businesses launch, grow and scale.",
-    "primaryCta": "Discover our systems",
-    "badge": "Building the software ecosystem for business"
+    "titleLead": "Software that runs your business,",
+    "titleAccent": "and grows with it.",
+    "subtitle": "We develop management systems, apps and online stores for companies, and stay with you after launch with support and ongoing development.",
+    "primaryCta": "Explore our solutions",
+    "badge": "Software company · Management systems and apps for business"
   },
   "services": {
     "eyebrow": "Services",
@@ -81,20 +81,20 @@
   },
   "stack": {
     "eyebrow": "Architecture",
-    "title": "Technologies we adopt and stand behind",
-    "subtitle": "Mature, well-supported tools we run in production every day."
+    "title": "Trusted, world-class technology",
+    "subtitle": "We build with the same tools leading technology companies rely on, so you get a system that is fast, secure and ready to grow."
   },
   "about": {
     "eyebrow": "About us",
-    "title": "We build the systems, we run them, and we stay with them",
-    "subtitle": "We take a system from the first architectural decision to its production environment, and stay with it after handover.",
+    "title": "Your technology partner, from idea to operation",
+    "subtitle": "We start by understanding how your business works, design the system that fits it, deliver it ready to use, and stay with you for support and development after launch.",
     "processTitle": "How we work",
     "processSubtitle": "Four clearly defined phases, a working deployment from the first iteration, and regular reporting on progress.",
     "stats": {
-      "systems": "Systems in production",
-      "sectors": "Industries",
-      "support": "Monitoring and alerting",
-      "typed": "Type coverage"
+      "systems": "Projects delivered",
+      "sectors": "Industries served",
+      "languages": "Languages we serve in",
+      "reply": "Business day to reply"
     },
     "imageAlt": "Two Codeoura engineers reviewing a system architecture diagram on screen"
   },
@@ -134,11 +134,11 @@
     "direct": "Direct contact"
   },
   "footer": {
-    "description": "We build and operate an ecosystem of systems and platforms that support business growth.",
+    "description": "Codeoura is a software company developing management systems, apps and online stores for businesses.",
     "sitemap": "Company",
     "connect": "Contact us",
     "copyright": "© {year} Codeoura. All rights reserved.",
-    "systems": "Our systems",
+    "systems": "Our work",
     "caseStudies": "Case studies",
     "reply": "We reply within one business day.",
     "whatsapp": "WhatsApp",
@@ -149,42 +149,41 @@
     "description": "The page you are looking for is not available or has been moved.",
     "cta": "Return to home"
   },
+  "solutions": {
+    "eyebrow": "Our solutions",
+    "title": "Complete solutions for specific industries",
+    "subtitle": "Systems designed around the needs of one industry, ready to run, with training for your team, support and continuous updates.",
+    "open": "Explore the solution",
+    "visit": "Visit the product site",
+    "ask": "Ask for a trial",
+    "modules": "System components",
+    "flow": "How work moves through {name}",
+    "highlights": "Why {name}?",
+    "platforms": "Platforms",
+    "back": "All solutions"
+  },
   "products": {
-    "eyebrow": "Explore our systems",
-    "title": "An ecosystem of {count} systems",
-    "subtitle": "Open a system for its detail, and go through to the demonstration or the live product from there.",
+    "eyebrow": "Our work",
+    "title": "Projects we delivered for our clients",
+    "subtitle": "Online stores, apps and management systems running today for our clients. See the details of each project, and try its demo or its live site.",
     "groupApps": "Mobile apps",
     "groupWeb": "Web platforms",
-    "readCases": "Details of each system"
+    "readCases": "Details of each project"
   },
   "path": {
-    "eyebrow": "Choose your route",
-    "title": "Where do you stand now?",
-    "subtitle": "Every stage of your growth has the system that suits it. Choose the route closest to you."
-  },
-  "ecosystem": {
-    "eyebrow": "The ecosystem",
-    "title": "All our systems in one place",
-    "subtitle": "Pick the system that serves your business and open it.",
-    "category": {
-      "ecommerce": "E-commerce",
-      "erp": "Inventory",
-      "logistics": "Logistics",
-      "travel": "Travel",
-      "hospitality": "Hospitality",
-      "healthcare": "Healthcare",
-      "productivity": "Productivity"
-    }
+    "eyebrow": "By type of business",
+    "title": "What does your business need?",
+    "subtitle": "Choose the description closest to your business to see the systems that suit it."
   },
   "outcomes": {
     "eyebrow": "Results",
-    "title": "What our systems delivered",
-    "subtitle": "Actual outcomes from each system, as recorded in the case studies."
+    "title": "What our projects delivered for clients",
+    "subtitle": "What each client gained from the system we built for them, as described in its case study."
   },
   "cta": {
-    "title": "Start with our ecosystem",
-    "subtitle": "Try any system now and contact us when you decide. We reply within one business day.",
-    "action": "Message us on WhatsApp",
+    "title": "Ready to start your project?",
+    "subtitle": "Tell us about your idea or what your company needs, and we will reply within one business day with an initial outline and clear next steps.",
+    "action": "Contact us on WhatsApp",
     "whatsappMessage": "Hello Codeoura,\nI have been through your site and your systems, and I would like to discuss a project.\n\nProject:\nCompany:"
   }
 }
